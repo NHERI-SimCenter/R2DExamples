@@ -15,7 +15,8 @@ jobs:
             - shell: bash
               id: bundleExamples
               env:
-                ZENODO_KEY: ${{secrets.ZENODO_SANDBOX_KEY}}
+                #ZENODO_KEY: ${{secrets.ZENODO_SANDBOX_KEY}}
+                ZENODO_KEY: ${{secrets.ZENODO_KEY}}
               run: bash .github/workflows/CIScript.sh
               
               
