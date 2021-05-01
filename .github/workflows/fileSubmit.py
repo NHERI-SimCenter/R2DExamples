@@ -167,6 +167,7 @@ for ii in range(0, len(filelist)):
                   
     if r.status_code != 200:
         print(r.status_code)
+        print(r.json())
         print("Error posting request")
         sys.exit(-1)
 
@@ -211,6 +212,7 @@ for ii in range(0, len(filelist)):
                         
         if r.status_code != 201:
             print(r.status_code)
+            print(r.json())
             print("Error posting request")
             sys.exit(-1)
 
@@ -225,6 +227,7 @@ for ii in range(0, len(filelist)):
             )
             if r.status_code != 200:
                 print(r.status_code)
+                print(r.json())
                 print("Error put file data")
                 sys.exit(-1)
         
@@ -235,6 +238,7 @@ for ii in range(0, len(filelist)):
         
         if r.status_code != 200:
             print(r.status_code)
+            print(r.json())
             print("Error in put metadata")
             sys.exit(-1)
 
