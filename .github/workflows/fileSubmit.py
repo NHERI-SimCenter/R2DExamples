@@ -10,12 +10,15 @@ import shutil
 
 from pathlib import Path
 
+#baseURL = baseURL + 'https://sandbox.zenodo.org/api/'
+baseURL = baseURL + 'https://zenodo.org/api/'
+
 def deleteIfExists(deposition_id, ACCESS_TOKEN):
    
     print("In delete files")
     print("Root deposition id " + str(deposition_id))
     
-    r = requests.get('https://sandbox.zenodo.org/api/deposit/depositions', params={'q' : deposition_id, 'access_token': ACCESS_TOKEN})
+    r = requests.get(baseURL + 'deposit/depositions', params={'q' : deposition_id, 'access_token': ACCESS_TOKEN})
     
     if r.status_code != 200:
         print(r.status_code)
@@ -44,7 +47,7 @@ def deleteIfExists(deposition_id, ACCESS_TOKEN):
     
     print("Deleting draft version " + str(verID))
     
-    r = requests.delete('https://sandbox.zenodo.org/api/deposit/depositions/' + str(verID),
+    r = requests.delete(baseURL + 'deposit/depositions/' + str(verID),
                     params={'access_token': ACCESS_TOKEN})
         
     # Return 0 if successful
@@ -159,7 +162,7 @@ for ii in range(0, len(filelist)):
                         }
             }
 
-    r = requests.get('https://sandbox.zenodo.org/api/deposit/depositions',
+    r = requests.get(baseURL + 'deposit/depositions',
                   params={'q' : filename, 'sort' : 'mostrecent', 'access_token' : ACCESS_TOKEN})
                   
     if r.status_code != 200:
@@ -187,7 +190,7 @@ for ii in range(0, len(filelist)):
         
         # If an incomplete submission was deleted, get the id to the newest deposition
         if res == 0 :
-            r = requests.get('https://sandbox.zenodo.org/api/deposit/depositions', params={'q' : filename, 'sort' : 'mostrecent', 'access_token' : ACCESS_TOKEN})
+            r = requests.get(baseURL + 'deposit/depositions', params={'q' : filename, 'sort' : 'mostrecent', 'access_token' : ACCESS_TOKEN})
                   
             if r.status_code != 200:
                 print(r.status_code)
@@ -197,7 +200,7 @@ for ii in range(0, len(filelist)):
     if found == False :
         print('Uploading new file version of: ' + filename)
             
-        r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions',
+        r = requests.post(baseURL + 'deposit/depositions',
                         params=params,
                         json={},
                         # Headers are not necessary here since "requests" automatically
@@ -225,7 +228,7 @@ for ii in range(0, len(filelist)):
                 print("Error put file data")
                 sys.exit(-1)
         
-        url = 'https://sandbox.zenodo.org/api/deposit/depositions/%s' % deposition_id
+        url = baseURL + 'deposit/depositions/%s' % deposition_id
         r = requests.put(url,
             params={'access_token': ACCESS_TOKEN}, data=json.dumps(data),
             headers=headers)
@@ -236,7 +239,7 @@ for ii in range(0, len(filelist)):
             sys.exit(-1)
 
         # Publish it on Zenodo
-        r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions/%s/actions/publish' % deposition_id, params={'access_token': ACCESS_TOKEN} )
+        r = requests.post(baseURL + 'deposit/depositions/%s/actions/publish' % deposition_id, params={'access_token': ACCESS_TOKEN} )
 
         print("Published first version of " + filename + "successfully")
 
@@ -267,7 +270,7 @@ for ii in range(0, len(filelist)):
             continue
       
         # If the file is updated, i.e., something has changed, create the new version
-        url = 'https://sandbox.zenodo.org/api/deposit/depositions/'+str(deposition_id)+'/actions/newversion'
+        url = baseURL + 'deposit/depositions/'+str(deposition_id)+'/actions/newversion'
         r = requests.post(url, params={'access_token': ACCESS_TOKEN})
         
         if r.status_code != 201:
@@ -310,7 +313,7 @@ for ii in range(0, len(filelist)):
                 sys.exit(-1)
         
         # Publish it on Zenodo
-        r = requests.post('https://sandbox.zenodo.org/api/deposit/depositions/%s/actions/publish' % deposition_id,
+        r = requests.post(baseURL + 'deposit/depositions/%s/actions/publish' % deposition_id,
         params={'access_token': ACCESS_TOKEN} )
 
         print("Published update of " + filename + " successfully")
