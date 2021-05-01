@@ -10,8 +10,8 @@ import shutil
 
 from pathlib import Path
 
-#baseURL = baseURL + 'https://sandbox.zenodo.org/api/'
-baseURL = baseURL + 'https://zenodo.org/api/'
+#baseURL = 'https://sandbox.zenodo.org/api/'
+baseURL = 'https://zenodo.org/api/'
 
 def deleteIfExists(deposition_id, ACCESS_TOKEN):
    
