@@ -9,7 +9,7 @@
     "EDP": true,
     "DM": true,
     "DV": true,
-    "every_realization": false
+    "every_realization": false 
   },
   "Applications": {
     "Hazard": {
