@@ -5,13 +5,15 @@ import json
 import os
 import sys
 import hashlib
-import tarfile
-import shutil
+import zipfile
+import stat
 
 from pathlib import Path
 
 #baseURL = 'https://sandbox.zenodo.org/api/'
 baseURL = 'https://zenodo.org/api/'
+
+from zipfunctions import *
 
 def deleteIfExists(deposition_id, ACCESS_TOKEN):
    
@@ -61,27 +63,6 @@ def deleteIfExists(deposition_id, ACCESS_TOKEN):
         
     return 1
     
-# Need to call this function so that the tar that is created always has a deterministic hash - not the case out of the box!
-# From https://stackoverflow.com/questions/45035782/how-to-create-archive-whose-keep-same-md5-hash-for-identical-content-in-python/57940981#57940981
-def tarInfoStripFileAttrs(tarInfo):
-    # set time to epoch timestamp 0, aka 00:00:00 UTC on 1 January 1970
-    # note that when extracting this tarfile, this time will be shown as the modified date
-    tarInfo.mtime = 0
-
-    # file permissions, probably don't want to remove this, but for some use cases you could
-    # tarInfo.mode = 0
-
-    # user/group info
-    tarInfo.uid= 0
-    tarInfo.uname = ''
-    tarInfo.gid= 0
-    tarInfo.gname = ''
-
-    # stripping paxheaders may not be required
-    # see https://stackoverflow.com/questions/34688392/paxheaders-in-tarball
-    tarInfo.pax_headers = {}
-
-    return tarInfo
 
 # Get the current path
 currPath = os.getcwd()
@@ -98,17 +79,27 @@ for dir in next(os.walk(pathFiles))[1] :
     if '.git' in dir :
         continue
     
-    path = os.path.join(pathFiles,dir)
+    folder = os.path.join(pathFiles,dir)
     
-    # Compress the folder
-    tar = tarfile.open(str(pathFiles)+"/"+str(dir)+".zip", "w:bz2")
-    tar.add(path, arcname=dir, filter=tarInfoStripFileAttrs)
-    tar.close()
+    output_path = str(pathFiles)+"/"+str(dir)+".zip"
+
+    with zipfile.ZipFile(output_path, "w") as zip_file:
+        for path in next(os.walk(folder)) :
+        # Skip the folder if it is a git folder
+            if '.git' in path :
+                continue
+                
+            if os.path.isdir(str(path)):
+                add_directory(zip_file, path, os.path.basename(path))
+            elif os.path.isfile(str(path)):
+                add_file(zip_file, path, os.path.basename(path))
 
     # Checksum should be deteriminstic between runs given that no files have changed
-    # checksumTar = hashlib.md5(open(str(pathFiles)+"/"+str(dir)+".zip",'rb').read()).hexdigest()
-    #print(checksumTar)
-    
+    checksum = hashlib.md5(open(output_path,'rb').read()).hexdigest()
+    print(checksum)
+  
+print("Done zipping")
+
 # Find all files with a .zip extension
 for root, dirs, files in os.walk(pathFiles):
     for file in files:
@@ -124,7 +115,6 @@ for name in filelist:
 # Print the path to each file
 for name in pathList:
     print(name)
-
 
 # Get the access token called ZENODO_KEY that is stored in github secrets
 ACCESS_TOKEN = os.environ['ZENODO_KEY']
