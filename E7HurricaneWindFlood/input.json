@@ -1,0 +1,61 @@
+{
+  "Name": "rWHALE_",
+  "Author": "Kuanshi Zhong",
+  "units": {
+      "force": "kips",
+      "length": "ft",
+      "speed": "mph"
+   },
+  "outputs": {
+    "EDP": true,
+    "DM": true,
+    "DV": true,
+    "every_realization": false
+  },
+  "Applications": {
+    "Building": {
+      "Application": "CSV_to_BIM",
+      "ApplicationData": {
+        "filter": "1-20",
+        "buildingSourceFile":"AtlanticBuildingInventory.csv"
+      }
+    },
+    "Hazard": {
+        "Application": "UserInputWF",
+        "ApplicationData": {
+        "eventFile": "/IMs/EventGrid.csv",
+        "eventDir": "/IMs"
+        }
+    },
+    "RegionalMapping": {
+      "Application": "NearestNeighborEvents",
+      "ApplicationData": {
+        "filenameEVENTgrid": "Ex7Hurricane/IMs/EventGrid.csv",
+        "samples": 10,
+        "neighbors": 4
+      }
+    },
+    "Events": [{
+      "EventClassification": "Hurricane",
+      "Application": "SimCenterEvent",
+      "ApplicationData": {
+      "inputUnit": "ft"
+    }
+    }],
+    "Simulation": {
+       "Application": "IMasEDP",
+       "ApplicationData": {}
+    },
+    "DL": {
+       "Application": "pelicun",
+       "ApplicationData": {
+          "DL_Method": "HAZUS MH HU",
+          "Realizations": "5000",
+          "coupled_EDP": true,
+          "detailed_results": false,
+          "log_file": true,
+          "auto_script": "auto_HU_NJ.py"
+       }
+    }
+  }
+}
