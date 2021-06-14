@@ -29,6 +29,11 @@
       "description": "This example presents a coupled damage assessment for ground shaking and liquefaction hazards. \nTo infer liquefaction, estimates of horizontal spreading and vertical settlement are generated from PGA values obtained through PSHA. \nThese three intensity measures form the basis of input to a building-level, HAZUS-based damage and loss assessment that accounts for potential collapses due to liquefaction. \nApproximately 14,000 buildings are considered in the city of Alameda, CA.\n",
       "inputFile": "E5GroundShakingAndLiquefaction/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/4731204"
+    },
+    {
+      "name": "E6 - ShakeMap San Andreas Scenario",
+      "description": "This example presents a damage assessment given a USGS ShakeMap as input. The M7.8 N. San Andreas SAN+SAP+SAS scenario is used in this example.\nApproximately 21,000 buildings are considered in the city of San Mateo, CA.\n",
+      "inputFile": "E6ShakemapScenario/input.json"
     }
   ]
 }
