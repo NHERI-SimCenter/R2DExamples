@@ -33,7 +33,8 @@
     {
       "name": "E6 - ShakeMap San Andreas Scenario",
       "description": "This example presents a damage assessment given a USGS ShakeMap as input. The M7.8 N. San Andreas SAN+SAP+SAS scenario is used in this example.\nApproximately 21,000 buildings are considered in the city of San Mateo, CA.\n",
-      "inputFile": "E6ShakemapScenario/input.json"
+      "inputFile": "E6ShakemapScenario/input.json",
+      "downloadUrl" : "https://zenodo.org/api/records/4949924"
     }
   ]
 }
