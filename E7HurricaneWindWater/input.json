@@ -21,7 +21,7 @@
       }
     },
     "Hazard": {
-        "Application": "UserInputWF",
+        "Application": "UserInputHurricane",
         "ApplicationData": {
         "eventFile": "/IMs/EventGrid.csv",
         "eventDir": "/IMs"
