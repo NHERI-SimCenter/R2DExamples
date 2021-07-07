@@ -1,142 +1,204 @@
 {
-  "items": {
+  "items": {  
     "r2dt-0001": {
       "id": "r2dt-0001",
+      "title": "E1 - Basic HAZUS",
+      "base": "E1BasicHAZUS",
+      "doc": [
+        "E1BasicHAZUS/r2dt-0001.png",
+        "E1BasicHAZUS/figures/r2dt-0001-ASD.png",
+        "E1BasicHAZUS/figures/r2dt-0001-HAZ.png",
+        "E1BasicHAZUS/figures/r2dt-0001-FULL.png",
+        "E1BasicHAZUS/figures/r2dt-0001-HTA.png",
+        "E1BasicHAZUS/figures/r2dt-0001-VIZ.png",
+        "E1BasicHAZUS/figures/r2dt-0001-MOD.png",
+        "E1BasicHAZUS/figures/r2dt-0001-DL.png",
+        "E1BasicHAZUS/figures/r2dt-0001-GI.png",
+        "E1BasicHAZUS/figures/r2dt-0001-ANA.png",
+        "E1BasicHAZUS/figures/r2dt-0001-UQ.png",
+        "E1BasicHAZUS/README.rst"
+      ],
+      "summary": "This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology. Building-level Damage and Losses (D&L) are calculated directly from Intensity Measures (IM) for 25 assets. The IM field that represents peak ground acceleration in the city of San Francisco, CA, from an Mw7.2 event on the San Andreas fault, was obtained from Probabilistic Seismic Hazard Analysis (PSHA).\n",
+      "logo": "r2dt-0001.png",
+      "categories": {
+        "Damage and Loss": "HAZUS MH EQ IM",
+        "Simulation": "IMasEDP",
+        "Difficulty": "1"
+      }
+    },
+    "r2dt-0002": {
+      "id": "r2dt-0002",
+      "title": "E2 - MDOF Building Response",
+      "base": "E2MDOFBuildingResponse",
+      "doc": [
+        "E2MDOFBuildingResponse/r2dt-0002.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-ASD.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-ANA.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-HAZ.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-DL.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-MAP.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-HTA.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-RES.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-GI.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-MOD.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-UQ.png",
+        "E2MDOFBuildingResponse/figures/r2dt-0002-VIZ.png",
+        "E2MDOFBuildingResponse/README.rst"
+      ],
+      "summary": "This example uses ground motions from the 2018 earthquake in Anchorage, AK, to characterize the response of buildings with an idealized MDOF building model through story-level Engineering Demand Parameters (EDP). Exploiting the refinement in EDPs, a HAZUS-based story-level assessment is employed to evaluate the performance of 10 buildings.\n",
+      "logo": "r2dt-0002.png",
+      "categories": {
+        "Damage and Loss": "HAZUS MH EQ",
+        "Simulation": "OpenSees-Simulation_R",
+        "Difficulty": "1"
+      }
+    },
+    "r2dt-0003": {
+      "id": "r2dt-0003",
+      "title": "E3 - Physics-based Ground Motions",
+      "base": "E3PhysicsBasedGroundMotions",
+      "doc": [
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-ANA.png",
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-MOD.png",
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-ASD.png",
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-DL.png",
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-HAZ.png",
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-HTA.png",
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-VIZ.png",
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-UQ.png",
+        "E3PhysicsBasedGroundMotions/figures/r2dt-0003-GI.png",
+        "E3PhysicsBasedGroundMotions/README.rst",
+        "E3PhysicsBasedGroundMotions/r2dt-0003.png"
+      ],
+      "summary": "This example features ground motion acceleration time histories simulated using the SW4 software and a detailed geophysical model of the San Francisco Bay Area by the Lawrence Livermore National Laboratory. The ground motions are used to investigate the impact of a Mw7.0 earthquake on the Hayward fault on the city of Berkeley. Engineering Demand Parameters are simulated with an idealized MDOF building model; building performance is evaluated at the story-level based on the HAZUS earthquake damage and loss assessment methodology.\n",
+      "logo": "r2dt-0003.png",
+      "categories": {
+        "Damage and Loss": "HAZUS MH EQ",
+        "Simulation": "OpenSees-Simulation_R",
+        "Difficulty": "1"
+      }
+    },
+  	"r2dt-0004": {
+      "id": "r2dt-0004",
       "title": "E4 - OpenSeesPy FEM",
       "base": "E4OpenSeesPyFEM",
       "doc": [
-        "E4OpenSeesPyFEM/figures/r2dt-0001-ANA.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-ANA.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-HTA.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-MOD.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-HAZ.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-GI.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-ASD.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-DL.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-VIZ.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-UQ.png",
+        "E4OpenSeesPyFEM/figures/r2dt-0004-RES.png",
         "E4OpenSeesPyFEM/README.rst",
-        "E4OpenSeesPyFEM/figures/r2dt-0001-HTA.png",
-        "E4OpenSeesPyFEM/figures/r2dt-0001-MOD.png",
-        "E4OpenSeesPyFEM/figures/r2dt-0001-HAZ.png",
-        "E4OpenSeesPyFEM/figures/r2dt-0001.png",
-        "E4OpenSeesPyFEM/figures/r2dt-0001-GI.png",
-        "E4OpenSeesPyFEM/figures/r2dt-0001-ASD.png",
-        "E4OpenSeesPyFEM/figures/r2dt-0001-DL.png",
-        "E4OpenSeesPyFEM/figures/r2dt-0001-VIZ.png"
+        "E4OpenSeesPyFEM/r2dt-0004.png"
       ],
       "summary": "This example highlights the use of R2D for advanced response estimation leveraging information provided through a building inventory. A template script is provided that creates a building-specific cantilever and performs the response-history analysis to obtain EDPs and the hazard is generated using empirical ground motion records from the PEER NGA West2 database.\n",
-      "logo": "figures/r2dt-0001.png",
+      "logo": "r2dt-0004.png",
       "categories": {
         "Damage and Loss": "HAZUS MH EQ",
         "Simulation": "OpenSeesPy-Simulation",
         "Difficulty": "0"
       }
-    },
-    "r2dt-0002": {
-      "id": "r2dt-0002",
+  	},
+  	"r2dt-0005": {
+      "id": "r2dt-0005",
       "title": "E5 - Ground Shaking and Liquefaction",
       "base": "E5GroundShakingAndLiquefaction",
       "doc": [
-        "E5GroundShakingAndLiquefaction/figures/r2dt-0002-ASD.png",
-        "E5GroundShakingAndLiquefaction/README.rst",
-        "E5GroundShakingAndLiquefaction/figures/r2dt-0002-HTA.png",
-        "E5GroundShakingAndLiquefaction/figures/r2dt-0002-ANA.png",
-        "E5GroundShakingAndLiquefaction/figures/r2dt-0002-RES.png",
-        "E5GroundShakingAndLiquefaction/figures/r2dt-0002-GI.png",
-        "E5GroundShakingAndLiquefaction/figures/r2dt-0002-DL.png",
-        "E5GroundShakingAndLiquefaction/figures/r2dt-0002.png",
-        "E5GroundShakingAndLiquefaction/figures/r2dt-0002-HAZ.png"
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-VIZ.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-ASD.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-HTA.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-MOD.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-ANA.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-RES.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-GI.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-DL.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-UQ.png",
+        "E5GroundShakingAndLiquefaction/figures/r2dt-0005-HAZ.png",
+        "E5GroundShakingAndLiquefaction/r2dt-0005.png",
+        "E5GroundShakingAndLiquefaction/README.rst"
       ],
       "summary": "This example presents a coupled damage assessment for ground shaking and liquefaction hazards. \nTo infer liquefaction, estimates of horizontal spreading and vertical settlement are generated from PGA values obtained through PSHA. \nThese three intensity measures form the basis of input to a building-level, HAZUS-based damage and loss assessment that accounts for potential collapses due to liquefaction. \nApproximately 14,000 buildings are considered in the city of Alameda, CA.\n",
-      "logo": "figures/r2dt-0002.png",
+      "logo": "r2dt-0005.png",
       "categories": {
         "Damage and Loss": "HAZUS MH EQ IM",
         "Simulation": "IMasEDP",
         "Difficulty": "0"
       }
-    },
-    "r2dt-0003": {
-      "id": "r2dt-0003",
-      "title": "E2 - MDOF Building Response",
-      "base": "E2MDOFBuildingResponse",
-      "doc": [
-        "E2MDOFBuildingResponse/figures/r2dt-0003.png",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-ASD.png",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-ANA.png",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-HAZ.png",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-DL.png",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-MAP.png",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-HTA.png",
-        "E2MDOFBuildingResponse/README.rst",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-RES.png",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-GI.png",
-        "E2MDOFBuildingResponse/figures/r2dt-0003-MOD.png"
-      ],
-      "summary": "This example uses ground motions from the 2018 earthquake in Anchorage, AK, to characterize the response of buildings with an idealized MDOF building model through story-level Engineering Demand Parameters (EDP). Exploiting the refinement in EDPs, a HAZUS-based story-level assessment is employed to evaluate the performance of 10 buildings.\n",
-      "logo": "figures/r2dt-0003.png",
-      "categories": {
-        "Damage and Loss": "HAZUS MH EQ",
-        "Simulation": "OpenSees-Simulation_R",
-        "Difficulty": "1"
-      }
-    },
-    "r2dt-0006": {
-      "id": "r2dt-0006",
-      "title": "E1 - Basic HAZUS",
-      "base": "E1BasicHAZUS",
-      "doc": [
-        "E1BasicHAZUS/figures/r2dt-0006-ASD.png",
-        "E1BasicHAZUS/figures/r2dt-0006-HAZ.png",
-        "E1BasicHAZUS/figures/r2dt-0006-FULL.png",
-        "E1BasicHAZUS/figures/r2dt-0006-HTA.png",
-        "E1BasicHAZUS/figures/r2dt-0006-VIZ.png",
-        "E1BasicHAZUS/figures/r2dt-0006.png",
-        "E1BasicHAZUS/figures/r2dt-0006-DL.png",
-        "E1BasicHAZUS/r2dt-0006-1.png",
-        "E1BasicHAZUS/figures/r2dt-0006-GI.png",
-        "E1BasicHAZUS/figures/r2dt-0006-ANA.png",
-        "E1BasicHAZUS/README.rst"
-      ],
-      "summary": "This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology. Building-level Damage and Losses (D&L) are calculated directly from Intensity Measures (IM) for 25 assets. The IM field that represents peak ground acceleration in the city of San Francisco, CA, from an Mw7.2 event on the San Andreas fault, was obtained from Probabilistic Seismic Hazard Analysis (PSHA).\n",
-      "logo": "figures/r2dt-0006.png",
-      "categories": {
-        "Damage and Loss": "HAZUS MH EQ IM",
-        "Simulation": "IMasEDP",
-        "Difficulty": "1"
-      }
-    },
-    "r2dt-0007": {
-      "id": "r2dt-0007",
-      "title": "E3 - Physics-based Ground Motions",
-      "base": "E3PhysicsBasedGroundMotions",
-      "doc": [
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-ANA.png",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-MOD.png",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-ASD.png",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-DL.png",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-HAZ.png",
-        "E3PhysicsBasedGroundMotions/README.rst",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007.png",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-HTA.png",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-VIZ.png",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-UQ.png",
-        "E3PhysicsBasedGroundMotions/figures/r2dt-0007-GI.png"
-      ],
-      "summary": "This example features ground motion acceleration time histories simulated using the SW4 software and a detailed geophysical model of the San Francisco Bay Area by the Lawrence Livermore National Laboratory. The ground motions are used to investigate the impact of a Mw7.0 earthquake on the Hayward fault on the city of Berkeley. Engineering Demand Parameters are simulated with an idealized MDOF building model; building performance is evaluated at the story-level based on the HAZUS earthquake damage and loss assessment methodology.\n",
-      "logo": "figures/r2dt-0007.png",
-      "categories": {
-        "Damage and Loss": "HAZUS MH EQ",
-        "Simulation": "OpenSees-Simulation_R",
-        "Difficulty": "1"
-      }
-    }
+  	},
+  	"r2dt-0006": {
+  	  "id": "r2dt-0006",
+  	  "title": "E6 - ShakeMap Input",
+  	  "base": "E6ShakeMapScenario",
+  	  "doc": [
+    	"E6ShakeMapScenario/figures/r2dt-0006-VIZ.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-ASD.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-HTA.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-MOD.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-ANA.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-RES.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-GI.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-DL.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-HAZ.png",
+  	    "E6ShakeMapScenario/figures/r2dt-0006-UQ.png",
+  	    "E6ShakeMapScenario/r2dt-0006.png",
+  	    "E6ShakeMapScenario/README.rst"
+  	  ],
+  	  "summary": "This example presents a building loss assessment given a USGS ShakeMap as input. The Mw7.8 Scenario Earthquake - North San Andreas + North Coast + Peninsula + Santa Cruz Mountain (https://earthquake.usgs.gov/scenarios/eventpage/nclegacynpsanandreassansapsasm7p8_se/shakemap/) is employed in this example.\nApproximately 21,000 buildings are considered in the city of San Mateo, CA.",
+  	  "logo": "r2dt-0006.png",
+  	  "categories": {
+  	    "Damage and Loss": "HAZUS MH EQ IM",
+  	    "Simulation": "IMasEDP",
+  	    "Difficulty": "0"
+  	  }
+	},
+	"r2dt-0007": {
+  	  "id": "r2dt-0007",
+  	  "title": "E7 - Hurricane Wind + Water",
+  	  "base": "E7HurricaneWindWater",
+  	  "doc": [
+    	"E7HurricaneWindWater/figures/r2dt-0007-VIZ.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-ASD.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-HTA.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-MOD.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-ANA.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-RES.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-GI.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-HAZ.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-DL.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-UQ.png",
+  	    "E7HurricaneWindWater/figures/r2dt-0007-RES.png",
+  	    "E7HurricaneWindWater/r2dt-0007.png",
+  	    "E7HurricaneWindWater/README.rst"
+  	  ],
+  	  "summary": "This example presents a damage and loss assessment for buildings under wind and water inundation hazards from a hurricane. Approximately 6,600 buildings with various occupancy types and construction materials are considered in Atlantic City, NJ, with specified rulesets for determining key building characteristics. A Category 5 intensity hurricane with 3-s gust peak wind speeds, obtained from the Storm Hazard Projection Tool (NJCoast project), is employed with HAZUS-Hurricane wind fragility functions to estimate building damage states and loss ratios. The peak wind speeds are calculated using a linear analytical model for the boundary layer winds (Snaiki and Wu, 2017), and the peak inundation heights are calculated from a surrogate model (Jia and Taflanidis, 2013).",
+  	  "logo": "r2dt-0007.png",
+  	  "categories": {
+  	    "Damage and Loss": "HAZUS MH HU",
+  	    "Simulation": "IMasEDP",
+  	    "Difficulty": "0"
+  	  }
+	}
   },
   "categories": {
-    "Damage and Loss": {
-      "HAZUS MH EQ": "HAZUS MH EQ",
-      "HAZUS MH EQ IM": "HAZUS MH EQ IM"
-    },
-    "Simulation": {
-      "IMasEDP": "IMasEDP",
-      "OpenSees-Simulation_R": "OpenSees",
-      "OpenSeesPy-Simulation": "OpenSeesPy"
-    },
-    "Difficulty": {
-      "0": "Beginner",
-      "1": "Intermediate",
-      "2": "Advanced"
-    }
+  	"Damage and Loss": {
+  	  "HAZUS MH EQ": "HAZUS MH EQ",
+  	  "HAZUS MH EQ IM": "HAZUS MH EQ IM",
+  	  "HAZUS MH HU": "HAZUS MH HU"
+  	},
+  	"Simulation": {
+  	  "IMasEDP": "IMasEDP",
+  	  "OpenSees-Simulation_R": "OpenSees",
+  	  "OpenSeesPy-Simulation": "OpenSeesPy"
+  	},
+  	"Difficulty": {
+  	  "0": "Beginner",
+  	  "1": "Intermediate",
+  	  "2": "Advanced"
+  	}
   }
 }

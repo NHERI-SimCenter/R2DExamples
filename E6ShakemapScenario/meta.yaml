@@ -1,9 +1,8 @@
 summary: |
-  This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology. Building-level Damage and Losses (D&L) are calculated directly from Intensity Measures (IM) for 100 assets. The IM field for the region of San Mateo, CA, was obtained from Probabilistic Seismic Hazard Analysis (PSHA).
+        This example presents a building loss assessment given a USGS ShakeMap as input. The Mw7.8 Scenario Earthquake - North San Andreas + North Coast + Peninsula + Santa Cruz Mountain (shakemap_id=npsanandreassansapsasm7p8_se) is employed in this example.
+        Approximately 21,000 buildings are considered in the city of San Mateo, CA.
 
-#<p>Tags: (IM field from PSHA | IM as EDP | HAZUS building-level D&L)<p>
-
-#[120k buildings in inventory with 100 selected for analysis]
+#<p>Tags: (ShakeMap | IM as EDP | HAZUS building-level D&L)<p>
 
 difficulty: 1
 
