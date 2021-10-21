@@ -16,7 +16,10 @@
         "Application": "UserInputGM",
         "ApplicationData": {
 	    "eventFile": "/San_Andreas_Mw72_filtered/EventGrid.csv",
-	    "motionDir": "/San_Andreas_Mw72_filtered"
+	    "motionDir": "/San_Andreas_Mw72_filtered",
+        "Units": {
+            "PGA": "g"
+            }
 	}
     },	
     "Building": {

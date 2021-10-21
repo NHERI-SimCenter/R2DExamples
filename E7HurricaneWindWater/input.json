@@ -24,7 +24,11 @@
         "Application": "UserInputHurricane",
         "ApplicationData": {
         "eventFile": "/IMs/EventGrid.csv",
-        "eventDir": "/IMs"
+        "eventDir": "/IMs",
+        "Units": {
+            "PIH": "ft",
+            "PWS": "mph"
+            }
         }
     },
     "RegionalMapping": {

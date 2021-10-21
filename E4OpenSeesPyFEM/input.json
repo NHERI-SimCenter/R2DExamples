@@ -17,7 +17,11 @@
         "Application": "UserInputGM",
         "ApplicationData": {
 	    "eventFile": "/records/EventGrid.csv",
-	    "motionDir": "/records"
+	    "motionDir": "/records",
+        "Units": {
+            "TH_file": "g",
+            "factor" : "scalar"
+            }
 	}
     },
     "Building": {

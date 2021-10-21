@@ -16,7 +16,10 @@
         "Application": "UserInputGM",
         "ApplicationData": {
 	    "eventFile": "/SW4_filtered/EventGrid.csv",
-	    "motionDir": "/SW4_filtered"
+	    "motionDir": "/SW4_filtered",
+        "Units": {
+            "TH_file": "g"
+            }
 	}
     },			
     "Building": {

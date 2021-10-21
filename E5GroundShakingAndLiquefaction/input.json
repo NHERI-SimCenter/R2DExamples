@@ -3,7 +3,7 @@
   "Author": "Tamika Bassman & Adam Zsarnoczay",
   "units": {
       "force": "kips",
-      "length": "inch" 
+      "length": "in"
    },
   "outputs": {
     "EDP": true,
@@ -16,7 +16,12 @@
         "Application": "UserInputGM",
         "ApplicationData": {
 	    "eventFile": "/IMs/EventGrid.csv",
-	    "motionDir": "/IMs"
+	    "motionDir": "/IMs",
+        "Units": {
+            "PGA": "g",
+            "PGD_h" : "in",
+            "PGD_v" : "in"
+            }
 	}
     },	
     "Building": {
