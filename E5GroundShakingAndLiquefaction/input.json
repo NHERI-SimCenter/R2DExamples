@@ -18,7 +18,7 @@
 	    "eventFile": "/IMs/EventGrid.csv",
 	    "motionDir": "/IMs",
         "Units": {
-            "PGA": "g",
+            "PGA": "inchps2",
             "PGD_h" : "in",
             "PGD_v" : "in"
             }
@@ -44,7 +44,6 @@
       "EventClassification": "Earthquake",
       "Application": "SimCenterEvent",
       "ApplicationData": {
-        "inputUnit": "inchps2"
       }
     }],
     "Simulation": {

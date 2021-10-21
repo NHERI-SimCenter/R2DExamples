@@ -15,7 +15,10 @@
     "Hazard": {
         "Application": "UserInputShakeMap",
         "ApplicationData": {
-	    "Directory": "E6ShakemapScenario/input_data/ShakeMapIMs"
+	    "Directory": "E6ShakemapScenario/input_data/ShakeMapIMs",
+        "Units": {
+            "PGA": "g"
+            }
 	}
     },	
     "Building": {

@@ -18,7 +18,7 @@
 	    "eventFile": "/SW4_filtered/EventGrid.csv",
 	    "motionDir": "/SW4_filtered",
         "Units": {
-            "TH_file": "g"
+            "TH_file": "mps2"
             }
 	}
     },			
@@ -41,7 +41,6 @@
       "EventClassification": "Earthquake",
       "Application": "SimCenterEvent",
       "ApplicationData": {
-        "inputUnit": "mps2"
       }
     }],
     "Modeling": {
