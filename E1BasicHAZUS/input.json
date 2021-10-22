@@ -11,15 +11,17 @@
     "DV": true,
     "every_realization": false 
   },
+  "RegionalEvent": {
+      "Units": {
+          "PGA": "g"
+          }
+  },
   "Applications": {
     "Hazard": {
         "Application": "UserInputGM",
         "ApplicationData": {
 	    "eventFile": "/San_Andreas_Mw72_filtered/EventGrid.csv",
-	    "motionDir": "/San_Andreas_Mw72_filtered",
-        "Units": {
-            "PGA": "g"
-            }
+	    "motionDir": "/San_Andreas_Mw72_filtered"
 	}
     },	
     "Building": {

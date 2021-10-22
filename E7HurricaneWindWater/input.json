@@ -11,6 +11,12 @@
     "DV": true,
     "every_realization": false
   },
+  "RegionalEvent": {
+      "Units": {
+          "PIH": "ft",
+          "PWS": "mph"
+          }
+  },
   "Applications": {
     "Building": {
       "Application": "CSV_to_BIM",
@@ -23,11 +29,7 @@
         "Application": "UserInputHurricane",
         "ApplicationData": {
         "eventFile": "/IMs/EventGrid.csv",
-        "eventDir": "/IMs",
-        "Units": {
-            "PIH": "ft",
-            "PWS": "mph"
-            }
+        "eventDir": "/IMs"
         }
     },
     "RegionalMapping": {
