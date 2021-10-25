@@ -11,17 +11,19 @@
     "DM": true,
     "DV": true,
     "every_realization": true
-  },
+   },
+   "RegionalEvent": {
+       "Units": {
+           "TH_file": "g",
+           "factor" : "scalar"
+           }
+   },
   "Applications": {
     "Hazard": {
         "Application": "UserInputGM",
         "ApplicationData": {
 	    "eventFile": "/records/EventGrid.csv",
-	    "motionDir": "/records",
-        "Units": {
-            "TH_file": "g",
-            "factor" : "scalar"
-            }
+	    "motionDir": "/records"
 	}
     },
     "Building": {

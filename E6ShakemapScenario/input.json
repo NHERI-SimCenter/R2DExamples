@@ -11,14 +11,16 @@
     "DV": true,
     "every_realization": false
   },
+  "RegionalEvent": {
+      "Units": {
+          "PGA": "g"
+          }
+  },
   "Applications": {
     "Hazard": {
         "Application": "UserInputShakeMap",
         "ApplicationData": {
-	    "Directory": "E6ShakemapScenario/input_data/ShakeMapIMs",
-        "Units": {
-            "PGA": "g"
-            }
+	    "Directory": "E6ShakemapScenario/input_data/ShakeMapIMs"
 	}
     },	
     "Building": {

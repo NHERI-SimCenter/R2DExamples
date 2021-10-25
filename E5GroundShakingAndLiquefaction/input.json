@@ -11,17 +11,19 @@
     "DV": true,
     "every_realization": false
   },
+  "RegionalEvent": {
+      "Units": {
+          "PGA": "inchps2",
+          "PGD_h" : "in",
+          "PGD_v" : "in"
+          }
+  },
   "Applications": {
     "Hazard": {
         "Application": "UserInputGM",
         "ApplicationData": {
 	    "eventFile": "/IMs/EventGrid.csv",
-	    "motionDir": "/IMs",
-        "Units": {
-            "PGA": "inchps2",
-            "PGD_h" : "in",
-            "PGD_v" : "in"
-            }
+	    "motionDir": "/IMs"
 	}
     },	
     "Building": {

@@ -11,15 +11,17 @@
     "DV": true,
     "every_realization": false
   },
+  "RegionalEvent": {
+      "Units": {
+          "TH_file": "mps2"
+          }
+  },
   "Applications": {
     "Hazard": {
         "Application": "UserInputGM",
         "ApplicationData": {
 	    "eventFile": "/records/EventGrid.csv",
-	    "motionDir": "/records",
-        "Units": {
-            "TH_file": "mps2"
-            }
+	    "motionDir": "/records"
 	}
     },		
     "Building": {
