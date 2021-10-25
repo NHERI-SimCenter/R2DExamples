@@ -15,7 +15,8 @@
       "Units": {
           "PIH": "ft",
           "PWS": "mph"
-          }
+      },
+      "eventFile": "/IMs/EventGrid.csv"
   },
   "Applications": {
     "Building": {
@@ -28,14 +29,11 @@
     "Hazard": {
         "Application": "UserInputHurricane",
         "ApplicationData": {
-        "eventFile": "/IMs/EventGrid.csv",
-        "eventDir": "/IMs"
         }
     },
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
       "ApplicationData": {
-        "filenameEVENTgrid": "Ex7Hurricane/IMs/EventGrid.csv",
         "samples": 10,
         "neighbors": 4
       }
