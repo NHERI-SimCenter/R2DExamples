@@ -2,9 +2,9 @@
   "Name": "E7 - Hurricane Wind + Water",
   "Author": "Kuanshi Zhong, Stevan Gavrilovic",
   "units": {
-      "force": "kips",
-      "length": "ft"
-   },
+    "force": "kips",
+    "length": "ft"
+  },
   "outputs": {
     "EDP": true,
     "DM": true,
@@ -12,24 +12,23 @@
     "every_realization": false
   },
   "RegionalEvent": {
-      "Units": {
-          "PIH": "ft",
-          "PWS": "mph"
-      },
-      "eventFile": "/IMs/EventGrid.csv"
+    "units": {
+      "PIH": "ft",
+      "PWS": "mph"
+    },
+    "eventFile": "/IMs/EventGrid.csv"
   },
   "Applications": {
     "Building": {
       "Application": "CSV_to_BIM",
       "ApplicationData": {
         "filter": "1-20",
-        "buildingSourceFile":"AtlanticBuildingInventory.csv"
+        "buildingSourceFile": "AtlanticBuildingInventory.csv"
       }
     },
     "Hazard": {
-        "Application": "UserInputHurricane",
-        "ApplicationData": {
-        }
+      "Application": "UserInputHurricane",
+      "ApplicationData": {}
     },
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
@@ -38,26 +37,28 @@
         "neighbors": 4
       }
     },
-    "Events": [{
-      "EventClassification": "Hurricane",
-      "Application": "SimCenterEvent",
-      "ApplicationData": {
-    }
-    }],
+    "Events": [
+      {
+        "EventClassification": "Hurricane",
+        "Application": "SimCenterEvent",
+        "ApplicationData": {}
+      }
+    ],
     "Simulation": {
-       "Application": "IMasEDP",
-       "ApplicationData": {}
+      "Application": "IMasEDP",
+      "ApplicationData": {}
     },
     "DL": {
-       "Application": "pelicun",
-       "ApplicationData": {
-          "DL_Method": "HAZUS MH HU",
-          "Realizations": "5000",
-          "coupled_EDP": true,
-          "detailed_results": false,
-          "log_file": true,
-          "auto_script": "auto_HU_NJ.py"
-       }
+      "Application": "pelicun",
+      "ApplicationData": {
+        "DL_Method": "HAZUS MH HU",
+        "Realizations": "5000",
+        "coupled_EDP": true,
+        "detailed_results": false,
+        "log_file": true,
+        "auto_script": "auto_HU_NJ.py"
+      }
     }
   }
+}
 }
