@@ -14,15 +14,14 @@
   "RegionalEvent": {
       "Units": {
           "PGA": "g"
-          }
+      },
+      "eventFile": "/San_Andreas_Mw72_filtered/EventGrid.csv"
   },
   "Applications": {
     "Hazard": {
         "Application": "UserInputGM",
         "ApplicationData": {
-	    "eventFile": "/San_Andreas_Mw72_filtered/EventGrid.csv",
-	    "motionDir": "/San_Andreas_Mw72_filtered"
-	}
+        }
     },	
     "Building": {
       "Application": "CSV_to_BIM",
@@ -34,7 +33,6 @@
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
       "ApplicationData": {
-        "filenameEVENTgrid": "San_Andreas_Mw72_filtered/EventGrid.csv",
         "samples": 100,
         "neighbors": 4
       }

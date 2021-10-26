@@ -16,15 +16,14 @@
           "PGA": "inchps2",
           "PGD_h" : "in",
           "PGD_v" : "in"
-          }
+      },
+      "eventFile": "/IMs/EventGrid.csv"
   },
   "Applications": {
     "Hazard": {
         "Application": "UserInputGM",
         "ApplicationData": {
-	    "eventFile": "/IMs/EventGrid.csv",
-	    "motionDir": "/IMs"
-	}
+        }
     },	
     "Building": {
       "Application": "CSV_to_BIM",
@@ -36,7 +35,6 @@
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
       "ApplicationData": {
-        "filenameEVENTgrid": "IMs/EventGrid.csv",
         "samples": 1000,
         "neighbors": 4,
         "filter_label": "SoilType"

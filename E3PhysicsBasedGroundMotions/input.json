@@ -14,15 +14,14 @@
   "RegionalEvent": {
       "Units": {
           "TH_file": "mps2"
-          }
+      },
+      "eventFile": "/SW4_filtered/EventGrid.csv"
   },
   "Applications": {
     "Hazard": {
         "Application": "UserInputGM",
         "ApplicationData": {
-	    "eventFile": "/SW4_filtered/EventGrid.csv",
-	    "motionDir": "/SW4_filtered"
-	}
+        }
     },			
     "Building": {
       "Application": "CSV_to_BIM",
@@ -34,7 +33,6 @@
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
       "ApplicationData": {
-        "filenameEVENTgrid": "SW4_filtered/EventGrid.csv",
         "samples": 3,
         "neighbors": 4
       }

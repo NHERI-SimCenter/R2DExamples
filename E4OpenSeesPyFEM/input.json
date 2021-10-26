@@ -16,15 +16,14 @@
        "Units": {
            "TH_file": "g",
            "factor" : "scalar"
-           }
+       },
+       "eventFile": "/records/EventGrid.csv"
    },
   "Applications": {
     "Hazard": {
         "Application": "UserInputGM",
         "ApplicationData": {
-	    "eventFile": "/records/EventGrid.csv",
-	    "motionDir": "/records"
-	}
+        }
     },
     "Building": {
       "Application": "CSV_to_BIM",
@@ -36,7 +35,6 @@
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
       "ApplicationData": {
-        "filenameEVENTgrid": "records/EventGrid.csv",
         "samples": 5,
         "neighbors": 4
       }

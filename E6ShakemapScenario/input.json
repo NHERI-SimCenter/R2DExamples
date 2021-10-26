@@ -14,7 +14,8 @@
   "RegionalEvent": {
       "Units": {
           "PGA": "g"
-          }
+      },
+      "eventFile": "EventGrid.csv"
   },
   "Applications": {
     "Hazard": {
@@ -33,7 +34,6 @@
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
       "ApplicationData": {
-        "filenameEVENTgrid": "Project_general_IM/EventGrid.csv",
         "samples": 100,
         "neighbors": 4
       }
