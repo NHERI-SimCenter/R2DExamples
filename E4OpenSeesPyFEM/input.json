@@ -17,7 +17,7 @@
       "TH_file": "g",
       "factor": "scalar"
     },
-    "eventFile": "/records/EventGrid.csv"
+    "eventFile": "records/EventGrid.csv"
   },
   "Applications": {
     "Hazard": {

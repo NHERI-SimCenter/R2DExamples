@@ -12,7 +12,7 @@
     "every_realization": false
   },
   "RegionalEvent": {
-      "Units": {
+      "units": {
           "PGA": "g"
       },
       "eventFile": "EventGrid.csv"

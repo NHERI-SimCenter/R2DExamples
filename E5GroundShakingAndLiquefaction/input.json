@@ -17,7 +17,7 @@
       "PGD_h": "inch",
       "PGD_v": "inch"
     },
-    "eventFile": "/IMs/EventGrid.csv"
+    "eventFile": "IMs/EventGrid.csv"
   },
   "Applications": {
     "Hazard": {

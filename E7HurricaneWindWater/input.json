@@ -16,7 +16,7 @@
       "PIH": "ft",
       "PWS": "mph"
     },
-    "eventFile": "/IMs/EventGrid.csv"
+    "eventFile": "IMs/EventGrid.csv"
   },
   "Applications": {
     "Building": {

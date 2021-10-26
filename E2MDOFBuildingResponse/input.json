@@ -15,7 +15,7 @@
     "units": {
       "TH_file": "mps2"
     },
-    "eventFile": "/records/EventGrid.csv"
+    "eventFile": "records/EventGrid.csv"
   },
   "Applications": {
     "Hazard": {

@@ -15,7 +15,7 @@
     "units": {
       "PGA": "g"
     },
-    "eventFile": "/San_Andreas_Mw72_filtered/EventGrid.csv"
+    "eventFile": "San_Andreas_Mw72_filtered/EventGrid.csv"
   },
   "Applications": {
     "Hazard": {
