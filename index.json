@@ -182,6 +182,33 @@
   	    "Simulation": "IMasEDP",
   	    "Difficulty": "0"
   	  }
+	},
+	"r2dt-0008": {
+  	  "id": "r2dt-0008",
+  	  "title": "E8 - Hurricane Wind",
+  	  "base": "E8HurricaneWind",
+  	  "doc": [
+  	    "E8HurricaneWind/figures/r2dt-0008-ASD.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-HTA.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-MOD.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-ANA.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-RES.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-GI.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-HAZ.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-DL.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-UQ.png",
+  	    "E8HurricaneWind/figures/r2dt-0008-RES.png",
+        "E8HurricaneWind/figures/r2dt-0008-GFD.png",
+  	    "E8HurricaneWind/r2dt-0008.png",
+  	    "E8HurricaneWind/README.rst"
+  	  ],
+  	  "summary": "Hurricane Laura made landfall as a strong Category 4 storm near Cameron, LA in the early hours of 27 August 2020, tying the Last Island Hurricane of 1856 as the strongest land-falling hurricane in Louisiana history. This example presents a wind-induced damage assessment for Lake Charles, LA. Peak wind speed data of Hurricane Laura from Applied Research Associates, Inc. is used as intensity measure, inventory data of about 26,000 wood residential buildings is used along with the rulesets developed tp map the inventory to HAZUS-type damage assessment. Final results include the damage and loss estimations along with the building information models based on the rulesets.",
+  	  "logo": "r2dt-0008.png",
+  	  "categories": {
+  	    "Damage and Loss": "HAZUS MH HU",
+  	    "Simulation": "IMasEDP",
+  	    "Difficulty": "0"
+  	  }
 	}
   },
   "categories": {

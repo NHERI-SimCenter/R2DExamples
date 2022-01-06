@@ -1,0 +1,64 @@
+{
+  "Name": "E8 - Hurricane Wind",
+  "Author": "Kuanshi Zhong, Stevan Gavrilovic",
+  "units": {
+    "force": "kips",
+    "length": "ft"
+  },
+  "outputs": {
+    "EDP": true,
+    "DM": true,
+    "DV": true,
+    "BIM": true,
+    "every_realization": false
+  },
+  "RegionalEvent": {
+    "units": {
+      "PWS": "mph"
+    },
+    "eventFile": "IMs/EventGrid.csv"
+  },
+  "Applications": {
+    "Building": {
+      "Application": "CSV_to_BIM",
+      "ApplicationData": {
+        "filter": "1-20",
+        "buildingSourceFile": "BIM_LakeCharles_Full.csv"
+      }
+    },
+    "Hazard": {
+      "Application": "UserInputHurricane",
+      "ApplicationData": {}
+    },
+    "RegionalMapping": {
+      "Application": "NearestNeighborEvents",
+      "ApplicationData": {
+        "samples": 10,
+        "neighbors": 4
+      }
+    },
+    "Events": [
+      {
+        "EventClassification": "Hurricane",
+        "Application": "SimCenterEvent",
+        "ApplicationData": {}
+      }
+    ],
+    "Simulation": {
+      "Application": "IMasEDP",
+      "ApplicationData": {}
+    },
+    "DL": {
+      "Application": "pelicun",
+      "ApplicationData": {
+        "DL_Method": "HAZUS MH HU",
+        "Realizations": "5000",
+        "coupled_EDP": true,
+        "detailed_results": false,
+        "log_file": true,
+        "auto_script": "ruleset/auto_HU_LA.py"
+      }
+    }
+  }
+}
+
