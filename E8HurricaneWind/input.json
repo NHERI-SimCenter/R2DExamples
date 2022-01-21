@@ -16,26 +16,27 @@
     "units": {
       "PWS": "mph"
     },
-    "eventFile": "IMs/EventGrid.csv"
+    "eventFile": "EventGrid.csv"
   },
   "Applications": {
     "Building": {
-      "Application": "CSV_to_BIM",
+      "Application": "GIS_to_BIM",
       "ApplicationData": {
         "filter": "1-20",
-        "buildingSourceFile": "BIM_LakeCharles_Full.csv"
+        "buildingGISFile": "GISBuildingInventory/BIM_LakeCharles_Full.gpkg"
       }
     },
     "Hazard": {
-      "Application": "UserInputHurricane",
-      "ApplicationData": {}
+      "Application": "UserInputRasterHazard",
+      "ApplicationData": {
+          "rasterFile": "IMs/LakeCharlesWindField.tif",
+          "CRS": "EPSG:4326",
+          "eventClassification": "Hurricane",
+          "bands": ["PWS"]
+      }
     },
     "RegionalMapping": {
-      "Application": "NearestNeighborEvents",
-      "ApplicationData": {
-        "samples": 10,
-        "neighbors": 4
-      }
+      "Application": "SiteSpecifiedEvents"
     },
     "Events": [
       {
