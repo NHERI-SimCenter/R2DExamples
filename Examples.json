@@ -52,7 +52,7 @@
       "name": "E9 - Tsunami",
       "description": "The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America plates, stretching approximately 1,000 km between California and British Columbia, Canada. A rupture of the CSZ may result in a megathrust earthquake and a subsequent tsunami. This example considers a tsunami event in the city of Seaside, located along the northern Oregon coast. A highlight of this example is that it shows how user-provided fragility functions are employed in the SimCenter workflow. The building inventory consists of 4744 buildings of different types and construction materials. For the tsunami hazard, the results of a Probabilistic Seismic-Tsunami Hazard Analysis (PSTHA; Park et. al. 2017), with a recurrence interval of 500 years, is employed. The building inventory, tsunami hazard raster, and building fragility functions are all from the Seaside testbed, made available by the Center of Excellence for Risk-Based Community Resilience Planning (CoE) as part of their Interdependent Networked Community Resilience Modeling Environment (IN-CORE) platform. They can be accessed online on the IN-CORE Web Tools website (https://incore.ncsa.illinois.edu/doc/incore/webtools.html).\n",
       "inputFile": "E9Tsunami/input.json",
-      "downloadUrl" : "https://zenodo.org/api/records/?"
+      "downloadUrl" : "https://zenodo.org/api/records/6363698"
     }
   ]
 }
