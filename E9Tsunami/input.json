@@ -1,0 +1,66 @@
+{
+  "Name": "E9 - Tsunami Inundation",
+  "Author": "Stevan Gavrilovic",
+  "units": {
+    "force": "N",
+    "length": "m"
+  },
+  "outputs": {
+    "EDP": true,
+    "DM": true,
+    "DV": true,
+    "BIM": true,
+    "every_realization": false
+  },
+  "RegionalEvent": {
+    "units": {
+      "PIH": "m"
+    },
+    "eventFile": "EventGrid.csv"
+  },
+  "Applications": {
+    "Building": {
+      "Application": "GIS_to_BIM",
+      "ApplicationData": {
+        "filter": "2000-2100",
+        "buildingGISFile": "GISBuildingInventory/Seaside_Buildings.gpkg"
+      }
+    },
+    "Hazard": {
+      "Application": "UserInputRasterHazard",
+      "ApplicationData": {
+          "rasterFile": "IMs/500yr/Tsu_500yr_Hmax.tif",
+          "CRS": "EPSG:4326",
+          "eventClassification": "Tsunami",
+          "bands": ["PIH"]
+      }
+    },
+    "RegionalMapping": {
+      "Application": "SiteSpecifiedEvents"
+    },
+    "Events": [
+      {
+        "EventClassification": "Tsunami",
+        "Application": "SimCenterEvent",
+        "ApplicationData": {}
+      }
+    ],
+    "Simulation": {
+      "Application": "IMasEDP",
+      "ApplicationData": {}
+    },
+    "DL": {
+      "Application": "pelicun",
+      "ApplicationData": {
+        "DL_Method": "User-provided Fragilities",
+        "Realizations": "5",
+        "coupled_EDP": true,
+        "detailed_results": false,
+        "log_file": false,
+        "auto_script": "ruleset/custom_pop.py",
+        "custom_fragility_dir" : "CustomFragilities"
+      }
+    }
+  }
+}
+
