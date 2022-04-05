@@ -227,5 +227,50 @@
   	  "1": "Intermediate",
   	  "2": "Advanced"
   	}
+  },
+  "r2dt-0009": {
+      "id": "r2dt-0009",
+      "title": "E9 - Tsunami",
+      "base": "E9Tsunami",
+      "doc": [
+        "E9Tsunami/figures/r2dt-0009-ASD.png",
+        "E9Tsunami/figures/r2dt-0009-HTA.png",
+        "E9Tsunami/figures/r2dt-0009-MOD.png",
+        "E9Tsunami/figures/r2dt-0009-ANA.png",
+        "E9Tsunami/figures/r2dt-0009-RES.png",
+        "E9Tsunami/figures/r2dt-0009-GI.png",
+        "E9Tsunami/figures/r2dt-0009-HAZ.png",
+        "E9Tsunami/figures/r2dt-0009-DL.png",
+        "E9Tsunami/figures/r2dt-0009-UQ.png",
+        "E9Tsunami/figures/r2dt-0009-RES.png",
+        "E9Tsunami/figures/r2dt-0009-GFD.png",
+        "E9Tsunami/r2dt-0009.png",
+        "E9Tsunami/README.rst"
+      ],
+      "summary": "The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America plates, stretching approximately 1,000 km between California and British Columbia, Canada. A rupture of the CSZ may result in a megathrust earthquake and a subsequent tsunami. This example considers a tsunami event in the city of Seaside, located along the northern Oregon coast. A highlight of this example is that it shows how user-provided fragility functions are employed in the SimCenter workflow. The building inventory consists of 4744 buildings of different types and construction materials. For the tsunami hazard, the results of a Probabilistic Seismic-Tsunami Hazard Analysis (PSTHA; Park et. al. 2017), with a recurrence interval of 500 years, is employed. The building inventory, tsunami hazard raster, and building fragility functions are all from the Seaside testbed, made available by the Center of Excellence for Risk-Based Community Resilience Planning (CoE) as part of their Interdependent Networked Community Resilience Modeling Environment (IN-CORE) platform. They can be accessed online on the IN-CORE Web Tools website (https://incore.ncsa.illinois.edu/doc/incore/webtools.html).",
+      "logo": "r2dt-0009.png",
+      "categories": {
+        "Damage and Loss": "User-defined Fragilities",
+        "Simulation": "IMasEDP",
+        "Difficulty": "0"
+      }
   }
+},
+"categories": {
+    "Damage and Loss": {
+      "HAZUS MH EQ": "HAZUS MH EQ",
+      "HAZUS MH EQ IM": "HAZUS MH EQ IM",
+      "HAZUS MH HU": "HAZUS MH HU"
+    },
+    "Simulation": {
+      "IMasEDP": "IMasEDP",
+      "OpenSees-Simulation_R": "OpenSees",
+      "OpenSeesPy-Simulation": "OpenSeesPy"
+    },
+    "Difficulty": {
+      "0": "Beginner",
+      "1": "Intermediate",
+      "2": "Advanced"
+    }
+}
 }
