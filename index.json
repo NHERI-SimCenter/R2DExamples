@@ -209,24 +209,6 @@
   	    "Simulation": "IMasEDP",
   	    "Difficulty": "0"
   	  }
-	}
-  },
-  "categories": {
-  	"Damage and Loss": {
-  	  "HAZUS MH EQ": "HAZUS MH EQ",
-  	  "HAZUS MH EQ IM": "HAZUS MH EQ IM",
-  	  "HAZUS MH HU": "HAZUS MH HU"
-  	},
-  	"Simulation": {
-  	  "IMasEDP": "IMasEDP",
-  	  "OpenSees-Simulation_R": "OpenSees",
-  	  "OpenSeesPy-Simulation": "OpenSeesPy"
-  	},
-  	"Difficulty": {
-  	  "0": "Beginner",
-  	  "1": "Intermediate",
-  	  "2": "Advanced"
-  	}
   },
   "r2dt-0009": {
       "id": "r2dt-0009",
@@ -254,6 +236,32 @@
         "Simulation": "IMasEDP",
         "Difficulty": "0"
       }
+  },
+  "r2dt-0010": {
+    "id": "r2dt-0010",
+    "title": "E10 - Site Response",
+    "base": "E10SiteResponse",
+    "doc": [
+      "E10SiteResponse/figures/r2dt-0010-ASD.png",
+      "E10SiteResponse/figures/r2dt-0010-HTA.png",
+      "E10SiteResponse/figures/r2dt-0010-MOD.png",
+      "E10SiteResponse/figures/r2dt-0010-ANA.png",
+      "E10SiteResponse/figures/r2dt-0010-RES.png",
+      "E10SiteResponse/figures/r2dt-0010-GI.png",
+      "E10SiteResponse/figures/r2dt-0010-HAZ.png",
+      "E10SiteResponse/figures/r2dt-0010-DL.png",
+      "E10SiteResponse/figures/r2dt-0010-UQ.png",
+      "E10SiteResponse/figures/r2dt-0010-RES.png",
+      "E10SiteResponse/r2dt-0010.png",
+      "E10SiteResponse/README.rst"
+    ],
+    "summary": "This example presents regional earthquake impact analysis including site response analysis and building damage and loss assessment. Overall 177 sites are included for soil response simulation under bedrock ground motion input with a building inventory including approximately 14,000 buildings in the city of Alameda, CA.",
+    "logo": "r2dt-0010.png",
+    "categories": {
+      "Damage and Loss": "HAZUS EQ",
+      "Simulation": "OpenSees",
+      "Difficulty": "0"
+    }
   }
 },
 "categories": {
