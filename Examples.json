@@ -59,7 +59,7 @@
       "name": "E10 - Site Response",
       "description": "This example presents regional earthquake impact analysis including site response analysis and building damage and loss assessment. Overall 177 sites are included for soil response simulation under bedrock ground motion input with a building inventory including approximately 14,000 buildings in the city of Alameda, CA.\n",
       "inputFile": "E10SiteResponse/input.json",
-      "downloadUrl" : ""
+      "downloadUrl" : "https://zenodo.org/api/records/6426289"
     }
   ]
 }
