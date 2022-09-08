@@ -19,12 +19,14 @@
     "eventFile": "EventGrid.csv"
   },
   "Applications": {
-    "Building": {
-      "Application": "GIS_to_BIM",
-      "ApplicationData": {
-        "filter": "2000-2100",
-        "CRS": "EPSG:4326",
-        "buildingGISFile": "GISBuildingInventory/Seaside_Buildings.gpkg"
+      "Assets" : {
+          "Buildings": {
+              "Application": "GIS_to_AIM",
+              "ApplicationData": {
+                  "filter": "2000-2100",
+                  "CRS": "EPSG:4326",
+                  "assetGISFile": "GISBuildingInventory/Seaside_Buildings.gpkg"
+            }
       }
     },
     "Hazard": {

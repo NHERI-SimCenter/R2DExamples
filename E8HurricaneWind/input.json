@@ -19,12 +19,14 @@
     "eventFile": "EventGrid.csv"
   },
   "Applications": {
-    "Building": {
-      "Application": "GIS_to_BIM",
-      "ApplicationData": {
-        "filter": "1-20",
-        "CRS": "EPSG:4326",
-        "buildingGISFile": "GISBuildingInventory/BIM_LakeCharles_Full.gpkg"
+      "Assets" : {
+          "Buildings": {
+              "Application": "GIS_to_AIM",
+              "ApplicationData": {
+                  "filter": "1-20",
+                  "CRS": "EPSG:4326",
+                  "assetGISFile": "GISBuildingInventory/BIM_LakeCharles_Full.gpkg"
+            }
       }
     },
     "Hazard": {

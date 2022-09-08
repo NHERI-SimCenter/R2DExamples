@@ -19,12 +19,14 @@
     "eventFile": "IMs/EventGrid.csv"
   },
   "Applications": {
-    "Building": {
-      "Application": "CSV_to_BIM",
-      "ApplicationData": {
-        "filter": "1-20",
-        "buildingSourceFile": "AtlanticBuildingInventory.csv"
-      }
+      "Assets" : {
+          "Buildings": {
+              "Application": "CSV_to_AIM",
+              "ApplicationData": {
+                  "filter": "1-20",
+                  "assetSourceFile": "AtlanticBuildingInventory.csv"
+              }
+          }
     },
     "Hazard": {
       "Application": "UserInputHurricane",

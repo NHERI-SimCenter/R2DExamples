@@ -22,12 +22,14 @@
       "Application": "UserInputGM",
       "ApplicationData": {}
     },
-    "Building": {
-      "Application": "CSV_to_BIM",
-      "ApplicationData": {
-        "filter": "18,27,44,93,240,270,417-419,435",
-        "buildingSourceFile":"AnchorageBuildings.csv"
-      }
+    "Assets" : {
+        "Buildings": {
+            "Application": "CSV_to_AIM",
+            "ApplicationData": {
+                "filter": "18,27,44,93,240,270,417-419,435",
+                "assetSourceFile":"AnchorageBuildings.csv"
+            }
+        }
     },
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
@@ -64,9 +66,7 @@
       "ApplicationData": {
         "method": "LHS",
         "samples": 3,
-        "type": "UQ",
-        "concurrency": 1,
-        "keepSamples": true
+        "seed" : 3
       }
     },
     "DL": {

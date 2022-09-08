@@ -2,11 +2,13 @@
     "Name": "E10 - Site Response",
     "Author": "SimCenter",
     "Applications": {
-        "Building": {
-            "Application": "CSV_to_BIM",
-            "ApplicationData": {
-                "buildingSourceFile": "all_bldgs.csv",
-                "filter": "1-4"
+        "Assets" : {
+            "Buildings": {
+                "Application": "CSV_to_AIM",
+                "ApplicationData": {
+                    "assetSourceFile": "all_bldgs.csv",
+                    "filter": "1-4"
+                }
             }
         },
         "DL": {

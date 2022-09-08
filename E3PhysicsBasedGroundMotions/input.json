@@ -22,12 +22,14 @@
       "Application": "UserInputGM",
       "ApplicationData": {}
     },
-    "Building": {
-      "Application": "CSV_to_BIM",
-      "ApplicationData": {
-        "filter":"170,1493,1977,2380,2459",
-        "buildingSourceFile": "BerkeleyBuildings.csv"
-      }
+    "Assets" : {
+        "Buildings": {
+            "Application": "CSV_to_AIM",
+            "ApplicationData": {
+                "filter":"170,1493,1977,2380,2459",
+                "assetSourceFile": "BerkeleyBuildings.csv"
+            }
+        }
     },
     "RegionalMapping": {
       "Application": "NearestNeighborEvents",
@@ -64,9 +66,7 @@
       "ApplicationData": {
         "method": "LHS",
         "samples": 3,
-        "type": "UQ",
-        "concurrency": 1,
-        "keepSamples": true
+        "seed" : 3
       }
     },
     "DL": {

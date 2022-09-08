@@ -24,11 +24,13 @@
       "Application": "UserInputGM",
       "ApplicationData": {}
     },
-    "Building": {
-      "Application": "CSV_to_BIM",
-      "ApplicationData": {
-        "filter": "0,14,35,57,76",
-        "buildingSourceFile": "UniversityVillageAlbany.csv"
+    "Assets" : {
+        "Buildings": {
+            "Application": "CSV_to_AIM",
+            "ApplicationData": {
+                "filter": "0,14,35,57,76",
+                "assetSourceFile": "UniversityVillageAlbany.csv"
+            }
       }
     },
     "RegionalMapping": {
@@ -67,9 +69,7 @@
       "ApplicationData": {
         "method": "LHS",
         "samples": 5,
-        "type": "UQ",
-        "concurrency": 1,
-        "keepSamples": true
+        "seed" : 3
       }
     },
     "DL": {

@@ -23,12 +23,14 @@
         "ApplicationData": {
 	    "Directory": "E6ShakemapScenario/input_data/ShakeMapIMs"
 	}
-    },	
-    "Building": {
-      "Application": "CSV_to_BIM",
-      "ApplicationData": {
-        "filter": "1-5",
-        "buildingSourceFile":"San_Mateo_buildings.csv"
+    },
+    "Assets" : {
+        "Buildings": {
+            "Application": "CSV_to_AIM",
+            "ApplicationData": {
+                "filter": "1-5",
+                "assetSourceFile":"San_Mateo_buildings.csv"
+            }
       }
     },
     "RegionalMapping": {
