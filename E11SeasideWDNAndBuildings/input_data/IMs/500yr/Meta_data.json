@@ -1,0 +1,84 @@
+{
+    "eqType": "dataset",
+    "id": "5dfa4300b9219c934b64d4d0",
+    "name": "Seaside Probabilistic EQ 500yr",
+    "description": "Seaside dataset based probabilistic earthquake hazard 500yr",
+    "date": "2019-12-18T15:17:18+0000",
+    "creator": null,
+    "spaces": [
+        "cnavarro",
+        "incore"
+    ],
+    "hazardDatasets": [
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5dfa42feb9219c934b7ee125",
+            "demandType": "PGA",
+            "demandUnits": "g",
+            "period": 0,
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        },
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5dfa42ffb9219c934b7ee14d",
+            "demandType": "PGD",
+            "demandUnits": "in",
+            "period": 0,
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        },
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5dfa42ffb9219c934b7ee175",
+            "demandType": "SA",
+            "demandUnits": "g",
+            "period": 0.35,
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        },
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5dfa42ffb9219c934b7ee19d",
+            "demandType": "SA",
+            "demandUnits": "g",
+            "period": 0.4,
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        },
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5dfa42ffb9219c934b7ee1c5",
+            "demandType": "SA",
+            "demandUnits": "g",
+            "period": 0.75,
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        },
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5dfa42ffb9219c934b7ee1ed",
+            "demandType": "SA",
+            "demandUnits": "g",
+            "period": 1,
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        },
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5dfa4300b9219c934b7ee215",
+            "demandType": "SA",
+            "demandUnits": "g",
+            "period": 1.45,
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        }
+    ]
+}
