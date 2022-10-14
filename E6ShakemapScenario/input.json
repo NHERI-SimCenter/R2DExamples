@@ -17,48 +17,68 @@
       },
       "eventFile": "EventGrid.csv"
   },
-  "Applications": {
-    "Hazard": {
-        "Application": "UserInputShakeMap",
-        "ApplicationData": {
-	    "Directory": "E6ShakemapScenario/input_data/ShakeMapIMs"
-	}
-    },
-    "Assets" : {
-        "Buildings": {
-            "Application": "CSV_to_AIM",
+    "Applications": {
+	"Hazard": {
+            "Application": "UserInputShakeMap",
             "ApplicationData": {
-                "filter": "1-5",
-                "assetSourceFile":"San_Mateo_buildings.csv"
+		"Directory": "E6ShakemapScenario/input_data/ShakeMapIMs"
+	    }
+	},
+	"Assets" : {
+            "Buildings": {
+		"Application": "CSV_to_AIM",
+		"ApplicationData": {
+                    "filter": "1-5",
+                    "assetSourceFile":"San_Mateo_buildings.csv"
+		}
+	    }
+	},
+	"RegionalMapping": {
+            "Buildings": {	  
+		"Application": "NearestNeighborEvents",
+		"ApplicationData": {
+		    "samples": 100,
+		    "neighbors": 4
+		}
+	    }
+	},
+	"Events": [{
+	    "EventClassification": "Earthquake",
+	    "Application": "SimCenterEvent",
+	    "ApplicationData": {}
+	}],
+	"Simulation": {
+            "Buildings": {	  
+		"Application": "IMasEDP",
+		"ApplicationData": {}
+	    }
+	},
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
             }
-      }
-    },
-    "RegionalMapping": {
-      "Application": "NearestNeighborEvents",
-      "ApplicationData": {
-        "samples": 100,
-        "neighbors": 4
-      }
-    },
-    "Events": [{
-      "EventClassification": "Earthquake",
-      "Application": "SimCenterEvent",
-      "ApplicationData": {}
-    }],
-    "Simulation": {
-       "Application": "IMasEDP",
-       "ApplicationData": {}
-    },
-    "DL": {
-       "Application": "pelicun",
-       "ApplicationData": {
-          "DL_Method": "HAZUS MH EQ IM",
-          "Realizations": "100",
-          "coupled_EDP": true,
-          "event_time": "off",
-          "detailed_results": false,
-          "log_file": true
-       }
+        },	
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+	},
+	"DL": {
+            "Buildings": {	  
+		"Application": "pelicun",
+		"ApplicationData": {
+		    "DL_Method": "HAZUS MH EQ IM",
+		    "Realizations": "100",
+		    "coupled_EDP": true,
+		    "event_time": "off",
+		    "detailed_results": false,
+		    "log_file": true
+		}
+	    }
+	}
     }
-  }
 }

@@ -12,21 +12,25 @@
             }
         },
         "DL": {
-            "Application": "pelicun",
-            "ApplicationData": {
-                "DL_Method": "HAZUS MH EQ",
-                "Realizations": 4,
-                "coupled_EDP": false,
-                "detailed_results": false,
-                "event_time": "off",
-                "ground_failure": false,
-                "log_file": true
+	    "Buildings": {
+		"Application": "pelicun",
+		"ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ",
+                    "Realizations": 4,
+                    "coupled_EDP": false,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": false,
+                    "log_file": true
+		}
             }
-        },
+	},
         "EDP": {
-            "Application": "StandardEarthquakeEDP_R",
-            "ApplicationData": {
-            }
+	    "Buildings": {
+		"Application": "StandardEarthquakeEDP",
+		"ApplicationData": {
+		}
+	    }
         },
         "Events": [
             {
@@ -37,16 +41,15 @@
             }
         ],
         "Modeling": {
-            "Application": "MDOF-LU",
-            "ApplicationData": {
-                "hazusData": "HazusData.txt",
-                "stdDamping": 0.1,
-                "stdStiffness": 0.1
-            }
+	    "Buildings":{
+		"Application": "MDOF-LU",
+		"ApplicationData": {
+		}
+	    }
         },
         "RegionalEvent": {
-            "Application": "RegionalSiteResponse",
-            "ApplicationData": {
+	    "Application": "RegionalSiteResponse",
+	    "ApplicationData": {
                 "filter": "0-4",
                 "inputEventFile": "EventGrid.csv",
                 "inputEventFilePath": "inputMotions",
@@ -58,31 +61,48 @@
             }
         },
         "RegionalMapping": {
-            "Application": "NearestNeighborEvents",
-            "ApplicationData": {
-                "neighbors": 4,
-                "samples": 4,
-                "seed": 468
-            }
+	    "Buildings": {
+		"Application": "NearestNeighborEvents",
+		"ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 4,
+                    "seed": 468
+		}
+	    }
         },
         "Simulation": {
-            "Application": "OpenSees-Simulation_R",
-            "ApplicationData": {
-            }
+	    "Buildings":{
+            "Application": "OpenSees-Simulation",
+		"ApplicationData": {
+		}
+	    }
         },
         "UQ": {
-            "Application": "Dakota-UQ",
-            "ApplicationData": {
-                "keepSamples": true,
+	    "Buildings": {
+		"Application": "Dakota-UQ",
+		"ApplicationData": {
+		}
+            }
+	}
+    },
+    "UQ": {
+        "Buildings": {
+            "parallelExecution": true,
+            "samplingMethodData": {
                 "method": "LHS",
                 "samples": 4,
                 "seed": 471
-            }
+            },
+            "saveWorkDir": true,
+            "uqType": "Forward Propagation"
         }
     },
-    "DL": {
-    },
     "Modeling": {
+        "Buildings": {
+            "hazusData": "HazusData.txt",
+            "stdDamping": 0.2,
+            "stdStiffness": 0.1
+        }	
     },
     "RegionalEvent": {
         "eventFile": "siteResponseOutputMotions/EventGrid.csv",
@@ -94,7 +114,7 @@
     "RegionalMapping": {
     },
     "Simulation": {
-        "type": "OpenSees-Simulation_R"
+        "type": "OpenSees-Simulation"
     },
     "WorkflowType": "Regional Simulation",
     "assets": {

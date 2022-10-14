@@ -26,43 +26,64 @@
                   "filter": "1-20",
                   "CRS": "EPSG:4326",
                   "assetGISFile": "GISBuildingInventory/BIM_LakeCharles_Full.gpkg"
-            }
+              }
+	  }
+      },
+      "Hazard": {
+	  "Application": "UserInputRasterHazard",
+	  "ApplicationData": {
+              "rasterFile": "IMs/LakeCharlesWindField.tif",
+              "CRS": "EPSG:4326",
+              "eventClassification": "Hurricane",
+              "bands": ["PWS"]
+	  }
+      },
+      "RegionalMapping": {
+	  "Buildings": {
+	      "Application": "SiteSpecifiedEvents",
+              "ApplicationData": {}	      
+	  }
+      },
+      "Events": [
+	  {
+              "EventClassification": "Hurricane",
+              "Application": "SimCenterEvent",
+              "ApplicationData": {}
+	  }
+      ],
+      "Modeling": {
+          "Buildings": {
+	      "Application": "None",
+	      "ApplicationData": {
+	      }
+          }
+      },
+      "UQ": {
+          "Buildings": {
+	      "Application": "None",
+	      "ApplicationData": {
+	      }
+          }
+      },      
+      "Simulation": {
+	  "Buildings": {
+	      "Application": "IMasEDP",
+	      "ApplicationData": {}
+	  }
+      },
+      "DL": {
+	  "Buildings": {
+	      "Application": "pelicun",
+	      "ApplicationData": {
+		  "DL_Method": "HAZUS MH HU",
+		  "Realizations": "5000",
+		  "coupled_EDP": true,
+		  "detailed_results": false,
+		  "log_file": true,
+		  "auto_script": "ruleset/auto_HU_LA.py"
+	      }
+	  }
       }
-    },
-    "Hazard": {
-      "Application": "UserInputRasterHazard",
-      "ApplicationData": {
-          "rasterFile": "IMs/LakeCharlesWindField.tif",
-          "CRS": "EPSG:4326",
-          "eventClassification": "Hurricane",
-          "bands": ["PWS"]
-      }
-    },
-    "RegionalMapping": {
-      "Application": "SiteSpecifiedEvents"
-    },
-    "Events": [
-      {
-        "EventClassification": "Hurricane",
-        "Application": "SimCenterEvent",
-        "ApplicationData": {}
-      }
-    ],
-    "Simulation": {
-      "Application": "IMasEDP",
-      "ApplicationData": {}
-    },
-    "DL": {
-      "Application": "pelicun",
-      "ApplicationData": {
-        "DL_Method": "HAZUS MH HU",
-        "Realizations": "5000",
-        "coupled_EDP": true,
-        "detailed_results": false,
-        "log_file": true,
-        "auto_script": "ruleset/auto_HU_LA.py"
-      }
-    }
   }
 }
 

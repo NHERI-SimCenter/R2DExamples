@@ -18,49 +18,69 @@
     },
     "eventFile": "IMs/EventGrid.csv"
   },
-  "Applications": {
-      "Assets" : {
-          "Buildings": {
-              "Application": "CSV_to_AIM",
-              "ApplicationData": {
-                  "filter": "1-20",
-                  "assetSourceFile": "AtlanticBuildingInventory.csv"
-              }
-          }
-    },
-    "Hazard": {
-      "Application": "UserInputHurricane",
-      "ApplicationData": {}
-    },
-    "RegionalMapping": {
-      "Application": "NearestNeighborEvents",
-      "ApplicationData": {
-        "samples": 10,
-        "neighbors": 4
-      }
-    },
-    "Events": [
-      {
-        "EventClassification": "Hurricane",
-        "Application": "SimCenterEvent",
-        "ApplicationData": {}
-      }
-    ],
-    "Simulation": {
-      "Application": "IMasEDP",
-      "ApplicationData": {}
-    },
-    "DL": {
-      "Application": "pelicun",
-      "ApplicationData": {
-        "DL_Method": "HAZUS MH HU",
-        "Realizations": "5000",
-        "coupled_EDP": true,
-        "detailed_results": false,
-        "log_file": true,
-        "auto_script": "auto_HU_NJ.py"
-      }
+    "Applications": {
+	"Assets" : {
+            "Buildings": {
+		"Application": "CSV_to_AIM",
+		"ApplicationData": {
+                    "filter": "1-20",
+                    "assetSourceFile": "AtlanticBuildingInventory.csv"
+		}
+            }
+	},
+	"Hazard": {
+	    "Application": "UserInputHurricane",
+	    "ApplicationData": {}
+	},
+	"RegionalMapping": {
+	    "Buildings": {
+		"Application": "NearestNeighborEvents",
+		"ApplicationData": {
+		    "samples": 10,
+		    "neighbors": 4
+		}
+	    }
+	},
+	"Events": [
+	    {
+		"EventClassification": "Hurricane",
+		"Application": "SimCenterEvent",
+		"ApplicationData": {}
+	    }
+	],
+	"Simulation": {
+	    "Buildings": {
+		"Application": "IMasEDP",
+		"ApplicationData": {}
+	    }
+	},
+	"UQ": {
+            "Buildings": {
+		"Application": "None",
+		"ApplicationData": {
+		}
+            }
+	},
+	"Modeling": {
+            "Buildings": {
+		"Application": "None",
+		"ApplicationData": {
+		}
+            }
+	},	
+	"DL": {
+	    "Buildings": {
+		"Application": "pelicun",
+		"ApplicationData": {
+		    "DL_Method": "HAZUS MH HU",
+		    "Realizations": "5000",
+		    "coupled_EDP": true,
+		    "detailed_results": false,
+		    "log_file": true,
+		    "auto_script": "auto_HU_NJ.py"
+		}
+	    }
+	}
     }
-  }
 }
 
