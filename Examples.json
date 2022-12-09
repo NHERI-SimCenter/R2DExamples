@@ -61,5 +61,12 @@
       "inputFile": "E10SiteResponse/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/6426289"
     }
+    ,
+    {
+      "name": "E12 - Istanbul Regional Earthquake Damage and Loss Assessment",
+      "description": "This example features a systematic regional seismic damage and loss assessment for Istanbul, Turkey. The ground motion acceleration time histories were simulated using the hercules software and a detailed geophysical model of Istanbul region ([ZhangEtAl2021]_). The ground motions are used to investigate the impact of a Mw7.0 earthquake on the Central Marmara Basin fault. Engineering Demand Parameters are simulated with OpenSees models for individual reinforced concrete buildings in this example. Building damage and loss is evaluated the story-level based on the HAZUS earthquake damage and loss assessment methodology.\n",
+      "inputFile": "E12IstanbulRegionalSeismicRiskAnalysis/input.json",
+      "downloadUrl" : ""
+    }
   ]
 }
