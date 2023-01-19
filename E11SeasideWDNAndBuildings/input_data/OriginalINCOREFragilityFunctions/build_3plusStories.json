@@ -1,0 +1,84 @@
+{
+    "id": "5bbbb021ec2309046c2745cb",
+    "description": ">= 3 story",
+    "authors": [
+        "Suppasri et al. 2018"
+    ],
+    "paperReference": null,
+    "resultUnit": null,
+    "resultType": "Limit State",
+    "hazardType": "tsunami",
+    "inventoryType": "building",
+    "creator": "cwang138",
+    "curveParameters": [
+        {
+            "name": "Hmax",
+            "unit": "m",
+            "description": "Hmax value from hazard service",
+            "fullName": "Hmax",
+            "expression": null
+        }
+    ],
+    "spaces": [
+        "coe"
+    ],
+    "demandTypes": [
+        "Hmax"
+    ],
+    "demandUnits": [
+        "m"
+    ],
+    "fragilityCurves": [
+        {
+            "description": "legacy - StandardFragilityCurve - Major",
+            "rules": [
+                {
+                    "condition": [
+                        "Hmax > 0"
+                    ],
+                    "expression": "scipy.stats.norm.cdf((math.log(Hmax) - (0.1489))/(0.66))"
+                }
+            ],
+            "returnType": {
+                "type": "Limit State",
+                "unit": "",
+                "description": "LS_0"
+            },
+            "curveParameters": null
+        },
+        {
+            "description": "legacy - StandardFragilityCurve - Complete",
+            "rules": [
+                {
+                    "condition": [
+                        "Hmax > 0"
+                    ],
+                    "expression": "scipy.stats.norm.cdf((math.log(Hmax) - (1.1408))/(0.7981))"
+                }
+            ],
+            "returnType": {
+                "type": "Limit State",
+                "unit": "",
+                "description": "LS_1"
+            },
+            "curveParameters": null
+        },
+        {
+            "description": "legacy - StandardFragilityCurve - Collapse",
+            "rules": [
+                {
+                    "condition": [
+                        "Hmax > 0"
+                    ],
+                    "expression": "scipy.stats.norm.cdf((math.log(Hmax) - (2.3491))/(0.7898))"
+                }
+            ],
+            "returnType": {
+                "type": "Limit State",
+                "unit": "",
+                "description": "LS_2"
+            },
+            "curveParameters": null
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+  "Name": "Suppasri et al. 2018, Limit State, Tsunami, Building, >= 3 stories",
+  "GeneralInformation": {
+    "ID": "5bbbb021ec2309046c2745cb",
+    "Building type": ">= 3 story",
+    "Description": "Suppasri et al. 2018, Limit State, Tsunami, Building, >= 3 stories"
+  },
+  "EDP": {
+    "Type": "Maximum Tsunami Depth",
+    "Description": "Maximum Tsunami Depth, HMax [m]",
+    "Unit": [
+      1.0,
+      "m"
+    ]
+  },
+  "DSGroups": [
+    {
+      "MedianEDP": 0.1489,
+      "Beta": 0.66,
+      "CurveType": "LogNormal",
+      "DSGroupType": "Single",
+      "DamageStates": [
+        {
+          "Weight": 1.0,
+          "Consequences": {
+            "ReconstructionCost": {
+              "Amount": 0.5
+            }
+          },
+          "Description": "LS-1 Major"
+        }
+      ]
+    },
+    {
+      "MedianEDP": 1.1408,
+      "Beta": 0.7981,
+      "CurveType": "LogNormal",
+      "DSGroupType": "Single",
+      "DamageStates": [
+        {
+          "Weight": 1.0,
+          "Consequences": {
+            "ReconstructionCost": {
+              "Amount": 0.8
+            }
+          },
+          "Description": "LS-2 Complete"
+        }
+      ]
+    },
+    {
+      "MedianEDP": 2.3491,
+      "Beta": 0.7898,
+      "CurveType": "LogNormal",
+      "DSGroupType": "Single",
+      "DamageStates": [
+        {
+          "Weight": 1.0,
+          "Consequences": {
+            "ReconstructionCost": {
+              "Amount": 1.0
+            }
+          },
+          "Description": "LS-3 Collapse"
+        }
+      ]
+    }
+  ]
+}
+

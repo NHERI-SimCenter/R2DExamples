@@ -1,67 +1,161 @@
 {
-  "Name": "E5 - Ground Shaking + Liquefaction",
-  "Author": "Tamika Bassman & Adam Zsarnoczay",
-  "units": {
-    "force": "kips",
-    "length": "inch"
-  },
-  "outputs": {
-    "EDP": true,
-    "DM": true,
-    "DV": true,
-    "every_realization": false
-  },
-  "RegionalEvent": {
-    "units": {
-      "PGA": "inchps2",
-      "PGD_h": "inch",
-      "PGD_v": "inch"
+    "Applications": {
+        "Assets": {
+            "Buildings": {
+                "Application": "CSV_to_AIM",
+                "ApplicationData": {
+                    "assetSourceFile": "all_bldgs.csv",
+                    "filter": "1-10",
+                    "pathToSource": "{Current_Dir}/input_data"
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "pelicun",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ IM",
+                    "Realizations": 1000,
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": true,
+                    "log_file": true
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Performance": {
+        },
+        "RegionalEvent": {
+            "Application": "UserInputGM",
+            "ApplicationData": {
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 1000,
+                    "seed": 10
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
     },
-    "eventFile": "/IMs/EventGrid.csv"
-  },
-  "Applications": {
-    "Hazard": {
-      "Application": "UserInputGM",
-      "ApplicationData": {}
+    "Assets": {
+        "Buildings": {
+        }
     },
-    "Building": {
-      "Application": "CSV_to_BIM",
-      "ApplicationData": {
-        "filter": "1-10",
-        "buildingSourceFile": "all_bldgs.csv"
-      }
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "Buildings": {
+        }
+    },
+    "Name": "E5 - Ground Shaking + Liquefaction",
+    "Performance": {
+    },
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "{Current_Dir}/input_data/IMs",
+        "units": {
+            "PGA": "inchps2",
+            "PGD_h": "inch",
+            "PGD_v": "inch"
+        }
     },
     "RegionalMapping": {
-      "Application": "NearestNeighborEvents",
-      "ApplicationData": {
-        "samples": 1000,
-        "neighbors": 4,
-        "seed": 10,
-        "filter_label": "SoilType"
-      }
+        "Buildings": {
+        }
     },
-    "Events": [
-      {
-        "EventClassification": "Earthquake",
-        "Application": "SimCenterEvent",
-        "ApplicationData": {}
-      }
-    ],
     "Simulation": {
-      "Application": "IMasEDP",
-      "ApplicationData": {}
+        "Buildings": {
+            "type": "IMasEDP"
+        }
     },
-    "DL": {
-      "Application": "pelicun",
-      "ApplicationData": {
-        "DL_Method": "HAZUS MH EQ IM",
-        "Realizations": "1000",
-        "coupled_EDP": true,
-        "event_time": "off",
-        "detailed_results": false,
-        "log_file": true,
-        "ground_failure": true
-      }
-    }
-  }
+    "UQ": {
+        "Buildings": {
+        }
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "gas": false,
+        "soil": false,
+        "transportation": false,
+        "waste": false,
+        "water": false
+    },
+    "commonFileDir": "",
+    "localAppDir": "/Users/fmckenna/release/SimCenterBackendApplications",
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false,
+        "every_realization": false
+    },
+    "randomVariables": [
+    ],
+    "remoteAppDir": "/Users/fmckenna/release/SimCenterBackendApplications",
+    "runDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir",
+    "runType": "runningLocal",
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "inch",
+        "time": "sec"
+    },
+    "workingDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir"
 }

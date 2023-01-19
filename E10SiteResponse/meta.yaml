@@ -1,0 +1,8 @@
+summary: |
+        This example presents regional earthquake impact analysis including site response analysis and building damage and loss assessment. Overall 177 sites are included for soil response simulation under bedrock ground motion input with a building inventory including approximately 14,000 buildings in the city of Alameda, CA.
+        
+#<p>Tags: (Earthquake | Site Response | HAZUS building-level D&L)</p>
+   
+
+#Estimate damages and losses for a collection of buildings located in Alameda City, CA.
+difficulty: 0

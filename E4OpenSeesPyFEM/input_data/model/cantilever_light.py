@@ -62,6 +62,8 @@ def build_model(model_params):
         Area of the structure's footprint
 
     """
+    
+    print(model_params)
 
     # Assumptions
     h_story = 12  # Story height [ft]

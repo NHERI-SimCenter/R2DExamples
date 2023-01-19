@@ -1,0 +1,42 @@
+{
+    "tsunamiType": "dataset",
+    "id": "5bc9ea68f7b08533c7e610dd",
+    "name": "Seaside Probabilistic Tsunami - 500 yr",
+    "description": "Seaside dataset based probabilistic tsunami hazard",
+    "date": "2022-03-14T21:56:15+0000",
+    "creator": "cwang138",
+    "spaces": [
+        "cwang138",
+        "coe",
+        "incore"
+    ],
+    "hazardDatasets": [
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5bc9ea67f7b08533c77da57b",
+            "demandType": "Vmax",
+            "demandUnits": "m/s",
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        },
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5bc9ea67f7b08533c77da587",
+            "demandType": "Mmax",
+            "demandUnits": "m^3/s^2",
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        },
+        {
+            "hazardType": "probabilistic",
+            "datasetId": "5bc9ea67f7b08533c77da593",
+            "demandType": "Hmax",
+            "demandUnits": "m",
+            "threshold": null,
+            "recurrenceInterval": 500,
+            "recurrenceUnit": "years"
+        }
+    ]
+}
