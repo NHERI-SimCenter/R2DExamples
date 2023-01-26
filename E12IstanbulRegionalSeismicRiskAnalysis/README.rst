@@ -97,7 +97,7 @@ We now embark on our journey through the input panels of R2D, making known to th
    Zhang, W., Crempien, J., Kurtulus, A., Chen, P., Arduino, P., Taciroglu, E. (2023), A suite of broadband physics-based ground motion simulations for the Istanbul region, Earthquake Engineering and Structural Dynamics
    
 .. [ZhangEtAl2023-2] 
-   Zhang, W.. Chen, P., Crempien, J., Kurtulus, A., Arduino, P., Taciroglu, E. (2023), Regional-scale seismic fragility, loss, and resilience assessment using physics-based simulated ground motions: an application to Istanbul, Earthquake Engineering and Structural Dynamics
+   Zhang, W., Chen, P., Crempien, J., Kurtulus, A., Arduino, P., Taciroglu, E. (2023), Regional-scale seismic fragility, loss, and resilience assessment using physics-based simulated ground motions: an application to Istanbul, Earthquake Engineering and Structural Dynamics
 
 .. [ZhangEtAl2023-3] 
-   Zhang, W. Crempien, J. Zhong, K. Chen, P. Arduino, P. Taciroglu, E. (2023) "A suite of 57 broadband physics-based ground motion simulations for the Istanbul region", in Regional-scale physics-based ground motion simulation for Istanbul, Turkey. DesignSafe-CI. https://doi.org/10.17603/ds2-e7nq-8d52 v1
+   Zhang, W., Crempien, J., Zhong, K., Chen, P., Arduino, P., Taciroglu, E. (2023) "A suite of 57 broadband physics-based ground motion simulations for the Istanbul region", in Regional-scale physics-based ground motion simulation for Istanbul, Turkey. DesignSafe-CI. https://doi.org/10.17603/ds2-e7nq-8d52 v1
