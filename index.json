@@ -262,6 +262,31 @@
       "Simulation": "OpenSees",
       "Difficulty": "0"
     }
+  },
+  "r2dt-0012": {
+    "id": "r2dt-0012",
+    "title": "E12 - Istanbul Regional Earthquake Damage and Loss Assessment",
+    "base": "E12IstanbulRegionalSeismicRiskAnalysis",
+    "doc": [
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-ANA.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-MOD.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-ASD.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-DL.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-HAZ.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-HTA.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-VIZ.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-UQ.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/figures/r2dt-0012-GI.png",
+      "E12IstanbulRegionalSeismicRiskAnalysis/README.rst",
+      "E12IstanbulRegionalSeismicRiskAnalysis/r2dt-0012.png"
+    ],
+    "summary": "This example features a systematic regional seismic damage and loss assessment for Istanbul, Turkey. The ground motion acceleration time histories were simulated using the hercules software and a detailed geophysical model of Istanbul region ([ZhangEtAl2021]_). The ground motions are used to investigate the impact of a Mw7.0 earthquake on the Central Marmara Basin fault. Engineering Demand Parameters are simulated with OpenSees models for individual reinforced concrete buildings in this example. Building damage and loss is evaluated the story-level based on the HAZUS earthquake damage and loss assessment methodology.\n",
+    "logo": "r2dt-0012.png",
+    "categories": {
+      "Damage and Loss": "HAZUS MH EQ",
+      "Simulation": "CustomPy-Simulation",
+      "Difficulty": "1"
+    }
   }
 },
 "categories": {
