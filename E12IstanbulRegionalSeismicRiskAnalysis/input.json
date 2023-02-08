@@ -1,0 +1,181 @@
+{
+    "Applications": {
+        "Assets": {
+            "Buildings": {
+                "Application": "CSV_to_AIM",
+                "ApplicationData": {
+                    "assetSourceFile": "BIM_SC.csv",
+                    "filter": "1-10",
+                    "pathToSource": "{Current_Dir}/input_data/OpenSeesModel"
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "pelicun",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ",
+                    "Realizations": 10,
+                    "coupled_EDP": false,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": false,
+                    "log_file": true
+                }
+            }
+        },
+        "EDP": {
+            "Application": "StandardEarthquakeEDP",
+            "ApplicationData": {
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "CustomPyInput",
+                "ApplicationData": {
+                    "mainScript": "building_model_main.py",
+                    "modelPath": "{Current_Dir}/input_data/OpenSeesModel"
+                }
+            }
+        },
+        "Performance": {
+        },
+        "RegionalEvent": {
+            "Application": "UserInputGM",
+            "ApplicationData": {
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 5,
+                    "seed": 624
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "CustomPy-Simulation",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "Dakota-UQ",
+                "ApplicationData": {
+                }
+            }
+        }
+    },
+    "Assets": {
+        "Buildings": {
+        }
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "Buildings": {
+            "centroidNodes": [
+            ],
+            "dampingRatio": 0.02,
+            "ndf": 3,
+            "ndm": 2,
+            "randomVar": [
+            ],
+            "responseNodes": [
+            ],
+            "type": "CustomPyInput"
+        }
+    },
+    "Name": "E12 - Istanbul Regional Seismic Risk Analysis",
+    "Performance": {
+    },
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "{Current_Dir}/input_data/GroundMotionData/Seismograms",
+        "units": {
+            "TH_file": "g",
+            "factor": "scalar"
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "Application": "CustomPy-Simulation"
+        }
+    },
+    "UQ": {
+        "Buildings": {
+            "parallelExecution": true,
+            "samplingMethodData": {
+                "method": "LHS",
+                "samples": 5,
+                "seed": 868
+            },
+            "saveWorkDir": true,
+            "uqType": "Forward Propagation"
+        }
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "gas": false,
+        "soil": false,
+        "transportation": false,
+        "waste": false,
+        "water": false
+    },
+    "commonFileDir": "",
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false,
+        "every_realization": false
+    },
+    "randomVariables": [
+    ],
+    "runType": "runningLocal",
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "inch",
+        "time": "sec"
+    }
+}
