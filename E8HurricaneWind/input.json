@@ -1,89 +1,167 @@
 {
-  "Name": "E8 - Hurricane Wind",
-  "Author": "Kuanshi Zhong, Stevan Gavrilovic",
-  "units": {
-    "force": "kips",
-    "length": "ft"
-  },
-  "outputs": {
-    "EDP": true,
-    "DM": true,
-    "DV": true,
-    "BIM": true,
-    "every_realization": false
-  },
-  "RegionalEvent": {
-    "units": {
-      "PWS": "mph"
+    "Applications": {
+        "Assets": {
+            "Buildings": {
+                "Application": "GIS_to_AIM",
+                "ApplicationData": {
+                    "CRS": "EPSG:4326",
+                    "assetGISFile": "BIM_LakeCharles_Full.gpkg",
+                    "assetSourceFile": "BIM_LakeCharles_Full.csv",
+                    "filter": "1-20",
+                    "pathToSource": "/Users/fmckenna/release/R2DExamples/E8HurricaneWind/input_data/GISBuildingInventory"
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "pelicun",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH HU",
+                    "Realizations": 5000,
+                    "auto_script": "auto_HU_LA.py",
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": false,
+                    "log_file": true,
+                    "path_to_auto_script": "/Users/fmckenna/release/R2DExamples/E8HurricaneWind/input_data/ruleset"
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Performance": {
+        },
+        "RegionalEvent": {
+            "Application": "UserInputRasterHazard",
+            "ApplicationData": {
+                "CRS": "EPSG:4326",
+                "bands": [
+                    "PWS"
+                ],
+                "eventClassification": "Hurricane",
+                "pathToSource": "/Users/fmckenna/release/R2DExamples/E8HurricaneWind/input_data/IMs",
+                "rasterFile": "LakeCharlesWindField.tif"
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "SiteSpecifiedEvents",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
     },
-    "eventFile": "EventGrid.csv"
-  },
-  "Applications": {
-      "Assets" : {
-          "Buildings": {
-              "Application": "GIS_to_AIM",
-              "ApplicationData": {
-                  "filter": "1-20",
-                  "CRS": "EPSG:4326",
-                  "assetGISFile": "GISBuildingInventory/BIM_LakeCharles_Full.gpkg"
-              }
-	  }
-      },
-      "Hazard": {
-	  "Application": "UserInputRasterHazard",
-	  "ApplicationData": {
-              "rasterFile": "IMs/LakeCharlesWindField.tif",
-              "CRS": "EPSG:4326",
-              "eventClassification": "Hurricane",
-              "bands": ["PWS"]
-	  }
-      },
-      "RegionalMapping": {
-	  "Buildings": {
-	      "Application": "SiteSpecifiedEvents",
-              "ApplicationData": {}	      
-	  }
-      },
-      "Events": [
-	  {
-              "EventClassification": "Hurricane",
-              "Application": "SimCenterEvent",
-              "ApplicationData": {}
-	  }
-      ],
-      "Modeling": {
-          "Buildings": {
-	      "Application": "None",
-	      "ApplicationData": {
-	      }
-          }
-      },
-      "UQ": {
-          "Buildings": {
-	      "Application": "None",
-	      "ApplicationData": {
-	      }
-          }
-      },      
-      "Simulation": {
-	  "Buildings": {
-	      "Application": "IMasEDP",
-	      "ApplicationData": {}
-	  }
-      },
-      "DL": {
-	  "Buildings": {
-	      "Application": "pelicun",
-	      "ApplicationData": {
-		  "DL_Method": "HAZUS MH HU",
-		  "Realizations": "5000",
-		  "coupled_EDP": true,
-		  "detailed_results": false,
-		  "log_file": true,
-		  "auto_script": "ruleset/auto_HU_LA.py"
-	      }
-	  }
-      }
-  }
+    "Assets": {
+        "Buildings": {
+        }
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "Buildings": {
+        }
+    },
+    "Name": "E8 - Hurricane Wind",
+    "Performance": {
+    },
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "/Users/fmckenna/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
+        "units": {
+            "PWS": "mph"
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        }
+    },
+    "UQ": {
+        "Buildings": {
+        }
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "gas": false,
+        "soil": false,
+        "transportation": false,
+        "waste": false,
+        "water": false
+    },
+    "commonFileDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
+    "localAppDir": "/Users/fmckenna/release/SimCenterBackendApplications",
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false,
+        "every_realization": false
+    },
+    "randomVariables": [
+    ],
+    "remoteAppDir": "/Users/fmckenna/release/SimCenterBackendApplications",
+    "runDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir",
+    "runType": "runningLocal",
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "ft",
+        "time": "sec"
+    },
+    "workingDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir"
 }
-

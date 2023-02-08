@@ -1,84 +1,163 @@
 {
-  "Name": "E6 - ShakeMap",
-  "Author": "Adam Zsarnoczay, Major Zeng, and Stevan Gavrilovic",
-  "units": {
-      "force": "kips",
-      "length": "ft"
-   },
-  "outputs": {
-    "EDP": true,
-    "DM": true,
-    "DV": true,
-    "every_realization": false
-  },
-  "RegionalEvent": {
-      "units": {
-          "PGA": "g"
-      },
-      "eventFile": "EventGrid.csv"
-  },
     "Applications": {
-	"Hazard": {
-            "Application": "UserInputShakeMap",
-            "ApplicationData": {
-		"Directory": "E6ShakemapScenario/input_data/ShakeMapIMs"
-	    }
-	},
-	"Assets" : {
+        "Assets": {
             "Buildings": {
-		"Application": "CSV_to_AIM",
-		"ApplicationData": {
+                "Application": "CSV_to_AIM",
+                "ApplicationData": {
+                    "assetSourceFile": "San_Mateo_buildings.csv",
                     "filter": "1-5",
-                    "assetSourceFile":"San_Mateo_buildings.csv"
-		}
-	    }
-	},
-	"RegionalMapping": {
-            "Buildings": {	  
-		"Application": "NearestNeighborEvents",
-		"ApplicationData": {
-		    "samples": 100,
-		    "neighbors": 4
-		}
-	    }
-	},
-	"Events": [{
-	    "EventClassification": "Earthquake",
-	    "Application": "SimCenterEvent",
-	    "ApplicationData": {}
-	}],
-	"Simulation": {
-            "Buildings": {	  
-		"Application": "IMasEDP",
-		"ApplicationData": {}
-	    }
-	},
+                    "pathToSource": "{Current_Dir}/input_data"
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "pelicun",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ IM",
+                    "Realizations": 100,
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": false,
+                    "log_file": true
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
         "Modeling": {
             "Buildings": {
                 "Application": "None",
                 "ApplicationData": {
                 }
             }
-        },	
+        },
+        "Performance": {
+        },
+        "RegionalEvent": {
+            "Application": "UserInputShakeMap",
+            "ApplicationData": {
+                "Directory": "{Current_Dir}/input_data/ShakeMapIMs",
+                "IntensityMeasureType": [
+                    "PGA"
+                ]
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 447
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
         "UQ": {
             "Buildings": {
                 "Application": "None",
                 "ApplicationData": {
                 }
             }
-	},
-	"DL": {
-            "Buildings": {	  
-		"Application": "pelicun",
-		"ApplicationData": {
-		    "DL_Method": "HAZUS MH EQ IM",
-		    "Realizations": "100",
-		    "coupled_EDP": true,
-		    "event_time": "off",
-		    "detailed_results": false,
-		    "log_file": true
-		}
-	    }
-	}
-    }
+        }
+    },
+    "Assets": {
+        "Buildings": {
+        }
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "Buildings": {
+        }
+    },
+    "Name": "E6 - ShakeMap",
+    "Performance": {
+    },
+    "RegionalEvent": {
+        "eventFile": "",
+        "eventFilePath": "",
+        "units": {
+            "PGA": "g"
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        }
+    },
+    "UQ": {
+        "Buildings": {
+        }
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "gas": false,
+        "soil": false,
+        "transportation": false,
+        "waste": false,
+        "water": false
+    },
+    "commonFileDir": "",
+    "localAppDir": "/Users/fmckenna/release/SimCenterBackendApplications",
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false,
+        "every_realization": false
+    },
+    "randomVariables": [
+    ],
+    "remoteAppDir": "/Users/fmckenna/release/SimCenterBackendApplications",
+    "runDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir",
+    "runType": "runningLocal",
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "ft",
+        "time": "sec"
+    },
+    "workingDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir"
 }
