@@ -150,7 +150,7 @@
                 "seed": 2
             },
             "saveWorkDir": true,
-            "uqType": ""
+            "uqType": "Forward Propagation"
         }
     },
     "WorkflowType": "Parametric Study",
