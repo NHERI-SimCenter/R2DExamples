@@ -138,8 +138,6 @@
         "waste": false,
         "water": false
     },
-    "commonFileDir": "",
-    "localAppDir": "/Users/fmckenna/release/SimCenterBackendApplications",
     "outputs": {
         "AIM": false,
         "DM": true,
@@ -150,14 +148,11 @@
     },
     "randomVariables": [
     ],
-    "remoteAppDir": "/Users/fmckenna/release/SimCenterBackendApplications",
-    "runDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir",
-    "runType": "runningLocal",
     "type": "Earthquake",
     "units": {
         "force": "kips",
         "length": "ft",
         "time": "sec"
-    },
-    "workingDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir"
+
+    }
 }

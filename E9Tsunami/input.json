@@ -51,6 +51,8 @@
 		"ApplicationData": {}
 	    }
 	],
+	"Performance": {
+	},
 	"Simulation": {
 	    "Buildings": {
 		"Application": "IMasEDP",
@@ -85,6 +87,33 @@
 		}
 	    }
 	}
-    }
+    },
+    "Assets": {
+        "Buildings": {
+        }
+    },
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "Modeling": {
+        "Buildings": {
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        }
+    },
+    "UQ": {
+        "Buildings": {
+        }
+    },
+    "Performance": {
+    }    
 }
     

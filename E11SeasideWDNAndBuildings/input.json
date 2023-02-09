@@ -142,5 +142,47 @@
 		}
 	    }
 	}
-    }
+    },
+    "Assets": {
+        "Buildings": {
+        },
+        "WaterDistributionNetwork": {
+        }
+    },
+    "Modeling": {
+        "Buildings": {
+        },
+        "WaterDistributionNetwork": {
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        },
+        "WaterDistributionNetwork": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        },
+        "WaterDistributionNetwork": {
+            "type": "IMasEDP"
+        }
+    },
+    "UQ": {
+        "Buildings": {
+        },
+        "WaterDistributionNetwork": {
+        }
+    },
+    "DL": {
+        "Buildings": {
+        },
+        "WaterDistributionNetwork": {
+        }
+    },
+    "Performance": {
+        "WaterNetworkModeling": {
+        }
+    }    
 }
