@@ -68,7 +68,7 @@
         },
         "Simulation": {
             "Buildings": {
-                "Application": "None",
+                "Application": "OpenSeesPy-Simulation",
                 "ApplicationData": {
                 }
             }
