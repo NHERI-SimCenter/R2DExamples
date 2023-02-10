@@ -1,86 +1,156 @@
 {
-  "Name": "E7 - Hurricane Wind + Water",
-  "Author": "Kuanshi Zhong, Stevan Gavrilovic",
-  "units": {
-    "force": "kips",
-    "length": "ft"
-  },
-  "outputs": {
-    "EDP": true,
-    "DM": true,
-    "DV": true,
-    "every_realization": false
-  },
-  "RegionalEvent": {
-    "units": {
-      "PIH": "ft",
-      "PWS": "mph"
-    },
-    "eventFile": "IMs/EventGrid.csv"
-  },
     "Applications": {
-	"Assets" : {
+        "Assets": {
             "Buildings": {
-		"Application": "CSV_to_AIM",
-		"ApplicationData": {
+                "Application": "CSV_to_AIM",
+                "ApplicationData": {
+                    "assetSourceFile": "AtlanticBuildingInventory.csv",
                     "filter": "1-20",
-                    "assetSourceFile": "AtlanticBuildingInventory.csv"
-		}
+                    "pathToSource": "{Current_Dir}/input_data"
+                }
             }
-	},
-	"Hazard": {
-	    "Application": "UserInputHurricane",
-	    "ApplicationData": {}
-	},
-	"RegionalMapping": {
-	    "Buildings": {
-		"Application": "NearestNeighborEvents",
-		"ApplicationData": {
-		    "samples": 10,
-		    "neighbors": 4
-		}
-	    }
-	},
-	"Events": [
-	    {
-		"EventClassification": "Hurricane",
-		"Application": "SimCenterEvent",
-		"ApplicationData": {}
-	    }
-	],
-	"Simulation": {
-	    "Buildings": {
-		"Application": "IMasEDP",
-		"ApplicationData": {}
-	    }
-	},
-	"UQ": {
+        },
+        "DL": {
             "Buildings": {
-		"Application": "None",
-		"ApplicationData": {
-		}
+                "Application": "pelicun",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH HU",
+                    "Realizations": 5000,
+                    "auto_script": "auto_HU_NJ.py",
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": false,
+                    "log_file": true,
+                    "path_to_auto_script": "{Current_Dir}/input_data"
+                }
             }
-	},
-	"Modeling": {
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
             "Buildings": {
-		"Application": "None",
-		"ApplicationData": {
-		}
+                "Application": "None",
+                "ApplicationData": {
+                }
             }
-	},	
-	"DL": {
-	    "Buildings": {
-		"Application": "pelicun",
-		"ApplicationData": {
-		    "DL_Method": "HAZUS MH HU",
-		    "Realizations": "5000",
-		    "coupled_EDP": true,
-		    "detailed_results": false,
-		    "log_file": true,
-		    "auto_script": "auto_HU_NJ.py"
-		}
-	    }
-	}
+        },
+        "Performance": {
+        },
+        "RegionalEvent": {
+            "Application": "UserInputHurricane",
+            "ApplicationData": {
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 10,
+                    "seed": 75
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
+    },
+    "Assets": {
+        "Buildings": {
+        }
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "Buildings": {
+        }
+    },
+    "Name": "E7 - Hurricane Wind + Water",
+    "Performance": {
+    },
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "{Current_Dir}/input_data/IMs",
+        "units": {
+            "PIH": "ft",
+            "PWS": "mph"
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        }
+    },
+    "UQ": {
+        "Buildings": {
+        }
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "gas": false,
+        "soil": false,
+        "transportation": false,
+        "waste": false,
+        "water": false
+    },
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false,
+        "every_realization": false
+    },
+    "randomVariables": [
+    ],
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "ft",
+        "time": "sec"
     }
 }
-
