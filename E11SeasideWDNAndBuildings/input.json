@@ -21,6 +21,7 @@
 	    "PGA": "g",
 	    "PGD": "inch"
 	},
+	"intensityMeasures":["PGA","PGD"],
 	"eventFile": "EventGrid.csv"
     },
     "Applications": {
@@ -60,8 +61,7 @@
 	    "ApplicationData": {
 		"rasterFile": "IMs/1000yr/EQ_1000yr.tif",
 		"CRS": "EPSG:4326",
-		"eventClassification": "Earthquake",
-		"bands": ["PGA","PGD"]
+		"eventClassification": "Earthquake"
 	    }
 	},
 	"RegionalMapping": {

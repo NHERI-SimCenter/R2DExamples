@@ -16,6 +16,7 @@
 	"units": {
 	    "PIH": "m"
 	},
+	"intensityMeasures": ["PIH"],
 	"eventFile": "EventGrid.csv"
     },
     "Applications": {
