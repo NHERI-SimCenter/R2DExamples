@@ -1,188 +1,129 @@
 {
-    "Name": "E11 - Seaside WDN Earthquake",
-    "Author": "Stevan Gavrilovic",
-    "units": {
-	"force": "lb",
-	"length": "inch"
-    },
-    "outputs": {
-	"EDP": true,
-	"DM": true,
-	"DV": true,
-	"AIM": true,
-	"every_realization": false
-    },
-    "assets": {
-	"buildings": true,
-	"water": true
-    },
-    "RegionalEvent": {
+	"Name": "E11 - Seaside WDN Earthquake",
+	"Author": "Stevan Gavrilovic",
 	"units": {
-	    "PGA": "g",
-	    "PGD": "inch"
+		"force": "lb",
+		"length": "inch"
 	},
-	"eventFile": "EventGrid.csv"
-    },
-    "Applications": {
-	"Assets" : {
-	    "Buildings": {
-		"Application": "GIS_to_AIM",
-		"ApplicationData": {
-		    "filter": "2000-2010",
-		    "CRS": "EPSG:4326",
-		    "assetGISFile": "BuildingInventory/Seaside_Buildings.gpkg"
-		}
-	    },
-	    "WaterDistributionNetwork": {
-		"Application" : "GIS_to_WATERNETWORK",
-		"ApplicationData" : {
-		    "WaterNetworkNodes": {
-			"Application": "GIS_to_AIM",
-			"ApplicationData": {
-			    "filter": "1-10",
-			    "CRS": "EPSG:4326",
-			    "assetGISFile": "WDN/Nodes/Seaside_water_nodes.shp"
+	"outputs": {
+		"EDP": true,
+		"DM": true,
+		"DV": true,
+		"AIM": true,
+		"every_realization": false
+	},
+	"assets": {
+		"buildings": true,
+		"water": true
+	},
+	"RegionalEvent": {
+		"units": {
+            "PGA": "g",
+			"PGV": "cmps"
+		},
+		"eventFile": "EventGrid.csv"
+	},
+	"Applications": {
+		"Assets" : {
+			"Buildings": {
+				"Application": "GIS_to_AIM",
+				"ApplicationData": {
+					"filter": "2000-2010",
+					"CRS": "EPSG:4326",
+					"assetGISFile": "BuildingInventory/Seaside_Buildings.gpkg"
+				}
+			},
+			"WaterDistributionNetwork": {
+				"Application" : "GIS_to_WATERNETWORK",
+				"ApplicationData" : {
+					"WaterNetworkNodes": {
+						"Application": "GIS_to_AIM",
+						"ApplicationData": {
+							"filter": "1-10",
+							"CRS": "EPSG:4326",
+							"assetGISFile": "WDN/Nodes/Seaside_water_nodes.shp"
+						}
+					},
+					"WaterNetworkPipelines": {
+						"Application": "GIS_to_AIM",
+						"ApplicationData": {
+							"filter": "1-10",
+							"CRS": "EPSG:4326",
+							"assetGISFile": "WDN/Pipelines/Seaside_water_pipelines_wgs84.shp"
+						}
+					}
+				}
 			}
-		    },
-		    "WaterNetworkPipelines": {
-			"Application": "GIS_to_AIM",
+		},
+		"Hazard": {
+			"Application": "UserInputRasterHazard",
 			"ApplicationData": {
-			    "filter": "1-10",
-			    "CRS": "EPSG:4326",
-			    "assetGISFile": "WDN/Pipelines/Seaside_water_pipelines_wgs84.shp"
+				"rasterFile": "IMs/1000yr/EQ_1000yr.tif",
+				"CRS": "EPSG:4326",
+				"eventClassification": "Earthquake",
+				"bands": ["PGA","PGV"]
+				}
+		},
+		"RegionalMapping": {
+			"Application": "SiteSpecifiedEvents"
+		},
+		"Events": [
+			{
+				"EventClassification": "Earthquake",
+				"Application": "SimCenterEvent",
+				"ApplicationData": {}
 			}
-		    }
+		],
+		"Modeling": {
+			"Buildings": {
+				"Application": "None",
+				"ApplicationData": {}
+			},
+			"WaterDistributionNetwork": {
+				"Application": "None",
+				"ApplicationData": {}
+			}
+		},
+		"Simulation": {
+			"Buildings": {
+				"Application": "IMasEDP",
+				"ApplicationData": {}
+			},
+			"WaterDistributionNetwork": {
+				"Application": "IMasEDP",
+				"ApplicationData": {}
+			}
+		},
+		"DL": {
+			"Buildings": {
+				"Application": "pelicun",
+				"ApplicationData": {
+				"DL_Method": "User-provided Fragilities",
+				"Realizations": "5",
+				"coupled_EDP": true,
+				"detailed_results": false,
+				"log_file": false,
+				"auto_script": "ruleset/custom_pop.py",
+				"custom_fragility_dir" : "CustomFragilities"
+				}
+			},
+			"WaterDistributionNetwork": {
+				"Application": "CBCitiesDL",
+				"ApplicationData": {
+				}
+			}
+		},
+		"Performance": {
+			"Buildings": {
+				"Application": "None",
+				"ApplicationData": {
+				}
+			},
+			"WaterDistributionNetwork": {
+				"Application": "None",
+				"ApplicationData": {
+				}
+			}
 		}
-	    }
-	},
-	"Hazard": {
-	    "Application": "UserInputRasterHazard",
-	    "ApplicationData": {
-		"rasterFile": "IMs/1000yr/EQ_1000yr.tif",
-		"CRS": "EPSG:4326",
-		"eventClassification": "Earthquake",
-		"bands": ["PGA","PGD"]
-	    }
-	},
-	"RegionalMapping": {
-	    "Buildings":{		
-		"Application": "SiteSpecifiedEvents",
-		"ApplicationData": {}		
-	    },
-	    "WaterDistributionNetwork" : {
-		"Application": "SiteSpecifiedEvents",
-		"ApplicationData": {}		
-	    }		
-	},
-	"Events": [
-	    {
-		"EventClassification": "Earthquake",
-		"Application": "SimCenterEvent",
-		"ApplicationData": {}
-	    }
-	],
-	"UQ": {
-	    "Buildings": {
-		"Application": "None",
-		"ApplicationData": {}
-	    },
-	    "WaterDistributionNetwork": {
-		"Application": "None",
-		"ApplicationData": {}
-	    }	    
-	},
-	"Modeling": {
-	    "Buildings": {
-		"Application": "None",
-		"ApplicationData": {}
-	    },
-	    "WaterDistributionNetwork": {
-		"Application": "None",
-		"ApplicationData": {}
-	    }
-	},	
-	"Simulation": {
-	    "Buildings": {
-		"Application": "IMasEDP",
-		"ApplicationData": {}
-	    },
-	    "WaterDistributionNetwork": {
-		"Application": "IMasEDP",
-		"ApplicationData": {}
-	    }
-	},
-	"DL": {
-	    "Buildings": {
-		"Application": "pelicun",
-		"ApplicationData": {
-		    "DL_Method": "User-provided Fragilities",
-		    "Realizations": "5",
-		    "coupled_EDP": true,
-		    "detailed_results": false,
-		    "log_file": false,
-		    "auto_script": "ruleset/custom_pop.py",
-		    "custom_fragility_dir" : "CustomFragilities"
-		}
-	    },
-	    "WaterDistributionNetwork": {
-		"Application": "None",
-		"ApplicationData": {
-		}
-	    }
-	},
-	"Performance": {
-	    "Buildings": {
-		"Application": "None",
-		"ApplicationData": {
-		}
-	    },
-	    "WaterDistributionNetwork": {
-		"Application": "None",
-		"ApplicationData": {
-		}
-	    }
 	}
-    },
-    "Assets": {
-        "Buildings": {
-        },
-        "WaterDistributionNetwork": {
-        }
-    },
-    "Modeling": {
-        "Buildings": {
-        },
-        "WaterDistributionNetwork": {
-        }
-    },
-    "RegionalMapping": {
-        "Buildings": {
-        },
-        "WaterDistributionNetwork": {
-        }
-    },
-    "Simulation": {
-        "Buildings": {
-            "type": "IMasEDP"
-        },
-        "WaterDistributionNetwork": {
-            "type": "IMasEDP"
-        }
-    },
-    "UQ": {
-        "Buildings": {
-        },
-        "WaterDistributionNetwork": {
-        }
-    },
-    "DL": {
-        "Buildings": {
-        },
-        "WaterDistributionNetwork": {
-        }
-    },
-    "Performance": {
-        "WaterNetworkModeling": {
-        }
-    }    
 }

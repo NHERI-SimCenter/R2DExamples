@@ -1,0 +1,122 @@
+{
+    "Name": "E13 - Hurricane Wind",
+    "Author": "Barbaros Cetiner, Stevan Gavrilovic",
+    "units": {
+        "force": "kips",
+        "length": "ft",
+        "time": "sec"
+    },
+    "outputs": {
+        "AIM": true,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false,
+        "every_realization": false
+    },
+    "Applications": {
+        "Assets": {
+            "Buildings": {
+                "Application": "GIS_to_AIM",
+                "ApplicationData": {
+                    "filter": "1-20",
+                    "CRS": "EPSG:4326",
+                    "assetGISFile": "buildings/fort_myers_beach.geojson"
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "pelicun",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH HU",
+                    "Realizations": 5000,
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": false,
+                    "log_file": true
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Performance": {
+        },
+        "RegionalEvent": {
+            "Application": "UserInputGISHazard",
+            "ApplicationData": {
+                "GISFile": "CERA_IAN_MaxElev/maxelev_points.shp",
+                "eventClassification": "Hurricane"
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "GISSpecifiedEvents",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
+    },
+    "Assets": {
+        "Buildings": {
+        }
+    },
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "Modeling": {
+        "Buildings": {
+        }
+    },
+    "Performance": {
+    },
+    "RegionalEvent": {
+        "units": {
+            "PIH": "ft"
+        },
+	"intensityMeasures":["PIH"],
+	"intensityLabels":["MAXELEV"]	
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        }
+	},
+    "UQ": {
+        "Buildings": {
+        }
+    }
+}

@@ -49,9 +49,6 @@
             "Application": "UserInputRasterHazard",
             "ApplicationData": {
                 "CRS": "EPSG:4326",
-                "bands": [
-                    "PWS"
-                ],
                 "eventClassification": "Hurricane",
                 "pathToSource": "/Users/fmckenna/release/R2DExamples/E8HurricaneWind/input_data/IMs",
                 "rasterFile": "LakeCharlesWindField.tif"
@@ -118,7 +115,10 @@
         "eventFilePath": "/Users/fmckenna/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
         "units": {
             "PWS": "mph"
-        }
+        },
+        "intensityMeasures": [
+            "PWS"
+        ]	
     },
     "RegionalMapping": {
         "Buildings": {
