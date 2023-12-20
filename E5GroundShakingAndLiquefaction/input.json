@@ -12,7 +12,7 @@
         },
         "DL": {
             "Buildings": {
-                "Application": "pelicun",
+                "Application": "Pelicun3",
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH EQ IM",
                     "Realizations": 1000,
