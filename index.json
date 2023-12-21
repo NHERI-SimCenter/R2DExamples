@@ -287,6 +287,33 @@
       "Simulation": "CustomPy-Simulation",
       "Difficulty": "1"
     }
+  },
+  "r2dt-0014": {
+    "id": "r2dt-0014",
+    "title": "E14 - Basic HAZUS Transportation Infrastructure",
+    "base": "E14BasicHAZUSTransportation",
+    "doc": [
+      "E14BasicHAZUSTransportation/r2dt-0014.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-ASD-building.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-ASD-transport.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-HAZ.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-FULL.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-HTA.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-VIZ.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-MOD.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-DL.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-GI.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-ANA.png",
+      "E14BasicHAZUSTransportation/figures/r2dt-0014-UQ.png",
+      "E14BasicHAZUSTransportation/README.rst"
+    ],
+    "summary": "This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology for tranportation infrastructure.\n",
+    "logo": "r2dt-0014.png",
+    "categories": {
+      "Damage and Loss": "HAZUS MH EQ IM",
+      "Simulation": "IMasEDP",
+      "Difficulty": "1"
+    }
   }
 },
 "categories": {
