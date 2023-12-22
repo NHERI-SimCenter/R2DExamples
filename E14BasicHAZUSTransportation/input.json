@@ -1,0 +1,173 @@
+{
+    "Applications": {
+        "Assets": {
+            "Buildings": {
+                "Application": "CSV_to_AIM",
+                "ApplicationData": {
+                    "assetSourceFile": "all_bldgs.csv",
+                    "filter": "1-2",
+                    "pathToSource": "{Current_Dir}/input_data"
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "GEOJSON_TO_ASSET",
+                "ApplicationData": {
+                    "assetFile": "AI_hwy_inventory.geojson",
+                    "Bridge": {
+                            "filter": "0"
+                    },
+                    "Tunnel": {
+                            "filter": "0"
+                    },
+                    "Roadway": {
+                            "filter": "3015,3016,3017,3020, 3021, 3022, 3023, 3024,3025"
+                    }
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ IM",
+                    "Realizations": 100,
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": true,
+                    "log_file": true
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ IM",
+                    "Realizations": 100,
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "event_time": "off",
+                    "ground_failure": true,
+                    "log_file": true
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {},
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {}
+            },
+            "TransportationNetwork": {
+                "Application": "None",
+                "ApplicationData": {}
+            }
+        },
+        "Performance": {},
+        "RegionalEvent": {
+            "Application": "UserInputGM",
+            "ApplicationData": {}
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 10
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 10
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {}
+            },
+            "TransportationNetwork": {
+                "Application": "IMasEDP",
+                "ApplicationData": {}
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {}
+            },
+            "TransportationNetwork": {
+                "Application": "None",
+                "ApplicationData": {}
+            }
+        }
+    },
+    "Assets": {
+        "Buildings": {}
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {}
+    },
+    "Modeling": {
+        "Buildings": {}
+    },
+    "Name": "E14 - HAZUS Transportation",
+    "Performance": {},
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "{Current_Dir}/input_data/IMs",
+        "units": {
+            "PGA": "inchps2",
+            "SA_0.3": "inchps2",
+            "SA_1.0": "inchps2",
+            "PGD_h": "inch",
+            "PGD_v": "inch"
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {}
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        }
+    },
+    "UQ": {
+        "Buildings": {}
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "gas": false,
+        "soil": false,
+        "transportation": true,
+        "waste": false,
+        "water": false
+    },
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false,
+        "every_realization": false
+    },
+    "randomVariables": [],
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "inch",
+        "time": "sec"
+    }
+}
