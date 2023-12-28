@@ -14,7 +14,7 @@
             "Buildings": {
                 "Application": "Pelicun3",
                 "ApplicationData": {
-                    "DL_Method": "HAZUS MH EQ",
+                    "DL_Method": "HAZUS MH EQ Story",
                     "Realizations": 5,
                     "coupled_EDP": true,
                     "detailed_results": false,
