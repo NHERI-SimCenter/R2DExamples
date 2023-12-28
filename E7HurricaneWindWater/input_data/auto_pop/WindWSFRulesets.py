@@ -143,8 +143,8 @@ def WSF_config(BIM):
     # For homes with wind speed consideration, 2015 IRC Section R802.11: no
     # specific connection type, must resist uplift forces using various
     # guidance documents, e.g., straps would be required (based on WFCM 2015);
-    # will assume that if classified as HazardProneRegion, then enhanced
-    # connection would be used.
+    # will assume that if classified as HazardProneRegion, then enhanced connection would be
+    # used.
     if year > 2015:
         if BIM['HazardProneRegion']:
             RWC = 'strap'  # Strap
@@ -188,8 +188,8 @@ def WSF_config(BIM):
     # Shutters
     # IRC 2000-2015:
     # R301.2.1.2 in NJ IRC 2015 says protection of openings required for
-    # buildings located in WindBorneDebris regions, mentions impact-rated protection
-    # for glazing, impact-resistance for garage door glazed openings, and finally
+    # buildings located in WBD regions, mentions impact-rated protection for
+    # glazing, impact-resistance for garage door glazed openings, and finally
     # states that wood structural panels with a thickness > 7/16" and a
     # span <8' can be used, as long as they are precut, attached to the framing
     # surrounding the opening, and the attachments are resistant to corrosion
@@ -224,10 +224,10 @@ def WSF_config(BIM):
     # Permitted for buildings where the ultimate design wind speed is 180 mph
     # or less.
     #
-    # Average lifespan of a garage is 30 years, so garages that are not in
-    # WindBorneDebris (and therefore do not have any strength requirements) that
-    # are older than 30 years are considered to be weak, whereas those from the
-    # last 30 years are considered to be standard.
+    # Average lifespan of a garage is 30 years, so garages that are not in WBD
+    # (and therefore do not have any strength requirements) that are older than
+    # 30 years are considered to be weak, whereas those from the last 30 years
+    # are considered to be standard.
     if BIM['Garage'] == -1:
         # no garage data, using the default "standard"
         garage = 'std'
@@ -279,6 +279,6 @@ def WSF_config(BIM):
                   f"{garage}." \
                   f"{int(shutters)}." \
                   f"{int(BIM['TerrainRoughness'])}"
-                  
+
     return bldg_config
 
