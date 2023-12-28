@@ -64,14 +64,14 @@ def Assm_config(BIM):
         A string that identifies a specific configration within this buidling
         class.
     """
-    year = BIM['year_built'] # just for the sake of brevity
+    year = BIM['YearBuilt'] # just for the sake of brevity
 
     # Flood Type
-    if BIM['flood_zone'] in ['AO']:
+    if BIM['FloodZone'] in ['AO']:
         flood_type = 'raz' # Riverline/A-Zone
-    elif BIM['flood_zone'] in ['AE', 'AH', 'A']:
+    elif BIM['FloodZone'] in ['AE', 'AH', 'A']:
         flood_type = 'caz' # Costal/A-Zone
-    elif BIM['flood_zone'] in ['VE']:
+    elif BIM['FloodZone'] in ['VE']:
         flood_type = 'cvz' # Costal/V-Zone
     else:
         flood_type = 'caz' # Default
@@ -88,18 +88,18 @@ def Assm_config(BIM):
                  1983, 1977, 1982, 1983, 1974, 1974, 1982, 1979, 1983, 1983,
                  1982, 1971, 1979]
     for i in range(0,22):
-        PostFIRM = (((BIM['city'] == city_list[i]) and (year > year_list[i])) or \
+        PostFIRM = (((BIM['City'] == city_list[i]) and (year > year_list[i])) or \
                     PostFIRM)
 
     # fl_assm
     fl_assm = f"{'fl_surge_assm'}_" \
-              f"{BIM['occupancy_class']}_" \
+              f"{BIM['OccupancyClass']}_" \
               f"{int(PostFIRM)}_" \
               f"{flood_type}"
 
     # hu_assm
     hu_assm = f"{'hu_surge_assm'}_" \
-              f"{BIM['occupancy_class']}_" \
+              f"{BIM['OccupancyClass']}_" \
               f"{int(PostFIRM)}"
 
     return hu_assm, fl_assm

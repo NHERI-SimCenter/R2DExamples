@@ -44,8 +44,6 @@
 # Tracy Kijewski-Correa
 
 import random
-import numpy as np
-import datetime
 
 def SECB_config(BIM):
     """
@@ -63,10 +61,10 @@ def SECB_config(BIM):
         class.
     """
 
-    year = BIM['year_built'] # just for the sake of brevity
+    year = BIM['YearBuilt'] # just for the sake of brevity
 
     # Roof cover
-    if BIM['roof_shape'] in ['gab', 'hip']:
+    if BIM['RoofShape'] in ['gab', 'hip']:
         roof_cover = 'bur'
         # Warning: HAZUS does not have N/A option for CECB, so here we use bur
     else:
@@ -78,7 +76,7 @@ def SECB_config(BIM):
 
     # shutters
     if year >= 2000:
-        shutters = BIM['WBD']
+        shutters = BIM['WindBorneDebris']
     # BOCA 1996 and earlier:
     # Shutters were not required by code until the 2000 IBC. Before 2000, the
     # percentage of commercial buildings that have shutters is assumed to be
@@ -89,7 +87,7 @@ def SECB_config(BIM):
     # up their businesses before Hurricane Katrina. In addition, compliance
     # rates based on the Homeowners Survey data hover between 43 and 50 percent.
     else:
-        if BIM['WBD']:
+        if BIM['WindBorneDebris']:
             shutters = random.random() < 0.46
         else:
             shutters = False
@@ -97,18 +95,18 @@ def SECB_config(BIM):
     # Wind Debris (widd in HAZSU)
     # HAZUS A: Res/Comm, B: Varies by direction, C: Residential, D: None
     WIDD = 'C' # residential (default)
-    if BIM['occupancy_class'] in ['RES1', 'RES2', 'RES3A', 'RES3B', 'RES3C',
+    if BIM['OccupancyClass'] in ['RES1', 'RES2', 'RES3A', 'RES3B', 'RES3C',
                                   'RES3D']:
         WIDD = 'C' # residential
-    elif BIM['occupancy_class'] == 'AGR1':
+    elif BIM['OccupancyClass'] == 'AGR1':
         WIDD = 'D' # None
     else:
         WIDD = 'A' # Res/Comm
 
     # Window area ratio
-    if BIM['window_area'] < 0.33:
+    if BIM['WindowArea'] < 0.33:
         WWR = 'low'
-    elif BIM['window_area'] < 0.5:
+    elif BIM['WindowArea'] < 0.5:
         WWR = 'med'
     else:
         WWR = 'hig'
@@ -125,12 +123,21 @@ def SECB_config(BIM):
     else:
         MRDA = 'sup'  # superior
 
-    if BIM['stories'] <= 2:
+    if BIM['NumberOfStories'] <= 2:
         bldg_tag = 'S.ECB.L'
-    elif BIM['stories'] <= 5:
+    elif BIM['NumberOfStories'] <= 5:
         bldg_tag = 'S.ECB.M'
     else:
         bldg_tag = 'S.ECB.H'
+
+    # extend the BIM dictionary
+    BIM.update(dict(
+        RoofCover = roof_cover,
+        WindowAreaRatio = WWR,
+        RoofDeckAttachmentM = MRDA,
+        Shutters = shutters,
+        WindDebrisClass=WIDD
+        ))
 
     bldg_config = f"{bldg_tag}." \
                   f"{roof_cover}." \
@@ -138,6 +145,7 @@ def SECB_config(BIM):
                   f"{WIDD}." \
                   f"{MRDA}." \
                   f"{WWR}." \
-                  f"{int(BIM['terrain'])}"
+                  f"{int(BIM['TerrainRoughness'])}"
+                  
     return bldg_config
 

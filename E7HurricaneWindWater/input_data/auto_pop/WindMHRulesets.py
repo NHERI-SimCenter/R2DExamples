@@ -63,11 +63,11 @@ def MH_config(BIM):
         class.
     """
 
-    year = BIM['year_built'] # just for the sake of brevity
+    year = BIM['YearBuilt'] # just for the sake of brevity
     if year <= 1976:
         # MHPHUD
         bldg_tag = 'MH.PHUD'
-        if BIM['WBD']:
+        if BIM['WindBorneDebris']:
             shutters = random.random() < 0.45
         else:
             shutters = False
@@ -77,7 +77,7 @@ def MH_config(BIM):
     elif year <= 1994:
         # MH76HUD
         bldg_tag = 'MH.76HUD'
-        if BIM['WBD']:
+        if BIM['WindBorneDebris']:
             shutters = random.random() < 0.45
         else:
             shutters = False
@@ -95,11 +95,19 @@ def MH_config(BIM):
             TD = True
         else:
             TD = False
-        bldg_tag = 'MH.94HUD' + BIM['wind_zone']
+
+        bldg_tag = 'MH.94HUD' + BIM['WindZone']
+
+    # extend the BIM dictionary
+    BIM.update(dict(
+        TieDowns = TD,
+        Shutters = shutters,
+        ))
 
     bldg_config = f"{bldg_tag}." \
                   f"{int(shutters)}." \
                   f"{int(TD)}." \
-                  f"{int(BIM['terrain'])}"
+                  f"{int(BIM['TerrainRoughness'])}"
+
     return bldg_config
 

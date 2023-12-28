@@ -63,13 +63,13 @@ def MLRM_config(BIM):
         class.
     """
 
-    year = BIM['year_built'] # just for the sake of brevity
+    year = BIM['YearBuilt'] # just for the sake of brevity
 
     # Note the only roof option for commercial masonry in NJ appraisers manual
     # is OSWJ, so this suggests they do not even see alternate roof system
     # ref: Custom Inventory google spreadsheet H-37 10/01/20
     # This could be commented for other regions if detailed data are available
-    BIM['roof_system'] = 'ows'
+    BIM['RoofSystem'] = 'ows'
 
     # Roof cover
     # Roof cover does not apply to gable and hip roofs
@@ -82,14 +82,14 @@ def MLRM_config(BIM):
     # Shutters
     # IRC 2000-2015:
     # R301.2.1.2 in NJ IRC 2015 says protection of openings required for
-    # buildings located in WBD regions, mentions impact-rated protection for
+    # buildings located in WindBorneDebris regions, mentions impact-rated protection for
     # glazing, impact-resistance for garage door glazed openings, and finally
     # states that wood structural panels with a thickness > 7/16" and a
     # span <8' can be used, as long as they are precut, attached to the framing
     # surrounding the opening, and the attachments are resistant to corrosion
     # and are able to resist component and cladding loads;
     # Earlier IRC editions provide similar rules.
-    shutters = BIM['WBD']
+    shutters = BIM['WindBorneDebris']
 
     # Masonry Reinforcing (MR)
     # R606.6.4.1.2 Metal Reinforcement states that walls other than interior
@@ -104,15 +104,15 @@ def MLRM_config(BIM):
     # Wind Debris (widd in HAZSU)
     # HAZUS A: Res/Comm, B: Varies by direction, C: Residential, D: None
     WIDD = 'C' # residential (default)
-    if BIM['occupancy_class'] in ['RES1', 'RES2', 'RES3A', 'RES3B', 'RES3C',
+    if BIM['OccupancyClass'] in ['RES1', 'RES2', 'RES3A', 'RES3B', 'RES3C',
                                  'RES3D']:
         WIDD = 'C' # residential
-    elif BIM['occupancy_class'] == 'AGR1':
+    elif BIM['OccupancyClass'] == 'AGR1':
         WIDD = 'D' # None
     else:
         WIDD = 'A' # Res/Comm
 
-    if BIM['roof_system'] == 'ows':
+    if BIM['RoofSystem'] == 'ows':
         # RDA
         RDA = 'null' # Doesn't apply to OWSJ
 
@@ -141,10 +141,10 @@ def MLRM_config(BIM):
         else:
             MRDA = 'sup'  # superior
 
-    elif BIM['roof_system'] == 'trs':
+    elif BIM['RoofSystem'] == 'trs':
         # This clause should not be activated for NJ
         # RDA
-        if BIM['terrain'] >= 35: # suburban or light trees
+        if BIM['TerrainRoughness'] >= 35: # suburban or light trees
             if BIM['V_ult'] > 130.0:
                 RDA = '8s'  # 8d @ 6"/6" 'D'
             else:
@@ -169,53 +169,78 @@ def MLRM_config(BIM):
 
     # shutters
     if year >= 2000:
-        shutters = BIM['WBD']
+        shutters = BIM['WindBorneDebris']
     else:
-        if BIM['WBD']:
+        if BIM['WindBorneDebris']:
             shutters = random.random() < 0.46
         else:
             shutters = False
 
-    if BIM['mean_roof_height'] < 15.0:
+    if BIM['MeanRoofHt'] < 15.0:
+        # extend the BIM dictionary
+        BIM.update(dict(
+            RoofCover = roof_cover,
+            RoofDeckAttachmentW = RDA,
+            RoofDeckAttachmentM = MRDA,
+            RoofDeckAge = DQ,
+            RoofToWallConnection = RWC,
+            Shutters = shutters,
+            MasonryReinforcing = MR,
+            WindowAreaRatio = WIDD
+            ))
+
         # if it's MLRM1, configure outputs
         bldg_config = f"M.LRM.1." \
                       f"{roof_cover}." \
                       f"{int(shutters)}." \
                       f"{int(MR)}." \
                       f"{WIDD}." \
-                      f"{BIM['roof_system']}." \
+                      f"{BIM['RoofSystem']}." \
                       f"{RDA}." \
                       f"{RWC}." \
                       f"{DQ}." \
                       f"{MRDA}." \
-                      f"{int(BIM['terrain'])}"
+                      f"{int(BIM['TerrainRoughness'])}"
 
     else:
         unit_tag = 'null'
         # MLRM2 needs more rulesets
-        if BIM['roof_system'] == 'trs':
+
+        if BIM['RoofSystem'] == 'trs':
             joist_spacing = 'null'
-        elif BIM['roof_system'] == 'ows':
-            if BIM['no_units'] == 1:
+        elif BIM['RoofSystem'] == 'ows':
+            if BIM['NumberOfUnits'] == 1:
                 joist_spacing = 'null'
                 unit_tag = 'sgl'
             else:
                 joist_spacing = 4
                 unit_tag = 'mlt'
 
+        # extend the BIM dictionary
+        BIM.update(dict(
+            RoofCover = roof_cover,
+            RoofDeckAttachmentW = RDA,
+            RoofDeckAttachmentM = MRDA,
+            RoofDeckAge = DQ,
+            RoofToWallConnection = RWC,
+            Shutters = shutters,
+            MasonryReinforcing = MR,
+            WindDebrisClass = WIDD,
+            UnitType=unit_tag
+            ))
+
         bldg_config = f"M.LRM.2." \
                       f"{roof_cover}." \
                       f"{int(shutters)}." \
                       f"{int(MR)}." \
                       f"{WIDD}." \
-                      f"{BIM['roof_system']}." \
+                      f"{BIM['RoofSystem']}." \
                       f"{RDA}." \
                       f"{RWC}." \
                       f"{DQ}." \
                       f"{MRDA}." \
                       f"{unit_tag}." \
                       f"{joist_spacing}." \
-                      f"{int(BIM['terrain'])}"
+                      f"{int(BIM['TerrainRoughness'])}"
         
     return bldg_config
-

@@ -64,17 +64,17 @@ def SPMB_config(BIM):
         class.
     """
 
-    year = BIM['year_built'] # just for the sake of brevity
+    year = BIM['YearBuilt'] # just for the sake of brevity
 
     # Roof Deck Age (~ Roof Quality)
-    if BIM['year_built'] >= (datetime.datetime.now().year - 50):
+    if BIM['YearBuilt'] >= (datetime.datetime.now().year - 50):
         roof_quality = 'god'
     else:
         roof_quality = 'por'
 
     # shutters
     if year >= 2000:
-        shutters = BIM['WBD']
+        shutters = BIM['WindBorneDebris']
     # BOCA 1996 and earlier:
     # Shutters were not required by code until the 2000 IBC. Before 2000, the
     # percentage of commercial buildings that have shutters is assumed to be
@@ -85,7 +85,7 @@ def SPMB_config(BIM):
     # up their businesses before Hurricane Katrina. In addition, compliance
     # rates based on the Homeowners Survey data hover between 43 and 50 percent.
     else:
-        if BIM['WBD']:
+        if BIM['WindBorneDebris']:
             shutters = random.random() < 0.46
         else:
             shutters = False
@@ -102,17 +102,25 @@ def SPMB_config(BIM):
     else:
         MRDA = 'sup'  # superior
 
-    if BIM['area'] <= 4000:
+    if BIM['PlanArea'] <= 4000:
         bldg_tag = 'S.PMB.S'
-    elif BIM['area'] <= 50000:
+    elif BIM['PlanArea'] <= 50000:
         bldg_tag = 'S.PMB.M'
     else:
         bldg_tag = 'S.PMB.L'
+
+    # extend the BIM dictionary
+    BIM.update(dict(
+        RoofQuality = roof_quality,
+        RoofDeckAttachmentM = MRDA,
+        Shutters = shutters
+        ))
 
     bldg_config = f"{bldg_tag}." \
                   f"{int(shutters)}." \
                   f"{roof_quality}." \
                   f"{MRDA}." \
-                  f"{int(BIM['terrain'])}"
+                  f"{int(BIM['TerrainRoughness'])}"
+
     return bldg_config
 

@@ -50,8 +50,8 @@ import pandas as pd
 import datetime
 import math
 
-from WindMetaVarRulesets import parse_GI
-from WindClassRulesets import building_class
+from WindMetaVarRulesets import parse_BIM
+from BuildingClassRulesets import building_class
 from FloodAssmRulesets import Assm_config
 from FloodClassRulesets import FL_config
 from FloodRulesets import FL_config
@@ -99,10 +99,10 @@ def auto_populate(AIM):
     GI = AIM.get('GeneralInformation', None)
 
     # parse the GI data
-    GI_ap = parse_GI(GI)
+    GI_ap = parse_BIM(GI, location="NJ", hazards=['wind','inundation'])
 
     # identify the building class
-    bldg_class = building_class(GI_ap)
+    bldg_class = building_class(GI_ap, hazard='wind')
 
     # prepare the building configuration string
     if bldg_class == 'WSF':
@@ -156,9 +156,9 @@ def auto_populate(AIM):
             "Asset": {
                 "ComponentAssignmentFile": "CMP_QNT.csv",
                 "ComponentDatabase": "Hazus Hurricane",
-                "NumberOfStories": f"{GI_ap['stories']}",
-                "OccupancyType": f"{GI_ap['occupancy_class']}",
-                "PlanArea": f"{GI_ap['area']}"
+                "NumberOfStories": f"{GI_ap['NumberOfStories']}",
+                "OccupancyType": f"{GI_ap['OccupancyClass']}",
+                "PlanArea": f"{GI_ap['PlanArea']}"
             },
             "Damage": {
                 "DamageProcess": "Hazus Hurricane"

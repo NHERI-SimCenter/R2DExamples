@@ -44,7 +44,6 @@
 # Tracy Kijewski-Correa
 
 import random
-import numpy as np
 import datetime
 
 def MSF_config(BIM):
@@ -63,24 +62,24 @@ def MSF_config(BIM):
         class.
     """
 
-    year = BIM['year_built'] # just for the sake of brevity
+    year = BIM['YearBuilt'] # just for the sake of brevity
 
     # Roof-Wall Connection (RWC)
-    if BIM['HPR']:
+    if BIM['HazardProneRegion']:
         RWC = 'strap'  # Strap
     else:
         RWC = 'tnail'  # Toe-nail
 
     # Roof Frame Type
-    RFT = BIM['roof_system']
+    RFT = BIM['RoofSystem']
 
     # Story Flag
-    stories = min(BIM['stories'], 2)
+    stories = min(BIM['NumberOfStories'], 2)
 
     # Shutters
     # IRC 2000-2015:
     # R301.2.1.2 in NJ IRC 2015 says protection of openings required for
-    # buildings located in WBD regions, mentions impact-rated protection for
+    # buildings located in WindBorneDebris regions, mentions impact-rated protection for
     # glazing, impact-resistance for garage door glazed openings, and finally
     # states that wood structural panels with a thickness > 7/16" and a
     # span <8' can be used, as long as they are precut, attached to the framing
@@ -88,7 +87,7 @@ def MSF_config(BIM):
     # and are able to resist component and cladding loads;
     # Earlier IRC editions provide similar rules.
     if year >= 2000:
-        shutters = BIM['WBD']
+        shutters = BIM['WindBorneDebris']
     # BOCA 1996 and earlier:
     # Shutters were not required by code until the 2000 IBC. Before 2000, the
     # percentage of commercial buildings that have shutters is assumed to be
@@ -99,12 +98,13 @@ def MSF_config(BIM):
     # up their businesses before Hurricane Katrina. In addition, compliance
     # rates based on the Homeowners Survey data hover between 43 and 50 percent.
     else:
-        if BIM['WBD']:
+        if BIM['WindBorneDebris']:
             shutters = random.random() < 0.45
         else:
             shutters = False
 
-    if BIM['roof_system'] == 'trs':
+
+    if BIM['RoofSystem'] == 'trs':
 
         # Roof Deck Attachment (RDA)
         # IRC codes:
@@ -146,12 +146,12 @@ def MSF_config(BIM):
         # (and therefore do not have any strength requirements) that are older than
         # 30 years are considered to be weak, whereas those from the last 30 years
         # are considered to be standard.
-        if BIM['garage_tag'] == -1:
+        if BIM['Garage'] == -1:
             # no garage data, using the default "none"
             garage = 'no'
         else:
             if year > (datetime.datetime.now().year - 30):
-                if BIM['garage_tag'] < 1:
+                if BIM['Garage'] < 1:
                     garage = 'no' # None
                 else:
                     if shutters:
@@ -160,7 +160,7 @@ def MSF_config(BIM):
                         garage = 'std' # Standard
             else:
                 # year <= current year - 30
-                if BIM['garage_tag'] < 1:
+                if BIM['Garage'] < 1:
                     garage = 'no' # None
                 else:
                     if shutters:
@@ -178,9 +178,21 @@ def MSF_config(BIM):
         # into consideration.
         MR = True
 
+        stories = min(BIM['NumberOfStories'], 2)
+
+        # extend the BIM dictionary
+        BIM.update(dict(
+            SecondaryWaterResistance = SWR,
+            RoofDeckAttachmentW = RDA,
+            RoofToWallConnection = RWC,
+            Shutters = shutters,
+            AugmentGarage = garage,
+            MasonryReinforcing = MR,
+            ))
+
         bldg_config = f"M.SF." \
                       f"{int(stories)}." \
-                      f"{BIM['roof_shape']}." \
+                      f"{BIM['RoofShape']}." \
                       f"{RWC}." \
                       f"{RFT}." \
                       f"{RDA}." \
@@ -189,7 +201,7 @@ def MSF_config(BIM):
                       f"{garage}." \
                       f"{int(MR)}." \
                       f"null." \
-                      f"{int(BIM['terrain'])}"
+                      f"{int(BIM['TerrainRoughness'])}"
 
     else:
         # Roof system = OSJW
@@ -216,15 +228,27 @@ def MSF_config(BIM):
         # Minimum drainage recommendations are in place in NJ (See below).
         # However, SWR indicates a code-plus practice.
         SWR = 'null' # Default
-        if BIM['roof_shape'] == 'flt':
+        if BIM['RoofShape'] == 'flt':
             SWR = int(True)
-        elif ((BIM['roof_shape'] in ['hip', 'gab']) and 
+        elif ((BIM['RoofShape'] in ['hip', 'gab']) and 
               (roof_cover=='cshl') and (RDA=='sup')):
             SWR = int(random.random() < 0.6)
 
+        stories = min(BIM['NumberOfStories'], 2)
+
+        # extend the BIM dictionary
+        BIM.update(dict(
+            SecondaryWaterResistance = SWR,
+            RoofDeckAttachmentW = RDA,
+            RoofToWallConnection = RWC,
+            Shutters = shutters,
+            AugmentGarage = garage,
+            MasonryReinforcing = MR,
+            ))
+
         bldg_config = f"M.SF." \
                       f"{int(stories)}." \
-                      f"{BIM['roof_shape']}." \
+                      f"{BIM['RoofShape']}." \
                       f"{RWC}." \
                       f"{RFT}." \
                       f"{RDA}." \
@@ -233,6 +257,6 @@ def MSF_config(BIM):
                       f"null." \
                       f"null." \
                       f"{roof_cover}." \
-                      f"{int(BIM['terrain'])}"
+                      f"{int(BIM['TerrainRoughness'])}"
 
     return bldg_config

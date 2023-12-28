@@ -63,10 +63,10 @@ def MERB_config(BIM):
         class.
     """
 
-    year = BIM['year_built'] # just for the sake of brevity
+    year = BIM['YearBuilt'] # just for the sake of brevity
 
     # Roof cover
-    if BIM['roof_shape'] in ['gab', 'hip']:
+    if BIM['RoofShape'] in ['gab', 'hip']:
         roof_cover = 'bur'
         # no info, using the default supoorted by HAZUS
     else:
@@ -78,9 +78,9 @@ def MERB_config(BIM):
 
     # shutters
     if year >= 2000:
-        shutters = BIM['WBD']
+        shutters = BIM['WindBorneDebris']
     else:
-        if BIM['WBD']:
+        if BIM['WindBorneDebris']:
             shutters = random.random() < 0.45
         else:
             shutters = False
@@ -88,10 +88,10 @@ def MERB_config(BIM):
     # Wind Debris (widd in HAZSU)
     # HAZUS A: Res/Comm, B: Varies by direction, C: Residential, D: None
     WIDD = 'C' # residential (default)
-    if BIM['occupancy_class'] in ['RES1', 'RES2', 'RES3A', 'RES3B', 'RES3C',
+    if BIM['OccupancyClass'] in ['RES1', 'RES2', 'RES3A', 'RES3B', 'RES3C',
                                  'RES3D']:
         WIDD = 'C' # residential
-    elif BIM['occupancy_class'] == 'AGR1':
+    elif BIM['OccupancyClass'] == 'AGR1':
         WIDD = 'D' # None
     else:
         WIDD = 'A' # Res/Comm
@@ -109,19 +109,28 @@ def MERB_config(BIM):
         MRDA = 'sup'  # superior
 
     # Window area ratio
-    if BIM['window_area'] < 0.33:
+    if BIM['WindowArea'] < 0.33:
         WWR = 'low'
-    elif BIM['window_area'] < 0.5:
+    elif BIM['WindowArea'] < 0.5:
         WWR = 'med'
     else:
         WWR = 'hig'
 
-    if BIM['stories'] <= 2:
+    if BIM['NumberOfStories'] <= 2:
         bldg_tag = 'M.ERB.L'
-    elif BIM['stories'] <= 5:
+    elif BIM['NumberOfStories'] <= 5:
         bldg_tag = 'M.ERB.M'
     else:
         bldg_tag = 'M.ERB.H'
+
+    # extend the BIM dictionary
+    BIM.update(dict(
+        RoofCover = roof_cover,
+        RoofDeckAttachmentM = MRDA,
+        Shutters = shutters,
+        WindowAreaRatio = WWR,
+        WindDebrisClass = WIDD
+        ))
 
     bldg_config = f"{bldg_tag}." \
                   f"{roof_cover}." \
@@ -129,5 +138,6 @@ def MERB_config(BIM):
                   f"{WIDD}." \
                   f"{MRDA}." \
                   f"{WWR}." \
-                  f"{int(BIM['terrain'])}"
+                  f"{int(BIM['TerrainRoughness'])}"
+
     return bldg_config

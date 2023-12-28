@@ -44,7 +44,6 @@
 # Tracy Kijewski-Correa
 
 import random
-import numpy as np
 import datetime
 
 def MMUH_config(BIM):
@@ -63,22 +62,24 @@ def MMUH_config(BIM):
         class.
     """
 
-    year = BIM['year_built'] # just for the sake of brevity
+    year = BIM['YearBuilt'] # just for the sake of brevity
 
     # Secondary Water Resistance (SWR)
     # Minimum drainage recommendations are in place in NJ (See below).
     # However, SWR indicates a code-plus practice.
+
     SWR = "null" # Default
-    if BIM['roof_shape'] == 'flt':
+    if BIM['RoofShape'] == 'flt':
         SWR = 'null'
-    elif BIM['roof_shape'] in ['hip', 'gab']:
+    elif BIM['RoofShape'] in ['hip', 'gab']:
         SWR = int(random.random() < 0.6)
 
     # Roof cover & Roof quality
     # Roof cover and quality do not apply to gable and hip roofs
-    if BIM['roof_shape'] in ['gab', 'hip']:
+    if BIM['RoofShape'] in ['gab', 'hip']:
         roof_cover = 'null'
         roof_quality = 'null'
+
     # NJ Building Code Section 1507 (in particular 1507.10 and 1507.12) address
     # Built Up Roofs and Single Ply Membranes. However, the NJ Building Code
     # only addresses installation and material standards of different roof
@@ -101,14 +102,14 @@ def MMUH_config(BIM):
     else:
         if year >= 1975:
             roof_cover = 'spm'
-            if BIM['year_built'] >= (datetime.datetime.now().year - 35):
+            if BIM['YearBuilt'] >= (datetime.datetime.now().year - 35):
                 roof_quality = 'god'
             else:
                 roof_quality = 'por'
         else:
             # year < 1975
             roof_cover = 'bur'
-            if BIM['year_built'] >= (datetime.datetime.now().year - 30):
+            if BIM['YearBuilt'] >= (datetime.datetime.now().year - 30):
                 roof_quality = 'god'
             else:
                 roof_quality = 'por'
@@ -126,7 +127,7 @@ def MMUH_config(BIM):
     # roughness length in the ruleset herein.
     # The base rule was then extended to the exposures closest to suburban and
     # light suburban, even though these are not considered by the code.
-    if BIM['terrain'] >= 35: # suburban or light trees
+    if BIM['TerrainRoughness'] >= 35: # suburban or light trees
         if BIM['V_ult'] > 130.0:
             RDA = '8s'  # 8d @ 6"/6" 'D'
         else:
@@ -146,7 +147,7 @@ def MMUH_config(BIM):
     # Shutters
     # IRC 2000-2015:
     # R301.2.1.2 in NJ IRC 2015 says protection of openings required for
-    # buildings located in WBD regions, mentions impact-rated protection for
+    # buildings located in WindBorneDebris regions, mentions impact-rated protection for
     # glazing, impact-resistance for garage door glazed openings, and finally
     # states that wood structural panels with a thickness > 7/16" and a
     # span <8' can be used, as long as they are precut, attached to the framing
@@ -154,7 +155,7 @@ def MMUH_config(BIM):
     # and are able to resist component and cladding loads;
     # Earlier IRC editions provide similar rules.
     if year >= 2000:
-        shutters = BIM['WBD']
+        shutters = BIM['WindBorneDebris']
     # BOCA 1996 and earlier:
     # Shutters were not required by code until the 2000 IBC. Before 2000, the
     # percentage of commercial buildings that have shutters is assumed to be
@@ -165,7 +166,7 @@ def MMUH_config(BIM):
     # up their businesses before Hurricane Katrina. In addition, compliance
     # rates based on the Homeowners Survey data hover between 43 and 50 percent.
     else:
-        if BIM['WBD']:
+        if BIM['WindBorneDebris']:
             shutters = random.random() < 0.46
         else:
             shutters = False
@@ -180,10 +181,22 @@ def MMUH_config(BIM):
     # into consideration.
     MR = True
 
-    stories = min(BIM['stories'], 3)
+    stories = min(BIM['NumberOfStories'], 3)
+
+    # extend the BIM dictionary
+    BIM.update(dict(
+        SecondaryWaterResistance = SWR,
+        RoofCover = roof_cover,
+        RoofQuality = roof_quality,
+        RoofDeckAttachmentW = RDA,
+        RoofToWallConnection = RWC,
+        Shutters = shutters,
+        MasonryReinforcing = MR,
+        ))
+
     bldg_config = f"M.MUH." \
                   f"{int(stories)}." \
-                  f"{BIM['roof_shape']}." \
+                  f"{BIM['RoofShape']}." \
                   f"{int(SWR)}." \
                   f"{roof_cover}." \
                   f"{roof_quality}." \
@@ -191,5 +204,6 @@ def MMUH_config(BIM):
                   f"{RWC}." \
                   f"{int(shutters)}." \
                   f"{int(MR)}." \
-                  f"{int(BIM['terrain'])}"
+                  f"{int(BIM['TerrainRoughness'])}"
+
     return bldg_config
