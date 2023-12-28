@@ -14,7 +14,7 @@
         },
         "DL": {
             "Buildings": {
-                "Application": "pelicun",
+                "Application": "Pelicun3",
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH HU",
                     "Realizations": 5000,
@@ -24,7 +24,7 @@
                     "event_time": "off",
                     "ground_failure": false,
                     "log_file": true,
-                    "path_to_auto_script": "/Users/fmckenna/release/R2DExamples/E8HurricaneWind/input_data/ruleset"
+                    "path_to_auto_script": "{Current_Dir}/input_data/ruleset"
                 }
             }
         },

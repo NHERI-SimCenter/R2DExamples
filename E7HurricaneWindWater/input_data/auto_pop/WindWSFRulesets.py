@@ -44,7 +44,9 @@
 # Tracy Kijewski-Correa
 
 import random
+import numpy as np
 import datetime
+
 
 def WSF_config(BIM):
     """
@@ -62,7 +64,7 @@ def WSF_config(BIM):
         class.
     """
 
-    year = BIM['YearBuilt'] # just for the sake of brevity
+    year = BIM['year_built'] # just for the sake of brevity
 
     # Secondary Water Resistance (SWR)
     # Minimum drainage recommendations are in place in NJ (See below).
@@ -91,13 +93,13 @@ def WSF_config(BIM):
         # Almost all other roof types require underlayment of some sort, but
         # the ruleset is based on asphalt shingles because it is most
         # conservative.
-        if BIM['RoofShape'] == 'flt': # note there is actually no 'flt'
+        if BIM['roof_shape'] == 'flt': # note there is actually no 'flt'
             SWR = True
-        elif BIM['RoofShape'] in ['gab','hip']:
-            if BIM['RoofSlope'] <= 0.17:
+        elif BIM['roof_shape'] in ['gab','hip']:
+            if BIM['roof_slope'] <= 0.17:
                 SWR = True
-            elif BIM['RoofSlope'] < 0.33:
-                SWR = (BIM['AvgJanTemp'] == 'below')
+            elif BIM['roof_slope'] < 0.33:
+                SWR = (BIM['avg_jan_temp'] == 'below')
 
     # Roof Deck Attachment (RDA)
     # IRC codes:
@@ -120,20 +122,20 @@ def WSF_config(BIM):
         else:
             RDA = '8d'  # 8d @ 6"/12" ('B' in the Reorganized Rulesets - WIND)
     elif year > 1995:
-        if ((BIM['SheathingThickness'] >= 0.3125) and (BIM['SheathingThickness'] <= 0.5)):
+        if ((BIM['sheathing_t'] >= 0.3125) and (BIM['sheathing_t'] <= 0.5)):
             RDA = '6d' # 6d @ 6"/12" ('A' in the Reorganized Rulesets - WIND)
-        elif ((BIM['SheathingThickness'] >= 0.59375) and (BIM['SheathingThickness'] <= 1.125)):
+        elif ((BIM['sheathing_t'] >= 0.59375) and (BIM['sheathing_t'] <= 1.125)):
             RDA = '8d' # 8d @ 6"/12" ('B' in the Reorganized Rulesets - WIND)
     elif year > 1986:
-        if ((BIM['SheathingThickness'] >= 0.3125) and (BIM['SheathingThickness'] <= 0.5)):
+        if ((BIM['sheathing_t'] >= 0.3125) and (BIM['sheathing_t'] <= 0.5)):
             RDA = '6d' # 6d @ 6"/12" ('A' in the Reorganized Rulesets - WIND)
-        elif ((BIM['SheathingThickness'] >= 0.59375) and (BIM['SheathingThickness'] <= 1.0)):
+        elif ((BIM['sheathing_t'] >= 0.59375) and (BIM['sheathing_t'] <= 1.0)):
             RDA = '8d' # 8d @ 6"/12" ('B' in the Reorganized Rulesets - WIND)
     else:
         # year <= 1986
-        if ((BIM['SheathingThickness'] >= 0.3125) and (BIM['SheathingThickness'] <= 0.5)):
+        if ((BIM['sheathing_t'] >= 0.3125) and (BIM['sheathing_t'] <= 0.5)):
             RDA = '6d' # 6d @ 6"/12" ('A' in the Reorganized Rulesets - WIND)
-        elif ((BIM['SheathingThickness'] >= 0.625) and (BIM['SheathingThickness'] <= 1.0)):
+        elif ((BIM['sheathing_t'] >= 0.625) and (BIM['sheathing_t'] <= 1.0)):
             RDA = '8d' # 8d @ 6"/12" ('B' in the Reorganized Rulesets - WIND)
 
     # Roof-Wall Connection (RWC)
@@ -143,10 +145,10 @@ def WSF_config(BIM):
     # For homes with wind speed consideration, 2015 IRC Section R802.11: no
     # specific connection type, must resist uplift forces using various
     # guidance documents, e.g., straps would be required (based on WFCM 2015);
-    # will assume that if classified as HazardProneRegion, then enhanced
-    # connection would be used.
+    # will assume that if classified as HPR, then enhanced connection would be
+    # used.
     if year > 2015:
-        if BIM['HazardProneRegion']:
+        if BIM['HPR']:
             RWC = 'strap'  # Strap
         else:
             RWC = 'tnail'  # Toe-nail
@@ -188,15 +190,15 @@ def WSF_config(BIM):
     # Shutters
     # IRC 2000-2015:
     # R301.2.1.2 in NJ IRC 2015 says protection of openings required for
-    # buildings located in WindBorneDebris regions, mentions impact-rated protection
-    # for glazing, impact-resistance for garage door glazed openings, and finally
+    # buildings located in WBD regions, mentions impact-rated protection for
+    # glazing, impact-resistance for garage door glazed openings, and finally
     # states that wood structural panels with a thickness > 7/16" and a
     # span <8' can be used, as long as they are precut, attached to the framing
     # surrounding the opening, and the attachments are resistant to corrosion
     # and are able to resist component and cladding loads;
     # Earlier IRC editions provide similar rules.
     if year > 2000:
-        shutters = BIM['WindBorneDebris']
+        shutters = BIM['WBD']
     # CABO:
     # Based on Human Subjects Data, roughly 45% of houses built in the 1980s
     # and 1990s had entries that implied they had shutters on at some or all of
@@ -208,7 +210,7 @@ def WSF_config(BIM):
     # 1983 to 1986, 19/44 entries (43.18%) with shutters
     else:
         # year <= 2000
-        if BIM['WindBorneDebris']:
+        if BIM['WBD']:
             shutters = random.random() < 0.45
         else:
             shutters = False
@@ -224,61 +226,51 @@ def WSF_config(BIM):
     # Permitted for buildings where the ultimate design wind speed is 180 mph
     # or less.
     #
-    # Average lifespan of a garage is 30 years, so garages that are not in
-    # WindBorneDebris (and therefore do not have any strength requirements) that
-    # are older than 30 years are considered to be weak, whereas those from the
-    # last 30 years are considered to be standard.
-    if BIM['Garage'] == -1:
+    # Average lifespan of a garage is 30 years, so garages that are not in WBD
+    # (and therefore do not have any strength requirements) that are older than
+    # 30 years are considered to be weak, whereas those from the last 30 years
+    # are considered to be standard.
+    if BIM['garage_tag'] == -1:
         # no garage data, using the default "standard"
         garage = 'std'
         shutters = 0 # HAZUS ties standard garage to w/o shutters
     else:
         if year > 2000:
             if shutters:
-                if BIM['Garage'] < 1:
+                if BIM['garage_tag'] < 1:
                     garage = 'no'
                 else:
                     garage = 'sup' # SFBC 1994
                     shutters = 1 # HAZUS ties SFBC 1994 to with shutters
             else:
-                if BIM['Garage'] < 1:
+                if BIM['garage_tag'] < 1:
                     garage = 'no' # None
                 else:
                     garage = 'std' # Standard
                     shutters = 0 # HAZUS ties standard garage to w/o shutters
         elif year > (datetime.datetime.now().year - 30):
-            if BIM['Garage'] < 1:
+            if BIM['garage_tag'] < 1:
                 garage = 'no' # None
             else:
                 garage = 'std' # Standard
                 shutters = 0 # HAZUS ties standard garage to w/o shutters
         else:
             # year <= current year - 30
-            if BIM['Garage'] < 1:
+            if BIM['garage_tag'] < 1:
                 garage = 'no' # None
             else:
                 garage = 'wkd' # Weak
                 shutters = 0 # HAZUS ties weak garage to w/o shutters
 
-    # extend the BIM dictionary
-    BIM.update(dict(
-        SecondaryWaterResistance = SWR,
-        RoofDeckAttachmentW = RDA,
-        RoofToWallConnection = RWC,
-        Shutters = shutters,
-        Garage = garage
-        ))
-
     # building configuration tag
     bldg_config = f"W.SF." \
-                  f"{int(min(BIM['NumberOfStories'],2))}." \
-                  f"{BIM['RoofShape']}." \
+                  f"{int(min(BIM['stories'],2))}." \
+                  f"{BIM['roof_shape']}." \
                   f"{int(SWR)}." \
                   f"{RDA}." \
                   f"{RWC}." \
                   f"{garage}." \
                   f"{int(shutters)}." \
-                  f"{int(BIM['TerrainRoughness'])}"
-                  
+                  f"{int(BIM['terrain'])}"
     return bldg_config
 

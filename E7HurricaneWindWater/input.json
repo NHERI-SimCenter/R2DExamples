@@ -6,13 +6,14 @@
                 "ApplicationData": {
                     "assetSourceFile": "AtlanticBuildingInventory.csv",
                     "filter": "1-20",
+                    "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
             }
         },
         "DL": {
             "Buildings": {
-                "Application": "pelicun",
+                "Application": "Pelicun3",
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH HU",
                     "Realizations": 5000,
@@ -22,7 +23,7 @@
                     "event_time": "off",
                     "ground_failure": false,
                     "log_file": true,
-                    "path_to_auto_script": "{Current_Dir}/input_data"
+                    "path_to_auto_script": "{Current_Dir}/input_data/auto_pop"
                 }
             }
         },
@@ -40,8 +41,6 @@
                 "ApplicationData": {
                 }
             }
-        },
-        "Performance": {
         },
         "RegionalEvent": {
             "Application": "UserInputHurricane",
@@ -105,8 +104,6 @@
         }
     },
     "Name": "E7 - Hurricane Wind + Water",
-    "Performance": {
-    },
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/IMs",
@@ -137,6 +134,8 @@
         "waste": false,
         "water": false
     },
+    "commonFileDir": "input_data",
+    "localAppDir": "/Users/adamzs/SimCenter",
     "outputs": {
         "AIM": false,
         "DM": true,
@@ -147,10 +146,14 @@
     },
     "randomVariables": [
     ],
+    "remoteAppDir": "/Users/adamzs/SimCenter",
+    "runDir": "/Users/adamzs/Documents/R2D/LocalWorkDir",
+    "runType": "runningLocal",
     "type": "Earthquake",
     "units": {
         "force": "kips",
         "length": "ft",
         "time": "sec"
-    }
+    },
+    "workingDir": "/Users/adamzs/Documents/R2D/LocalWorkDir"
 }

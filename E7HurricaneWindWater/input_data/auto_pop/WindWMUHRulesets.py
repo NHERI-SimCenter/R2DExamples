@@ -44,6 +44,7 @@
 # Tracy Kijewski-Correa
 
 import random
+import numpy as np
 import datetime
 
 def WMUH_config(BIM):
@@ -62,33 +63,33 @@ def WMUH_config(BIM):
         class.
     """
 
-    year = BIM['YearBuilt']  # just for the sake of brevity
+    year = BIM['year_built']  # just for the sake of brevity
 
     # Secondary Water Resistance (SWR)
     SWR = 0 # Default
     if year > 2000:
-        if BIM['RoofShape'] == 'flt':
+        if BIM['roof_shape'] == 'flt':
             SWR = 'null' # because SWR is not a question for flat roofs
-        elif BIM['RoofShape'] in ['gab','hip']:
+        elif BIM['roof_shape'] in ['gab','hip']:
             SWR = int(random.random() < 0.6)
     elif year > 1987:
-        if BIM['RoofShape'] == 'flt':
+        if BIM['roof_shape'] == 'flt':
             SWR = 'null' # because SWR is not a question for flat roofs
-        elif (BIM['RoofShape'] == 'gab') or (BIM['RoofShape'] == 'hip'):
-            if BIM['RoofSlope'] < 0.33:
+        elif (BIM['roof_shape'] == 'gab') or (BIM['roof_shape'] == 'hip'):
+            if BIM['roof_slope'] < 0.33:
                 SWR = int(True)
             else:
-                SWR = int(BIM['AvgJanTemp'] == 'below')
+                SWR = int(BIM['avg_jan_temp'] == 'below')
     else:
         # year <= 1987
-        if BIM['RoofShape'] == 'flt':
+        if BIM['roof_shape'] == 'flt':
             SWR = 'null' # because SWR is not a question for flat roofs
         else:
             SWR = int(random.random() < 0.3)
 
     # Roof cover & Roof quality
     # Roof cover and quality do not apply to gable and hip roofs
-    if BIM['RoofShape'] in ['gab', 'hip']:
+    if BIM['roof_shape'] in ['gab', 'hip']:
         roof_cover = 'null'
         roof_quality = 'null'
     # NJ Building Code Section 1507 (in particular 1507.10 and 1507.12) address
@@ -113,14 +114,14 @@ def WMUH_config(BIM):
     else:
         if year >= 1975:
             roof_cover = 'spm'
-            if BIM['YearBuilt'] >= (datetime.datetime.now().year - 35):
+            if BIM['year_built'] >= (datetime.datetime.now().year - 35):
                 roof_quality = 'god'
             else:
                 roof_quality = 'por'
         else:
             # year < 1975
             roof_cover = 'bur'
-            if BIM['YearBuilt'] >= (datetime.datetime.now().year - 30):
+            if BIM['year_built'] >= (datetime.datetime.now().year - 30):
                 roof_quality = 'god'
             else:
                 roof_quality = 'por'
@@ -139,7 +140,7 @@ def WMUH_config(BIM):
     # The base rule was then extended to the exposures closest to suburban and
     # light suburban, even though these are not considered by the code.
     if year > 2009:
-        if BIM['TerrainRoughness'] >= 35: # suburban or light trees
+        if BIM['terrain'] >= 35: # suburban or light trees
             if BIM['V_ult'] > 168.0:
                 RDA = '8s'  # 8d @ 6"/6" 'D'
             else:
@@ -165,7 +166,7 @@ def WMUH_config(BIM):
     # Attachment requirements are given based on sheathing thickness, basic
     # wind speed, and the mean roof height of the building.
     elif year > 1996:
-        if (BIM['V_ult'] >= 103 ) and (BIM['MeanRoofHt'] >= 25.0):
+        if (BIM['V_ult'] >= 103 ) and (BIM['mean_roof_height'] >= 25.0):
             RDA = '8s'  # 8d @ 6"/6" 'D'
         else:
             RDA = '8d'  # 8d @ 6"/12" 'B'
@@ -175,13 +176,13 @@ def WMUH_config(BIM):
     # spacing 6”/12”) for sheathing thicknesses of ½ inches or less.
     # See Table 2305.2, Section 4.
     elif year > 1993:
-        if BIM['SheathingThickness'] <= 0.5:
+        if BIM['sheathing_t'] <= 0.5:
             RDA = '6d'  # 6d @ 6"/12" 'A'
         else:
             RDA = '8d'  # 8d @ 6"/12" 'B'
     else:
         # year <= 1993
-        if BIM['SheathingThickness'] <= 0.5:
+        if BIM['sheathing_t'] <= 0.5:
             RDA = '6d' # 6d @ 6"/12" 'A'
         else:
             RDA = '8d' # 8d @ 6"/12" 'B'
@@ -228,7 +229,7 @@ def WMUH_config(BIM):
     # are classified as a Group R-3 or R-4 occupancy.
     # Earlier IRC editions provide similar rules.
     if year >= 2000:
-        shutters = BIM['WindBorneDebris']
+        shutters = BIM['WBD']
     # BOCA 1996 and earlier:
     # Shutters were not required by code until the 2000 IBC. Before 2000, the
     # percentage of commercial buildings that have shutters is assumed to be
@@ -239,35 +240,25 @@ def WMUH_config(BIM):
     # up their businesses before Hurricane Katrina. In addition, compliance
     # rates based on the Homeowners Survey data hover between 43 and 50 percent.
     else:
-        if BIM['WindBorneDebris']:
+        if BIM['WBD']:
             shutters = random.random() < 0.46
         else:
             shutters = False
 
     # Stories
     # Buildings with more than 3 stories are mapped to the 3-story configuration
-    stories = min(BIM['NumberOfStories'], 3)
-
-    # extend the BIM dictionary
-    BIM.update(dict(
-        SecondaryWaterResistance = SWR,
-        RoofCover = roof_cover,
-        RoofQuality = roof_quality,
-        RoofDeckAttachmentW = RDA,
-        RoofToWallConnection = RWC,
-        Shutters = shutters
-        ))
+    stories = min(BIM['stories'], 3)
 
     bldg_config = f"W.MUH." \
                   f"{int(stories)}." \
-                  f"{BIM['RoofShape']}." \
+                  f"{BIM['roof_shape']}." \
                   f"{roof_cover}." \
                   f"{roof_quality}." \
                   f"{SWR}." \
                   f"{RDA}." \
                   f"{RWC}." \
                   f"{int(shutters)}." \
-                  f"{int(BIM['TerrainRoughness'])}"
+                  f"{int(BIM['terrain'])}"
 
     return bldg_config
 

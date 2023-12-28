@@ -44,11 +44,12 @@
 # Tracy Kijewski-Correa
 
 import random
+import numpy as np
 import datetime
 
-def WMUH_config(BIM):
+def MMUH_config(BIM):
     """
-    Rules to identify a HAZUS WMUH configuration based on BIM data
+    Rules to identify a HAZUS MMUH configuration based on BIM data
 
     Parameters
     ----------
@@ -62,33 +63,20 @@ def WMUH_config(BIM):
         class.
     """
 
-    year = BIM['YearBuilt']  # just for the sake of brevity
+    year = BIM['year_built'] # just for the sake of brevity
 
     # Secondary Water Resistance (SWR)
-    SWR = 0 # Default
-    if year > 2000:
-        if BIM['RoofShape'] == 'flt':
-            SWR = 'null' # because SWR is not a question for flat roofs
-        elif BIM['RoofShape'] in ['gab','hip']:
-            SWR = int(random.random() < 0.6)
-    elif year > 1987:
-        if BIM['RoofShape'] == 'flt':
-            SWR = 'null' # because SWR is not a question for flat roofs
-        elif (BIM['RoofShape'] == 'gab') or (BIM['RoofShape'] == 'hip'):
-            if BIM['RoofSlope'] < 0.33:
-                SWR = int(True)
-            else:
-                SWR = int(BIM['AvgJanTemp'] == 'below')
-    else:
-        # year <= 1987
-        if BIM['RoofShape'] == 'flt':
-            SWR = 'null' # because SWR is not a question for flat roofs
-        else:
-            SWR = int(random.random() < 0.3)
+    # Minimum drainage recommendations are in place in NJ (See below).
+    # However, SWR indicates a code-plus practice.
+    SWR = "null" # Default
+    if BIM['roof_shape'] == 'flt':
+        SWR = 'null'
+    elif BIM['roof_shape'] in ['hip', 'gab']:
+        SWR = int(random.random() < 0.6)
 
     # Roof cover & Roof quality
     # Roof cover and quality do not apply to gable and hip roofs
-    if BIM['RoofShape'] in ['gab', 'hip']:
+    if BIM['roof_shape'] in ['gab', 'hip']:
         roof_cover = 'null'
         roof_quality = 'null'
     # NJ Building Code Section 1507 (in particular 1507.10 and 1507.12) address
@@ -113,14 +101,14 @@ def WMUH_config(BIM):
     else:
         if year >= 1975:
             roof_cover = 'spm'
-            if BIM['YearBuilt'] >= (datetime.datetime.now().year - 35):
+            if BIM['year_built'] >= (datetime.datetime.now().year - 35):
                 roof_quality = 'god'
             else:
                 roof_quality = 'por'
         else:
             # year < 1975
             roof_cover = 'bur'
-            if BIM['YearBuilt'] >= (datetime.datetime.now().year - 30):
+            if BIM['year_built'] >= (datetime.datetime.now().year - 30):
                 roof_quality = 'god'
             else:
                 roof_quality = 'por'
@@ -138,97 +126,35 @@ def WMUH_config(BIM):
     # roughness length in the ruleset herein.
     # The base rule was then extended to the exposures closest to suburban and
     # light suburban, even though these are not considered by the code.
-    if year > 2009:
-        if BIM['TerrainRoughness'] >= 35: # suburban or light trees
-            if BIM['V_ult'] > 168.0:
-                RDA = '8s'  # 8d @ 6"/6" 'D'
-            else:
-                RDA = '8d'  # 8d @ 6"/12" 'B'
-        else:  # light suburban or open
-            if BIM['V_ult'] > 142.0:
-                RDA = '8s'  # 8d @ 6"/6" 'D'
-            else:
-                RDA = '8d'  # 8d @ 6"/12" 'B'
-    # IRC 2000-2006:
-    # Table 2304.9.1, Line 31 of the 2006
-    # NJ IBC requires 8d nails (with spacing 6”/12”) for sheathing thicknesses
-    # of ⅞”-1”. Fastener selection is contingent on thickness of sheathing in
-    # building codes. Table 2308.10.1 outlines the required rating of approved
-    # uplift connectors, but does not specify requirements that require a
-    # change of connector at a certain wind speed.
-    # Thus, all RDAs are assumed to be 8d @ 6”/12”.
-    elif year > 2000:
-        RDA = '8d'  # 8d @ 6"/12" 'B'
-    # BOCA 1996:
-    # The BOCA 1996 Building Code Requires 8d nails (with spacing 6”/12”) for
-    # roof sheathing thickness up to 1". See Table 2305.2, Section 4.
-    # Attachment requirements are given based on sheathing thickness, basic
-    # wind speed, and the mean roof height of the building.
-    elif year > 1996:
-        if (BIM['V_ult'] >= 103 ) and (BIM['MeanRoofHt'] >= 25.0):
+    if BIM['terrain'] >= 35: # suburban or light trees
+        if BIM['V_ult'] > 130.0:
             RDA = '8s'  # 8d @ 6"/6" 'D'
         else:
             RDA = '8d'  # 8d @ 6"/12" 'B'
-    # BOCA 1993:
-    # The BOCA 1993 Building Code Requires 8d nails (with spacing 6”/12”) for
-    # sheathing thicknesses of 19/32  inches or greater, and 6d nails (with
-    # spacing 6”/12”) for sheathing thicknesses of ½ inches or less.
-    # See Table 2305.2, Section 4.
-    elif year > 1993:
-        if BIM['SheathingThickness'] <= 0.5:
-            RDA = '6d'  # 6d @ 6"/12" 'A'
+    else:  # light suburban or open
+        if BIM['V_ult'] > 110.0:
+            RDA = '8s'  # 8d @ 6"/6" 'D'
         else:
             RDA = '8d'  # 8d @ 6"/12" 'B'
-    else:
-        # year <= 1993
-        if BIM['SheathingThickness'] <= 0.5:
-            RDA = '6d' # 6d @ 6"/12" 'A'
-        else:
-            RDA = '8d' # 8d @ 6"/12" 'B'
 
     # Roof-Wall Connection (RWC)
-    # IRC 2000-2015:
-    # 1507.2.8.1 High Wind Attachment. Underlayment applied in areas subject
-    # to high winds (Vasd greater than 110 mph as determined in accordance
-    # with Section 1609.3.1) shall be applied with corrosion-resistant
-    # fasteners in accordance with the manufacturer’s instructions. Fasteners
-    # are to be applied along the overlap not more than 36 inches on center.
-    # Underlayment installed where Vasd, in accordance with section 1609.3.1
-    # equals or exceeds 120 mph shall be attached in a grid pattern of 12
-    # inches between side laps with a 6-inch spacing at the side laps.
-    if year > 2000:
-        if BIM['V_ult'] > 142.0:
-            RWC = 'strap'  # Strap
-        else:
-            RWC = 'tnail'  # Toe-nail
-    # BOCA 1996 and earlier:
-    # There is no mention of straps or enhanced tie-downs of any kind in the
-    # BOCA codes, and there is no description of these adoptions in IBHS
-    # reports or the New Jersey Construction Code Communicator .
-    # Although there is no explicit information, it seems that hurricane straps
-    # really only came into effect in Florida after Hurricane Andrew (1992),
-    # and likely it took several years for these changes to happen. Because
-    # Florida is the leader in adopting hurricane protection measures into
-    # codes and because there is no mention of shutters or straps in the BOCA
-    # codes, it is assumed that New Jersey did not adopt these standards until
-    # the 2000 IBC.
+    if BIM['V_ult'] > 110.0:
+        RWC = 'strap'  # Strap
     else:
         RWC = 'tnail'  # Toe-nail
 
     # Shutters
     # IRC 2000-2015:
-    # 1609.1.2 Protection of Openings. In wind-borne debris regions, glazing in
-    # buildings shall be impact resistant or protected with an impact-resistant
-    # covering meeting the requirements of an approved impact-resistant
-    # covering meeting the requirements of an approved impact-resistant
-    # standard.
-    # Exceptions: Wood structural panels with a minimum thickness of 7/16 of an
-    # inch and a maximum panel span of 8 feet shall be permitted for opening
-    # protection in buildings with a mean roof height of 33 feet or less that
-    # are classified as a Group R-3 or R-4 occupancy.
+    # R301.2.1.2 in NJ IRC 2015 says protection of openings required for
+    # buildings located in WBD regions, mentions impact-rated protection for
+    # glazing, impact-resistance for garage door glazed openings, and finally
+    # states that wood structural panels with a thickness > 7/16" and a
+    # span <8' can be used, as long as they are precut, attached to the framing
+    # surrounding the opening, and the attachments are resistant to corrosion
+    # and are able to resist component and cladding loads;
     # Earlier IRC editions provide similar rules.
     if year >= 2000:
-        shutters = BIM['WindBorneDebris']
+        shutters = BIM['WBD']
     # BOCA 1996 and earlier:
     # Shutters were not required by code until the 2000 IBC. Before 2000, the
     # percentage of commercial buildings that have shutters is assumed to be
@@ -239,35 +165,31 @@ def WMUH_config(BIM):
     # up their businesses before Hurricane Katrina. In addition, compliance
     # rates based on the Homeowners Survey data hover between 43 and 50 percent.
     else:
-        if BIM['WindBorneDebris']:
+        if BIM['WBD']:
             shutters = random.random() < 0.46
         else:
             shutters = False
 
-    # Stories
-    # Buildings with more than 3 stories are mapped to the 3-story configuration
-    stories = min(BIM['NumberOfStories'], 3)
+    # Masonry Reinforcing (MR)
+    # R606.6.4.1.2 Metal Reinforcement states that walls other than interior
+    # non-load-bearing walls shall be anchored at vertical intervals of not
+    # more than 8 inches with joint reinforcement of not less than 9 gage.
+    # Therefore this ruleset assumes that all exterior or load-bearing masonry
+    # walls will have reinforcement. Since our considerations deal with wind
+    # speed, I made the assumption that only exterior walls are being taken
+    # into consideration.
+    MR = True
 
-    # extend the BIM dictionary
-    BIM.update(dict(
-        SecondaryWaterResistance = SWR,
-        RoofCover = roof_cover,
-        RoofQuality = roof_quality,
-        RoofDeckAttachmentW = RDA,
-        RoofToWallConnection = RWC,
-        Shutters = shutters
-        ))
-
-    bldg_config = f"W.MUH." \
+    stories = min(BIM['stories'], 3)
+    bldg_config = f"M.MUH." \
                   f"{int(stories)}." \
-                  f"{BIM['RoofShape']}." \
+                  f"{BIM['roof_shape']}." \
+                  f"{int(SWR)}." \
                   f"{roof_cover}." \
                   f"{roof_quality}." \
-                  f"{SWR}." \
                   f"{RDA}." \
                   f"{RWC}." \
                   f"{int(shutters)}." \
-                  f"{int(BIM['TerrainRoughness'])}"
-
+                  f"{int(MR)}." \
+                  f"{int(BIM['terrain'])}"
     return bldg_config
-

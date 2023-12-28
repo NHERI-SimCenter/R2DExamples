@@ -134,54 +134,75 @@ def parse_BIM(BIM_in, location, hazards):
 
         # Year built
         alname_yearbuilt = ['yearBuilt', 'YearBuiltMODIV', 'YearBuiltNJDEP']
-        yearbuilt = 1985
 
         yearbuilt = BIM_in.get('YearBuilt', None)
+
+        # if none of the above works, set a default
         if yearbuilt is None:
             for alname in alname_yearbuilt:
                 if alname in BIM_in.keys():
                     yearbuilt = BIM_in[alname]
                     break
 
-        # Number of Stories
-        alname_nstories = ['stories', 'NumberofStories0', 'NumberofStories', 'NumberOfStories']
+        if yearbuilt is None:
+            yearbuilt = 1985
 
-        nstories = BIM_in.get('NumberofStories1', None)
+        # Number of Stories
+        alname_nstories = ['stories', 'NumberofStories0', 'NumberofStories', 'NumberofStories1']
+
+        nstories = BIM_in.get('NumberOfStories', None)
+
         if nstories is None:
             for alname in alname_nstories:
                 if alname in BIM_in.keys():
                     nstories = BIM_in[alname]
                     break
 
-        # Plan Area
-        alname_area = ['area', 'PlanArea1', 'Area', 'PlanArea']
+        if nstories is None:
+            raise KeyError("NumberOfStories attribute missing, cannot autopopulate")
 
-        area = BIM_in.get('PlanArea0', None)
+        # Plan Area
+        alname_area = ['area', 'PlanArea1', 'Area', 'PlanArea0']
+
+        area = BIM_in.get('PlanArea', None)
+
         if area is None:
             for alname in alname_area:
                 if alname in BIM_in.keys():
                     area = BIM_in[alname]
                     break
 
+        if area is None:
+            raise KeyError("PlanArea attribute missing, cannot autopopulate")
+
         # Design Wind Speed
         alname_dws = ['DWSII', 'DesignWindSpeed']
 
-        dws = BIM_in.get('DWSII', None)
+        dws = BIM_in.get('DesignWindSpeed', None)
+
         if dws is None:
             for alname in alname_dws:
                 if alname in BIM_in.keys():
                     dws = BIM_in[alname]
                     break
 
+        if dws is None:
+            raise KeyError("DesignWindSpeed attribute missing, cannot autopopulate")
+
         # occupancy type
         alname_occupancy = ['occupancy', 'OccupancyClass']
 
         oc = BIM_in.get('OccupancyClass', None)
+
         if oc is None:
             for alname in alname_occupancy:
                 if alname in BIM_in.keys():
                     oc = BIM_in[alname]
                     break
+
+        if oc is None:
+            raise KeyError("OccupancyClass attribute missing, cannot autopopulate")
+
         # if getting RES3 then converting it to default RES3A
         if oc == 'RES3':
             oc = 'RES3A'
@@ -199,6 +220,7 @@ def parse_BIM(BIM_in, location, hazards):
         if location == 'NJ':
             # NJDEP code for flood zone needs to be converted
             buildingtype = ap_BuildingType_NJ[BIM_in['BuildingType']]
+            
         elif location == 'LA':
             # standard input should provide the building type as a string
             buildingtype = BIM_in['BuildingType']
