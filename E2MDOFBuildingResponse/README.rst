@@ -6,7 +6,7 @@ E2 - MDOF Building Response
 | Download files  | :examplesgithub:`Download <E2MDOFBuildingResponse/>`  |
 +-----------------+-------------------------------------------------------+
 
-This example uses ground motions from the 2018 earthquake in Anchorage, AK, to characterize the response of buildings with an idealized MDOF building model through story-level Engineering Demand Parameters (EDP). Exploiting the refinement in EDPs, a HAZUS-based story-level assessment is employed to evaluate the performance of 510 buildings.
+This example uses ground motions from the 2018 earthquake in Anchorage, AK, to characterize the response of buildings with an idealized MDOF building model through story-level Engineering Demand Parameters (EDP). Exploiting the refinement in EDPs, a HAZUS-based story-level assessment is employed to evaluate the performance of 5 buildings.
 The results presented herein are only for demonstrating the use of R2DTool and do not serve as an accurate representation of the real losses resulting from the earthquake.
 
 .. figure:: r2dt-0002.png
@@ -28,7 +28,7 @@ The results presented herein are only for demonstrating the use of R2DTool and d
       :align: center
 
 
-#. **HAZ** 12 recorded ground motions cross Anchorage (from the Center for Engineering Strong Motion Data, CESMD) are used as the ground acceleration time history inputs in this example. The PGA values of these 12 records range from 0.12 g to 0.81 g.
+#. **HAZ** 12 recorded ground motions across Anchorage (from the Center for Engineering Strong Motion Data, CESMD) are used as the ground acceleration time history inputs in this example. The PGA values of these 12 records range from 0.12 g to 0.81 g.
 
    .. figure:: figures/r2dt-0002-HAZ.png
       :width: 600px
@@ -42,7 +42,7 @@ The results presented herein are only for demonstrating the use of R2DTool and d
       :align: center
 
 
-#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as show in the following figure with **3** samples in **4** neighbors, i.e., randomly sampling 5 ground motions from the nearest four stations (each station has one ground motion recording specified in the **HAZ**).
+#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as shown in the following figure with **4** samples in **4** neighbors, i.e., randomly sampling 4 ground motions from the nearest four stations (each station has one ground motion recording specified in the **HAZ**).
 
    .. figure:: figures/r2dt-0002-HTA.png
       :width: 600px
@@ -63,14 +63,14 @@ The results presented herein are only for demonstrating the use of R2DTool and d
       :align: center
 
 
-#. **DL** The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ** damage and loss method is selected and configured as shown in the following figure:
+#. **DL** The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ Story** damage and loss method is selected and configured as shown in the following figure:
 
    .. figure:: figures/r2dt-0002-DL.png
       :width: 600px
       :align: center
 
 
-#. **UQ** In the **UQ** panel the **Dakota** uncertainty quantification engine is employed to carry out latin hypercube sampling (LHS) with **3** samples and an arbitrary seed for reproducibility.
+#. **UQ** In the **UQ** panel the **Dakota** uncertainty quantification engine is employed to carry out Latin Hypercube Sampling (LHS) with **10** samples and an arbitrary seed for reproducibility.
 
    .. figure:: figures/r2dt-0002-UQ.png
       :width: 600px
@@ -80,7 +80,7 @@ The results presented herein are only for demonstrating the use of R2DTool and d
 
    The random variable panel will be left empty for this example.
 
-#. **RES** The analysis outputs for the selected 50 buildings are show in the figure below. The buildings are mostly likely in moderate damage states (Damage State 2 or 3 per HAZUS) with the non-structural damage would dominate the economic losses. The repair costs range from 1% to 7% of the total replacement costs, and the repair time range from 1 to 20 days.
+#. **RES** The analysis outputs for the selected 50 buildings are shown in the figure below. 
 
    .. figure:: figures/r2dt-0002-RES.png
       :width: 600px
