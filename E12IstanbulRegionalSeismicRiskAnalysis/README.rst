@@ -75,7 +75,7 @@ We now embark on our journey through the input panels of R2D, making known to th
       :align: center
 
 
-#. **DL**  The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ** damage and loss method is selected and configured as shown in the following figure.
+#. **DL**  The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ Story** damage and loss method is selected and configured as shown in the following figure.
 
    .. figure:: figures/r2dt-0012-DL.png
       :width: 600px
