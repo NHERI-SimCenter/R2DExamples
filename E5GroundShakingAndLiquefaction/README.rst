@@ -12,7 +12,7 @@ This example presents a coupled damage assessment for ground shaking and liquefa
    :width: 400px
    :align: center
 
-#. **VIZ** This example shows simulation for pseudo earthquake scenarios in Bay Area. The damage and loss of a sample of buildings in the Alameda County due to the soil liquefaction are estimated.  The results presented herein are only for demonstrating the use of R2DTool and do not serve as an accurate representation of the real losses.
+#. **VIZ** This example shows a simulation for pseudo-earthquake scenarios. The damage and loss of a sample of buildings in Alameda County due to the soil liquefaction are estimated.  The results presented herein are only for demonstrating the use of R2DTool and do not serve as an accurate representation of the real losses.
 
    .. figure:: figures/r2dt-0005-VIZ.png
       :width: 600px
@@ -26,7 +26,7 @@ This example presents a coupled damage assessment for ground shaking and liquefa
       :align: center
 
 
-#. **HAZ** Now in the hazard panel, the **User Specified Ground Motions** option is selected which allows for the use of pre-generated earthquake scenarios. The following figure shows the relevant example files which are now entered in this pane. The peak ground acceleration, peak ground deformation (in both the horizontal and vertical directions) are used as intensity measure to quantify the potential earthquake effects.
+#. **HAZ** Now in the hazard panel, the **User Specified Ground Motions** option is selected which allows for the use of pre-generated earthquake scenarios. The following figure shows the relevant example files which are now entered in this pane. The peak ground acceleration and peak ground deformation (in both the horizontal and vertical directions) are used as intensity measures to quantify the potential earthquake effects.
 
    .. figure:: figures/r2dt-0005-HAZ.png
       :width: 600px
@@ -39,7 +39,7 @@ This example presents a coupled damage assessment for ground shaking and liquefa
       :width: 600px
       :align: center
 
-#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as show in the following figure with **1000** samples in **4** neighbors.
+#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as shown in the following figure with **1000** samples in **4** neighbors.
 
    .. figure:: figures/r2dt-0005-HTA.png
       :width: 600px
@@ -57,7 +57,7 @@ This example presents a coupled damage assessment for ground shaking and liquefa
       :width: 600px
       :align: center
 
-#. **DL** The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ IM** damage and loss method is selected and configured as shown in the following figure:
+#. **DL** The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ IM** damage and loss method is selected and configured as shown in the following figure:
 
    .. figure:: figures/r2dt-0005-DL.png
       :width: 600px
@@ -73,7 +73,7 @@ This example presents a coupled damage assessment for ground shaking and liquefa
 
    The random variable panel will be left empty for this example.
 
-#. **RES** The analysis outputs for the selected 20 buildings are show in the figure below. The buildings may experience severe damage states (Damage State 3 or 4 per HAZUS). The repair costs range from 3% to 7% of the total replacement costs, and the repair time range from 9 to more than 20 days.
+#. **RES** The analysis outputs for the selected 10 buildings are shown in the figure below.
 
    .. figure:: figures/r2dt-0005-RES.png
       :width: 600px
