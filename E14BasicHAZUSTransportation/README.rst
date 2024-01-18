@@ -2,9 +2,9 @@
 E14 - Basic HAZUS Transportation Infrastructure
 ===============================================
 
-+-----------------+---------------------------------------------+
++-----------------+------------------------------------------------------------+
 | Download files  | :examplesgithub:`Download <E14BasicHAZUSTransportation/>`  |
-+-----------------+---------------------------------------------+
++-----------------+------------------------------------------------------------+
 
 This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology for transportation infrastructure. Asset-level Damage and Losses (D&L) are calculated directly from Intensity Measures (IM) for buildings, highway bridges, highway tunnels, and roadways. The IM field that represents ground shaking intensity measures in Alameda Island, CA, from an Mw7.05 event on the Hayward fault was obtained from Probabilistic Seismic Hazard Analysis (PSHA). The liquefaction-induced ground failure intensity measures (Permanent Ground Deformation) are calculated following the method proposed by Wang, C., Wang, D., & Chen, Q. (2021). Regional Evaluation of Liquefaction-Induced Lateral Ground Deformation for City-Scale Transportation Resilience Analysis. Journal of Infrastructure Systems, 27(2), 04021008.
 

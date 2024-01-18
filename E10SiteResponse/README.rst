@@ -44,7 +44,7 @@ This example presents regional earthquake impact analysis including site respons
       :width: 500
 
       R2D ASD setup.
-#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as show in the following figure with **20** samples in **4** neighbors.
+#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method, which is configured as shown in the following figure with **4** samples in **4** neighbors.
 
    .. figure:: figures/r2dt-0010-HTA.png
       :name: r2d_hta
@@ -74,7 +74,7 @@ This example presents regional earthquake impact analysis including site respons
       :width: 500
 
       R2D ANA setup.
-#. **DL** The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ** damage and loss method is selected and configured as shown in the following figure:
+#. **DL** The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ Story** damage and loss method is selected and configured as shown in the following figure:
 
    .. figure:: figures/r2dt-0010-DL.png
       :name: r2d_dl
@@ -83,7 +83,7 @@ This example presents regional earthquake impact analysis including site respons
       :width: 500
 
       R2D DL setup.
-#. Set the "UQ Application" in **UQ** panel to "None". 
+#. Set the "UQ Application" in **UQ** panel to "Dakota". 
 
    .. figure:: figures/r2dt-0010-UQ.png
       :name: r2d_uq
@@ -105,7 +105,7 @@ the app would direct you to the **RES** panel (:numref:`r2d_res`) where you coul
    R2D RES panel.
 
 For simulating the damage and loss for a large region of interest (please remember to reset the building IDs in **ASD**), it would be efficient to submit and run the job 
-to `DesignSafe <https://www.designsafe-ci.org/>`_ on `Stampede2 <https://www.tacc.utexas.edu/systems/stampede2>`_. 
+to `DesignSafe <https://www.designsafe-ci.org/>`_ on on `Frontera <https://tacc.utexas.edu/systems/frontera/>`_. 
 This can be done in R2D by clicking **RUN at DesignSafe** (one would need to have a valid 
 `DesignSafe account <https://www.designsafe-ci.org/account/register/>`_ for login and access the computing resource). 
 :numref:`r2d_run_ds` provides an example configuration to run the analysis (and please see `R2D User Guide <https://nheri-simcenter.github.io/R2D-Documentation/common/user_manual/usage/desktop/usage.html#figremjobpanel>`_ for detailed descriptions).

@@ -6,7 +6,7 @@ E1 - Basic HAZUS
 | Download files  | :examplesgithub:`Download <E1BasicHAZUS/>`  |
 +-----------------+---------------------------------------------+
 
-This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology. Building-level Damage and Losses (D&L) are calculated directly from Intensity Measures (IM) for 100 assets. The IM field that represents peak ground acceleration in the city of San Francisco, CA, from an Mw7.2 event on the San Andreas fault, was obtained from Probabilistic Seismic Hazard Analysis (PSHA).
+This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology. Building-level Damage and Losses (D&L) are calculated directly from Intensity Measures (IM) for 25 assets. The IM field that represents peak ground acceleration in the city of San Francisco, CA, from an Mw7.2 event on the San Andreas fault, was obtained from Probabilistic Seismic Hazard Analysis (PSHA).
 
 .. figure:: r2dt-0001.png
    :width: 400px
@@ -14,7 +14,7 @@ This earthquake example demonstrates rapid analysis capabilities with the HAZUS 
 
 This study will be defined by sequentially traversing the input panels of the **R2D** interface. However, as outlined in the online user's manual, these procedures can be serialized to and loaded immediately from a JSON file, which for this example may be found :examplesgithub:`here <E1BasicHAZUS/input.json>`.
 
-#. **VIZ** The visualization panel in the following figure shows the location of the assets considered by this example.
+#. **VIZ** The visualization panel in the following figure shows the location of the assets considered in this example.
 
    .. figure:: figures/r2dt-0001-VIZ.png
       :width: 600px
@@ -42,7 +42,7 @@ This study will be defined by sequentially traversing the input panels of the **
       :align: center
 
 
-#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as show in the following figure with **3** samples in **4** neighbors, i.e., randomly sampling 5 ground motions from the nearest four stations (each station has one ground motion recording specified in the **HAZ**).
+#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as shown in the following figure with **100** samples in **4** neighbors, i.e., randomly sampling 100 ground motions from the nearest four stations (each station has a large number of ground motion records specified in the **HAZ**).
 
    .. figure:: figures/r2dt-0001-HTA.png
       :width: 600px
@@ -62,7 +62,7 @@ This study will be defined by sequentially traversing the input panels of the **
       :align: center
 
 
-#. **DL** The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ IM** damage and loss method is selected and configured as shown in the following figure:
+#. **DL** The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ IM** damage and loss method is selected and configured as shown in the following figure:
 
    .. figure:: figures/r2dt-0001-DL.png
       :width: 600px

@@ -6,20 +6,20 @@ E3 - Physics-based Ground Motions
 | Download files  | :examplesgithub:`Download <E3PhysicsBasedGroundMotions/>`    |
 +-----------------+--------------------------------------------------------------+
 
-This example features ground motion acceleration time histories simulated using the SW4 software and a detailed geophysical model of the San Francisco Bay Area by the Lawrence Livermore National Laboratory (https://doi.org/10.1785/0220180261). The ground motions are used to investigate the impact of a Mw7.0 earthquake on the Hayward fault on the city of Berkeley. Engineering Demand Parameters are simulated with an idealized MDOF building model; building performance is evaluated at the story-level based on the HAZUS earthquake damage and loss assessment methodology.
+This example features ground motion acceleration time histories simulated using the SW4 software and a detailed geophysical model of the San Francisco Bay Area by the Lawrence Livermore National Laboratory (https://doi.org/10.1785/0220180261). The ground motions are used to investigate the impact of a Mw7.0 earthquake on the Hayward fault in the city of Berkeley. Engineering Demand Parameters are simulated with an idealized MDOF building model; building performance is evaluated at the story level based on the HAZUS earthquake damage and loss assessment methodology.
 
 .. figure:: r2dt-0003.png
    :width: 400px
    :align: center
 
 .. note::
-   This example uses simulated ground motion time histories from the Lawrence Livermore National Lab. Due to size constraints, only the time histories near Berkeley are bundled with R2D. The complete set of simulated ground motions are available at https://berkeley.box.com/s/65113pqclc2j29ve9alita5kr7q2jnwc . After downloading the zip file, extract its contents to the SW4 folder under input_data.
+   This example uses simulated ground motion time histories from the Lawrence Livermore National Lab. Due to size constraints, only the time histories near Berkeley are bundled with R2D. The complete set of simulated ground motions is available at https://berkeley.box.com/s/65113pqclc2j29ve9alita5kr7q2jnwc . After downloading the zip file, extract its contents to the SW4 folder under input_data.
 
 
 Modeling Procedure
 ------------------
 
-We now embark on our journey through the input panels of R2D, making known to the workflow builder how our procedure should be built. An input file which will automatically configure these steps can be downloaded :examplesgithub:`here <E3PhysicsBasedGroundMotions/input.json>`.
+We now embark on our journey through the input panels of R2D, making known to the workflow builder how our procedure should be built. An input file that will automatically configure these steps can be downloaded :examplesgithub:`here <E3PhysicsBasedGroundMotions/input.json>`.
 
 #. **VIZ** The following snapshot of the visualization panel shows the assets which have been configured for this study, and their locations on a map of Berkeley, CA.
 
@@ -47,7 +47,7 @@ We now embark on our journey through the input panels of R2D, making known to th
       :width: 600px
       :align: center
 
-#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as show in the following figure with **3** samples in **4** neighbors.
+#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as shown in the following figure with **4** samples in **3** neighbors.
 
    .. figure:: figures/r2dt-0003-HTA.png
       :width: 600px
@@ -67,13 +67,13 @@ We now embark on our journey through the input panels of R2D, making known to th
       :align: center
 
 
-#. **DL**  The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ** damage and loss method is selected and configured as shown in the following figure.
+#. **DL**  The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ Story** damage and loss method is selected and configured as shown in the following figure.
 
    .. figure:: figures/r2dt-0003-DL.png
       :width: 600px
       :align: center
 
-#. **UQ** Now nearing the end of our journey, it is time to configure the venerable **Dakota** uncertainty quantification engine to carry out our latin hypercube sampling procedure **3** samples and an arbitrary seed for reproducibility.
+#. **UQ** Now nearing the end of our journey, it is time to configure the venerable **Dakota** uncertainty quantification engine to carry out our Latin Hypercube Sampling (LHS) procedure **10** samples and an arbitrary seed for reproducibility.
 
    .. figure:: figures/r2dt-0003-UQ.png
       :width: 600px
