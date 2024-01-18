@@ -32,7 +32,7 @@ Modeling Procedure
 This example is a small-scale regional earthquake risk assessment which performs response simulation and damage/loss estimation for a group of 20 wood buildings under a pseudo earthquake scenario. The procedure for this example can be configured through the R2D interface by sequentially entering the following parameters into the respective panels:
 
 
-#. **VIZ** The visualization pane showing the assets and ground motion grid.
+#. **VIZ** The visualization pane shows the assets and ground motion grid.
 
    .. figure:: figures/r2dt-0004-VIZ.png
       :width: 600px
@@ -61,7 +61,7 @@ This example is a small-scale regional earthquake risk assessment which performs
       :align: center
 
 
-#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as show in the following figure with **5** samples in **4** neighbors, i.e., randomly sampling 5 ground motions from the nearest four stations (each station has a set of records specified in the **HAZ**).
+#. **HTA** Next, a hazard mapping algorithm is specified using the **Nearest Neighbor** method and the **SimCenterEvent** application, which are configured as shown in the following figure with **5** samples in **4** neighbors, i.e., randomly sampling 5 ground motions from the nearest four stations (each station has a set of records specified in the **HAZ**).
 
    .. figure:: figures/r2dt-0004-HTA.png
       :width: 600px
@@ -81,13 +81,13 @@ This example is a small-scale regional earthquake risk assessment which performs
       :width: 600px
       :align: center
 
-#. **DL** The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ** damage and loss method is selected and configured as shown in the following figure:
+#. **DL** The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ Story** damage and loss method is selected and configured as shown in the following figure:
 
    .. figure:: figures/r2dt-0004-DL.png
       :width: 600px
       :align: center
 	  
-#. **UQ** In the UQ panel **Dakota** uncertainty quantification engine is employed to carry out latin hypercube sampling (LHS) with **5** samples and an arbitrary seed for reproducibility.
+#. **UQ** In the UQ panel **Dakota** uncertainty quantification engine is employed to carry out Latin Hypercube Sampling (LHS) with **5** samples and an arbitrary seed for reproducibility.
 
    .. figure:: figures/r2dt-0004-UQ.png
       :width: 600px
@@ -97,7 +97,7 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    The random variable panel will be left empty for this example.
 
-#. **RES** The analysis outputs for the selected buildings are show in the figure below. In the given earthquake scenario, the buildings are mostly likely in no damage or minor damage (Damage State 1 or 2 per HAZUS) with under 5% expected loss ratios.
+#. **RES** The analysis outputs for the selected buildings are shown in the figure below.
 
    .. figure:: figures/r2dt-0004-RES.png
       :width: 600px
