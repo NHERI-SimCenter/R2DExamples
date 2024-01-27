@@ -12,7 +12,7 @@
             "TransportationNetwork": {
                 "Application": "GEOJSON_TO_ASSET",
                 "ApplicationData": {
-                    "assetFile": "AI_hwy_inventory.geojson",
+                    "assetSourceFile": "AI_hwy_inventory.geojson",
                     "Bridge": {
                             "filter": "0"
                     },
