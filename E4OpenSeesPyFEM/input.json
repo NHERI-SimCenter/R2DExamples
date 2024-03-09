@@ -6,6 +6,7 @@
                 "ApplicationData": {
                     "assetSourceFile": "UniversityVillageAlbany.csv",
                     "filter": "0,14,35,57,76",
+                    "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
             }
@@ -15,18 +16,21 @@
                 "Application": "Pelicun3",
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH EQ Story",
-                    "Realizations": 5,
+                    "Realizations": 500,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_Story.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": false,
-                    "log_file": true
+                    "log_file": true,
+                    "regional": "true"
                 }
             }
         },
         "EDP": {
-            "Application": "StandardEarthquakeEDP",
-            "ApplicationData": {
+            "Buildings": {
+                "Application": "StandardEarthquakeEDP",
+                "ApplicationData": {
+                }
             }
         },
         "Events": [
@@ -48,8 +52,6 @@
                     "ndm": 3
                 }
             }
-        },
-        "Performance": {
         },
         "RegionalEvent": {
             "Application": "UserInputGM",
@@ -113,8 +115,6 @@
         }
     },
     "Name": "E4 - OpenSeesPy FEM",
-    "Performance": {
-    },
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/records",
@@ -129,6 +129,9 @@
     },
     "Simulation": {
         "Buildings": {
+            "Application": "OpenSeesPy-Simulation",
+            "ApplicationData": {
+            }
         }
     },
     "UQ": {
@@ -152,6 +155,7 @@
         "waste": false,
         "water": false
     },
+    "commonFileDir": "input_data",
     "outputs": {
         "AIM": false,
         "DM": true,

@@ -6,6 +6,7 @@
                 "ApplicationData": {
                     "assetSourceFile": "all_bldgs.csv",
                     "filter": "1-10",
+                    "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
             }
@@ -16,11 +17,12 @@
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH EQ IM",
                     "Realizations": 1000,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": true,
-                    "log_file": true
+                    "log_file": true,
+                    "regional": "true"
                 }
             }
         },
@@ -38,8 +40,6 @@
                 "ApplicationData": {
                 }
             }
-        },
-        "Performance": {
         },
         "RegionalEvent": {
             "Application": "UserInputGM",
@@ -103,8 +103,6 @@
         }
     },
     "Name": "E5 - Ground Shaking + Liquefaction",
-    "Performance": {
-    },
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/IMs",
@@ -136,6 +134,7 @@
         "waste": false,
         "water": false
     },
+    "commonFileDir": "input_data",
     "outputs": {
         "AIM": false,
         "DM": true,
