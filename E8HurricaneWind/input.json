@@ -6,9 +6,10 @@
                 "ApplicationData": {
                     "CRS": "EPSG:4326",
                     "assetGISFile": "BIM_LakeCharles_Full.gpkg",
-                    "assetSourceFile": "BIM_LakeCharles_Full.csv",
+                    "assetSourceFile": "GISBuildingInventory/BIM_LakeCharles_Full.csv",
                     "filter": "1-20",
-                    "pathToSource": "/Users/fmckenna/release/R2DExamples/E8HurricaneWind/input_data/GISBuildingInventory"
+                    "inputIsGIS": false,
+                    "pathToSource": "{Current_Dir}/input_data/GISBuildingInventory"
                 }
             }
         },
@@ -17,14 +18,14 @@
                 "Application": "Pelicun3",
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH HU",
-                    "Realizations": 5000,
+                    "Realizations": 500,
                     "auto_script": "auto_HU_LA.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": false,
                     "log_file": true,
-                    "path_to_auto_script": "{Current_Dir}/input_data/ruleset"
+                    "path_to_auto_script": "{Current_Dir}/input_data/ruleset",
+                    "regional": "true"
                 }
             }
         },
@@ -43,14 +44,12 @@
                 }
             }
         },
-        "Performance": {
-        },
         "RegionalEvent": {
             "Application": "UserInputRasterHazard",
             "ApplicationData": {
                 "CRS": "EPSG:4326",
                 "eventClassification": "Hurricane",
-                "pathToSource": "/Users/fmckenna/release/R2DExamples/E8HurricaneWind/input_data/IMs",
+                "pathToSource": "{Current_Dir}/input_data/IMs",
                 "rasterFile": "LakeCharlesWindField.tif"
             }
         },
@@ -108,17 +107,18 @@
         }
     },
     "Name": "E8 - Hurricane Wind",
-    "Performance": {
-    },
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
-        "eventFilePath": "/Users/fmckenna/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
-        "units": {
-            "PWS": "mph"
-        },
+        "eventFilePath": "/Users/adamzs/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
+        "intensityLabels": [
+            "PWS"
+        ],
         "intensityMeasures": [
             "PWS"
-        ]	
+        ],
+        "units": {
+            "PWS": "mph"
+        }
     },
     "RegionalMapping": {
         "Buildings": {
@@ -142,6 +142,7 @@
         "waste": false,
         "water": false
     },
+    "commonFileDir": "input_data",
     "outputs": {
         "AIM": false,
         "DM": true,

@@ -6,6 +6,7 @@
                 "ApplicationData": {
                     "assetSourceFile": "San_Mateo_buildings.csv",
                     "filter": "1-5",
+                    "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
             }
@@ -16,11 +17,12 @@
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH EQ IM",
                     "Realizations": 100,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": false,
-                    "log_file": true
+                    "log_file": true,
+                    "regional": "true"
                 }
             }
         },
@@ -38,8 +40,6 @@
                 "ApplicationData": {
                 }
             }
-        },
-        "Performance": {
         },
         "RegionalEvent": {
             "Application": "UserInputShakeMap",
@@ -107,11 +107,9 @@
         }
     },
     "Name": "E6 - ShakeMap",
-    "Performance": {
-    },
     "RegionalEvent": {
-        "eventFile": "",
-        "eventFilePath": "",
+        "eventFile": "ShakeMapIMs/EventGrid.csv",
+        "eventFilePath": "/Users/adamzs/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
         "units": {
             "PGA": "g"
         }
@@ -138,6 +136,7 @@
         "waste": false,
         "water": false
     },
+    "commonFileDir": "input_data",
     "outputs": {
         "AIM": false,
         "DM": true,

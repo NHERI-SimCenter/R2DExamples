@@ -6,6 +6,7 @@
                 "ApplicationData": {
                     "assetSourceFile": "SanFrancisco_buildings.csv",
                     "filter": "8000-8024",
+                    "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
             }
@@ -16,11 +17,12 @@
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH EQ IM",
                     "Realizations": 100,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": false,
-                    "log_file": true
+                    "log_file": true,
+                    "regional": "true"
                 }
             }
         },
@@ -38,8 +40,6 @@
                 "ApplicationData": {
                 }
             }
-        },
-        "Performance": {
         },
         "RegionalEvent": {
             "Application": "UserInputGM",
@@ -80,13 +80,29 @@
         "Buildings": {
         }
     },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
     "Modeling": {
         "Buildings": {
         }
     },
     "Name": "E1 - HAZUS",
-    "Performance": {
-    },
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/San_Andreas_Mw72_filtered",
@@ -116,13 +132,13 @@
         "waste": false,
         "water": false
     },
+    "commonFileDir": "input_data",
     "outputs": {
         "AIM": false,
         "DM": true,
         "DV": true,
         "EDP": true,
-        "IM": false,
-        "every_realization": false
+        "IM": false
     },
     "randomVariables": [
     ],
@@ -131,5 +147,5 @@
         "force": "kips",
         "length": "ft",
         "time": "sec"
-    }
+    },
 }

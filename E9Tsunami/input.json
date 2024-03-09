@@ -1,104 +1,125 @@
 {
-    "Name": "E9 - Tsunami Inundation",
-    "Author": "Stevan Gavrilovic",
-    "units": {
-	"force": "N",
-	"length": "m"
-    },
-    "outputs": {
-	"EDP": true,
-	"DM": true,
-	"DV": true,
-	"BIM": true,
-	"every_realization": false
-    },
-    "RegionalEvent": {
-	"units": {
-	    "PIH": "m"
-	},
-	"intensityMeasures": ["PIH"],
-	"eventFile": "EventGrid.csv"
-    },
     "Applications": {
-	"Assets" : {
+        "Assets": {
             "Buildings": {
-		"Application": "GIS_to_AIM",
-		"ApplicationData": {
-                    "filter": "2000-2100",
+                "Application": "GIS_to_AIM",
+                "ApplicationData": {
                     "CRS": "EPSG:4326",
-                    "assetGISFile": "GISBuildingInventory/Seaside_Buildings.gpkg"
-		}
-	    }
-	},
-	"Hazard": {
-	    "Application": "UserInputRasterHazard",
-	    "ApplicationData": {
-		"rasterFile": "IMs/500yr/Tsu_500yr_Hmax.tif",
-		"CRS": "EPSG:4326",
-		"eventClassification": "Tsunami",
-		"bands": ["PIH"]
-	    }
-	},
-	"RegionalMapping": {
-	    "Buildings": {
-		"Application": "SiteSpecifiedEvents",
-		"ApplicationData": {}
-	    }
-	},
-	"Events": [
-	    {
-		"EventClassification": "Tsunami",
-		"Application": "SimCenterEvent",
-		"ApplicationData": {}
-	    }
-	],
-	"Performance": {
-	},
-	"Simulation": {
-	    "Buildings": {
-		"Application": "IMasEDP",
-		"ApplicationData": {}
-	    }
-	},
-	"Modeling": {
-            "Buildings": {
-		"Application": "None",
-		"ApplicationData": {
-		}
+                    "assetGISFile": "Seaside_Buildings.gpkg",
+                    "assetSourceFile": "GISBuildingInventory/Seaside_Buildings.csv",
+                    "filter": "3500-3510",
+                    "inputIsGIS": false,
+                    "pathToSource": "{Current_Dir}/input_data/GISBuildingInventory"
+                }
             }
-	},
-	"UQ": {
+        },
+        "DL": {
             "Buildings": {
-		"Application": "None",
-		"ApplicationData": {
-		}
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "User-provided Models",
+                    "Realizations": 500,
+                    "auto_script": "custom_pop.py",
+                    "coupled_EDP": true,
+                    "custom_model_dir": "CustomDLModels",
+                    "detailed_results": false,
+                    "ground_failure": false,
+                    "log_file": true,
+                    "path_to_auto_script": "{Current_Dir}/input_data/ruleset",
+                    "path_to_custom_model_dir": "{Current_Dir}/input_data/DL_Models",
+                    "regional": "true"
+                }
             }
-	},      	
-	"DL": {
-	    "Buildings": {
-		"Application": "pelicun",
-		"ApplicationData": {
-		    "DL_Method": "User-provided Fragilities",
-		    "Realizations": "5",
-		    "coupled_EDP": true,
-		    "detailed_results": false,
-		    "log_file": false,
-		    "auto_script": "ruleset/custom_pop.py",
-		    "custom_fragility_dir" : "CustomFragilities"
-		}
-	    }
-	}
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "RegionalEvent": {
+            "Application": "UserInputRasterHazard",
+            "ApplicationData": {
+                "CRS": "EPSG:4326",
+                "eventClassification": "Tsunami",
+                "pathToSource": "{Current_Dir}/input_data/IMs/500yr",
+                "rasterFile": "Tsu_500yr_Hmax.tif"
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "SiteSpecifiedEvents",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
     },
     "Assets": {
         "Buildings": {
         }
     },
+    "Author": "SimCenter",
     "DL": {
         "Buildings": {
         }
     },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
     "Modeling": {
         "Buildings": {
+        }
+    },
+    "Name": "E9 - Tsunami Inundation",
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "/Users/adamzs/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
+        "intensityLabels": [
+            "PIH"
+        ],
+        "intensityMeasures": [
+            "PIH"
+        ],
+        "units": {
+            "PIH": "m"
         }
     },
     "RegionalMapping": {
@@ -114,7 +135,29 @@
         "Buildings": {
         }
     },
-    "Performance": {
-    }    
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "gas": false,
+        "soil": false,
+        "transportation": false,
+        "waste": false,
+        "water": false
+    },
+    "commonFileDir": "input_data",
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false
+    },
+    "randomVariables": [
+    ],
+    "type": "Earthquake",
+    "units": {
+        "force": "N",
+        "length": "m",
+        "time": "sec"
+    },
 }
-    
