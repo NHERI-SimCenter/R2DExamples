@@ -2,80 +2,98 @@
 
 # Contributors:
 # Stevan Gavrilovic
+# Adam Zsarnoczay
 # Example 9 Tsunami, Seaside
 
+import pandas as pd
 
-def auto_populate(BIM):
+def auto_populate(AIM):
     """
     Populates the DL model for tsunami example using custom fragility functions
 
     Assumptions:
-    - Everything relevant to auto-population is provided in the Buiding Information Model (BIM).
-    - The information expected in the BIM file is described in the parse_BIM
+    - Everything relevant to auto-population is provided in the Buiding 
+      Information Model (AIM).
+    - The information expected in the AIM file is described in the parse_AIM
     method.
 
     Parameters
     ----------
-    BIM_in: dictionary
+    AIM: dictionary
         Contains the information that is available about the asset and will be
         used to auto-populate the damage and loss model.
 
     Returns
     -------
-    BIM_ap: dictionary
-        Contains the extended BIM data.
+    GI_ap: dictionary
+        Contains the extended AIM data.
     DL_ap: dictionary
         Contains the auto-populated loss model.
     """
 
-    # parse the BIM data
-    #print(BIM) # Look in the BIM.json file to see what you can access here
+    # parse the AIM data
+    #print(AIM) # Look in the AIM.json file to see what you can access here
+
+    # extract the General Information
+    GI = AIM.get('GeneralInformation', None)
     
-    # BIM_ap is the 'extended BIM data - this case no extended BIM data
-    BIM_ap = BIM
+    # GI_ap is the 'extended AIM data - this case no extended AIM data
+    GI_ap = GI.copy()
     
-    # Get the number of Stories - note the column heading needs to be 'NumberOfStories' and nothing else.
-    # A HAZUS type assessment in Pelicun will require this attribute to be provided.
-    nstories = BIM.get('NumberOfStories', None)
+    # Get the number of Stories - note the column heading needs to be exactly
+    # 'NumberOfStories'.
+    nstories = GI_ap.get('NumberOfStories', None)
     if nstories is None:
-        return
+        print("NumberOfStories attribute missing from AIM file.")
+        return None, None, None
         
-    # Get the fragility tag according to some building attribute; the NumberOfStories in this case
-    # The fragility tag needs to be unique, i.e., one tag for each fragility group
-    # The fragility tag has to match the file name of the json file in the 'ComponentDataFolder' (without the .json suffix)
-    fragility_function_tag = ""
+    # Get the fragility tag according to some building attribute; the 
+    # NumberOfStories in this case. The fragility tag needs to be unique, i.e., 
+    # one tag for each fragility group. The fragility tag has to match the file 
+    # name of the json file in the 'ComponentDataFolder' (without the .json 
+    # suffix)
     
     if nstories == 1:
-        fragility_function_tag = 'building-1-Story'
+        fragility_function_tag = 'building.1'
     elif nstories == 2:
-        fragility_function_tag = 'building-2-Storeys'
+        fragility_function_tag = 'building.2'
     elif nstories >= 3:
-        fragility_function_tag = 'building-3andAbove-Storeys'
+        fragility_function_tag = 'building.3andAbove'
     else:
-        print("The number of storeys ",nstories," is not a valid input")
-    
-    # print('*********fragility_tag',fragility_tag)
+        print(f"Invalid number of storeys provided: {nstories}")
+
+    # prepare the component assignment
+    CMP = pd.DataFrame(
+                {f'{fragility_function_tag}': [  'ea',         1,          1,        1,   'N/A']},
+                index = [                     'Units','Location','Direction','Theta_0','Family']
+            ).T
                 
     # Populate the DL_ap
-    # Select the DL method supported by Pelicun: '_method'  : 'HAZUS MH EQ' or 'HAZUS MH HU' or 'HAZUS MH FL' or 'HAZUS MH TN'
-    # 'ComponentDataFolder' is the path to the folder where the custom fragility functions are located
     DL_ap = {
-        '_method'      : 'HAZUS MH TN',
-        'LossModel'    : {
-            'DecisionVariables': {
-                "ReconstructionCost": True
+            "Asset": {
+                "ComponentAssignmentFile": "CMP_QNT.csv",
+                "ComponentDatabase": "None",
+                "ComponentDatabasePath": "CustomDLDataFolder/damage_Tsunami.csv"
             },
-            'ReplacementCost'  : 1.0
-        },
-        'Components'   : {
-            fragility_function_tag: [{
-                'location'       : '1',
-                'direction'      : '1',
-                'median_quantity': '1.0',
-                'unit'           : 'ea',
-                'distribution'   : 'N/A'
-            }]
+            "Damage": {
+                "DamageProcess": "None" 
+            },
+            "Demands": {        
+            },
+            "Losses": {
+                "BldgRepair": {
+                    "ConsequenceDatabase": "None",
+                    "ConsequenceDatabasePath": "CustomDLDataFolder/loss_repair_Tsunami.csv",
+                    "MapApproach": "User Defined",
+                    "MapFilePath": "CustomDLDataFolder/loss_map.csv",
+                    "DecisionVariables": {
+                        "Cost": True,
+                        "Carbon": False,
+                        "Energy": False,
+                        "Time": False
+                    }
+                }
+            }
         }
-    }
 
-    return BIM_ap, DL_ap
+    return GI_ap, DL_ap, CMP

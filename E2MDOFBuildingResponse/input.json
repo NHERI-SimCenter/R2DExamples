@@ -6,6 +6,7 @@
                 "ApplicationData": {
                     "assetSourceFile": "AnchorageBuildings.csv",
                     "filter": "1-5",
+                    "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
             }
@@ -16,17 +17,20 @@
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH EQ Story",
                     "Realizations": 1000,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_Story.py",
                     "coupled_EDP": false,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": false,
-                    "log_file": true
+                    "log_file": true,
+                    "regional": "true"
                 }
             }
         },
         "EDP": {
-            "Application": "StandardEarthquakeEDP",
-            "ApplicationData": {
+            "Buildings": {
+                "Application": "StandardEarthquakeEDP",
+                "ApplicationData": {
+                }
             }
         },
         "Events": [
@@ -43,8 +47,6 @@
                 "ApplicationData": {
                 }
             }
-        },
-        "Performance": {
         },
         "RegionalEvent": {
             "Application": "UserInputGM",
@@ -90,14 +92,12 @@
         "edpFiles": [
             "EDP.json"
         ],
-        "filenameAIM": "AIM.json",
         "filenameDL": "BIM.json",
         "filenameEDP": "EDP.json",
         "filenameEVENT": "EVENT.json",
         "filenameSAM": "SAM.json",
         "filenameSIM": "SIM.json",
         "rvFiles": [
-            "AIM.json",
             "SAM.json",
             "EVENT.json",
             "SIM.json"
@@ -108,14 +108,12 @@
     "Modeling": {
         "Buildings": {
             "hazusData": "HazusData.txt",
-            "pathToHazusFile": ".",
+            "pathToHazusFile": "./input_data",
             "stdDamping": 0.1,
             "stdStiffness": 0.2
         }
     },
     "Name": "E2 - MDOF Building Response",
-    "Performance": {
-    },
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/records",
@@ -164,13 +162,13 @@
         "waste": false,
         "water": false
     },
+    "commonFileDir": "input_data",
     "outputs": {
         "AIM": false,
         "DM": true,
         "DV": true,
         "EDP": true,
-        "IM": false,
-        "every_realization": false
+        "IM": false
     },
     "randomVariables": [
     ],
@@ -179,5 +177,5 @@
         "force": "kips",
         "length": "ft",
         "time": "sec"
-    }
+    },
 }

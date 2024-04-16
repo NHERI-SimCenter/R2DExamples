@@ -6,6 +6,7 @@
                 "ApplicationData": {
                     "assetSourceFile": "BerkeleyBuildings.csv",
                     "filter": "170,1493,1977,2380,2459",
+                    "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
             }
@@ -16,17 +17,20 @@
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH EQ Story",
                     "Realizations": 1000,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_Story.py",
                     "coupled_EDP": false,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": false,
-                    "log_file": true
+                    "log_file": true,
+                    "regional": "true"
                 }
             }
         },
         "EDP": {
-            "Application": "StandardEarthquakeEDP",
-            "ApplicationData": {
+            "Buildings": {
+                "Application": "StandardEarthquakeEDP",
+                "ApplicationData": {
+                }
             }
         },
         "Events": [
@@ -43,8 +47,6 @@
                 "ApplicationData": {
                 }
             }
-        },
-        "Performance": {
         },
         "RegionalEvent": {
             "Application": "UserInputGM",
@@ -112,8 +114,6 @@
         }
     },
     "Name": "E3 - Physics Based Ground Motions",
-    "Performance": {
-    },
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/SW4_filtered",
@@ -162,13 +162,13 @@
         "waste": false,
         "water": false
     },
+    "commonFileDir": "input_data",
     "outputs": {
         "AIM": false,
         "DM": true,
         "DV": true,
         "EDP": true,
-        "IM": false,
-        "every_realization": false
+        "IM": false
     },
     "randomVariables": [
     ],
