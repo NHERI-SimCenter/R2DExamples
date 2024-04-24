@@ -135,7 +135,6 @@
         "water": false
     },
     "commonFileDir": "input_data",
-    "localAppDir": "/Users/adamzs/SimCenter",
     "outputs": {
         "AIM": false,
         "DM": true,
@@ -145,14 +144,10 @@
     },
     "randomVariables": [
     ],
-    "remoteAppDir": "/Users/adamzs/SimCenter",
-    "runDir": "/Users/adamzs/Documents/R2D/LocalWorkDir",
-    "runType": "runningLocal",
     "type": "Earthquake",
     "units": {
         "force": "kips",
         "length": "ft",
         "time": "sec"
-    },
-    "workingDir": "/Users/adamzs/Documents/R2D/LocalWorkDir"
+    }
 }
