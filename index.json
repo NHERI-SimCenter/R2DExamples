@@ -307,8 +307,24 @@
       "E14BasicHAZUSTransportation/figures/r2dt-0014-UQ.png",
       "E14BasicHAZUSTransportation/README.rst"
     ],
+    "summary": "This example demonstrates the water distribution system performance assessment using REWET. REWET is a tool to assess the functionality of a Water Distribution System after any catastrophic event causing damage to the system. RWEET use a general restoration policy. The method is explained in Naeimi Dafchahi, S., & Davidson, R. A. (2023). Post-event restoration simulation of water distribution systems: a generally applicable approach. ProQuest Dissertations & Theses..",
+    "logo": "r2dt-0015.png",
+    "categories": {
+      "Damage and Loss": "HAZUS MH EQ IM",
+      "Simulation": "IMasEDP",
+      "Difficulty": "1"
+    }
+  },
+    "r2dt-0015": {
+    "id": "r2dt-0015",
+    "title": "E15 - Water Distribution Network Recovery & Performance Assessment",
+    "base": "E15WDNRecoveryAndPerformanceAssessment",
+    "doc": [
+      "E15WDNRecoveryAndPerformanceAssessment/r2dt-0015.png",
+      "E15WDNRecoveryAndPerformanceAssessment/README.rst"
+    ],
     "summary": "This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology for tranportation infrastructure.\n",
-    "logo": "r2dt-0014.png",
+    "logo": "r2dt-0015.png",
     "categories": {
       "Damage and Loss": "HAZUS MH EQ IM",
       "Simulation": "IMasEDP",
