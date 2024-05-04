@@ -42,7 +42,7 @@
         },
         "DL": {
             "Buildings": {
-                "Application": "pelicun",
+                "Application": "Pelicun3",
                 "ApplicationData": {
                     "DL_Method": "User-provided Fragilities",
                     "Realizations": 5,
@@ -291,7 +291,6 @@
         "water": true
     },
     "commonFileDir": "",
-    "localAppDir": "/Users/fmckenna/NHERI/R2DTool/build/R2D.app/Contents/MacOS",
     "outputs": {
         "AIM": true,
         "DM": true,
@@ -302,14 +301,11 @@
     },
     "randomVariables": [
     ],
-    "remoteAppDir": "/Users/fmckenna/NHERI/R2DTool/build/R2D.app/Contents/MacOS",
-    "runDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir",
     "runType": "runningLocal",
     "type": "Earthquake",
     "units": {
         "force": "lb",
         "length": "inch",
         "time": "sec"
-    },
-    "workingDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir"
+    }
 }

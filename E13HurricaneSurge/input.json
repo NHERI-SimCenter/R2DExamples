@@ -27,7 +27,7 @@
         },
         "DL": {
             "Buildings": {
-                "Application": "pelicun",
+                "Application": "Pelicun3",
                 "ApplicationData": {
                     "DL_Method": "HAZUS MH HU",
                     "Realizations": 5000,
