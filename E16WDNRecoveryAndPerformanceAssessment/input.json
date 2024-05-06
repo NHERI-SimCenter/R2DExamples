@@ -26,9 +26,9 @@
                     "DL_Method": "HAZUS MH EQ IM",
                     "Realizations": 5,
                     "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
-                    "coupled_EDP": false,
+                    "coupled_EDP": true,
                     "detailed_results": false,
-                    "ground_failure": false,
+                    "ground_failure": true,
                     "log_file": true,
                     "regional": "true"
                 }
@@ -317,7 +317,7 @@
     "commonFileDir": "input_data",
     "outputs": {
         "AIM": false,
-        "DM": false,
+        "DM": true,
         "DV": false,
         "EDP": true,
         "IM": false
