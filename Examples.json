@@ -34,7 +34,7 @@
       "name": "E6 - ShakeMap San Andreas Scenario",
       "description": "This example presents a building loss assessment given a USGS ShakeMap as input. The Mw7.8 Scenario Earthquake - North San Andreas + North Coast + Peninsula + Santa Cruz Mountain (shakemap_id=npsanandreassansapsasm7p8_se) is employed in this example.\nApproximately 21,000 buildings are considered in the city of San Mateo, CA.\n",
       "inputFile": "E6ShakeMapScenario/input.json",
-      "downloadUrl" : "https://zenodo.org/api/records/11089266"
+      "downloadUrl" : "https://zenodo.org/api/records/11135742"
     },
     {
       "name": "E7 - Hurricane Wind + Water",
