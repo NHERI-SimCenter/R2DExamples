@@ -8,7 +8,7 @@
                         "filter": "1"
                     },
                     "Pipe": {
-                        "filter": "1-10"
+                        "filter": "1-200"
                     },
                     "Reservoir": {
                         "filter": "1"
@@ -179,11 +179,11 @@
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/IMs",
         "units": {
-            "PGA": "g",
-            "PGD_h": "m",
-            "PGD_v": "cmps",
-            "SA_0.3": "g",
-            "SA_1.0": "g"
+            "PGA": "inchps2",
+            "PGD_h": "inch",
+            "PGD_v": "inchps",
+            "SA_0.3": "inchps2",
+            "SA_1.0": "inchps2"
         }
     },
     "RegionalMapping": {
