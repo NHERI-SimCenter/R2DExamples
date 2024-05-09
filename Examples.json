@@ -34,7 +34,7 @@
       "name": "E6 - ShakeMap San Andreas Scenario",
       "description": "This example presents a building loss assessment given a USGS ShakeMap as input. The Mw7.8 Scenario Earthquake - North San Andreas + North Coast + Peninsula + Santa Cruz Mountain (shakemap_id=npsanandreassansapsasm7p8_se) is employed in this example.\nApproximately 21,000 buildings are considered in the city of San Mateo, CA.\n",
       "inputFile": "E6ShakeMapScenario/input.json",
-      "downloadUrl" : "https://zenodo.org/api/records/11089266"
+      "downloadUrl" : "https://zenodo.org/api/records/11135742"
     },
     {
       "name": "E7 - Hurricane Wind + Water",
@@ -74,6 +74,12 @@
       "description": "This example presents a coupled damage assessment for building and transportation systems under ground shaking and liquefaction hazards. \nTo infer liquefaction, estimates of horizontal spreading and vertical settlement are generated from PGA values obtained through PSHA. \nThese three intensity measures form the basis of input to a building-level, HAZUS-based damage and loss assessment that accounts for potential collapses due to liquefaction. \nApproximately 14,000 buildings and highway network are considered in the city of Alameda, CA.\n",
       "inputFile": "E14BasicHAZUSTransportation/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/11089416"
-    }
+    },
+    {
+      "name": "E16 - Water Distribution Network Damage & Recovery",
+      "description": "This example demonstrates the performance assessment of a water distribution newtork using REWET under an earthquake event. REWET is designed to evaluate the functionality and recovery of a water distribution system following catastrophic events that cause damage to the infrastructure. The water network, input using a standard INP file, has been created for the city of Alamede, CA,\n",
+      "inputFile": "E16WDNRecoveryAndPerformanceAssessment/input.json",
+      "downloadUrl" : "https://zenodo.org/api/records/11138318"
+    }      
   ]
 }
