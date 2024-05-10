@@ -41,7 +41,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 
 #. **ASD** A Water Distribution Network (WDN) consists of pipes, pumps, tanks, valves, and junctions (also known as nodes). This information can be provided in many formats, but the **EPANET** file format (**INP**) is widely used in the industry and research. Thus, REWET uses this format for input. Consequently, the INP to GEOJSON tool is selected to translate the INP file to the R2D internal format. Then, the path to the INP file must be provided. Since the INP file format does not contain projection system information, the projection system must be defined by the user. This projection system aligns with the coordinates defined for the system components in the INP file. Furthermore, the user may select the assets for which the loss estimation will be performed using the filter functionality.
 
-		.. note:: We enter **1** in the filter value for junction and reservoir since the damage of those is not being modeled for this example. Also, we enter **1-100** to limit the damage modeling to the first 100 pipes in our asset list, so that the damage modeling is kept short.
+		.. note:: We enter **1** in the filter value for junction and reservoir since the damage of those is not being modeled for this example. Also, we enter **1-200** to limit the damage modeling to the first 200 pipes in our asset list, so that the damage modeling is kept short.
 
 	.. figure:: figures/r2dt-0015-ASD.png
 	  :width: 800px
