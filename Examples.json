@@ -79,7 +79,7 @@
       "name": "E16 - Water Distribution Network Damage & Recovery",
       "description": "This example demonstrates the performance assessment of a water distribution newtork using REWET under an earthquake event. REWET is designed to evaluate the functionality and recovery of a water distribution system following catastrophic events that cause damage to the infrastructure. The water network, input using a standard INP file, has been created for the city of Alamede, CA,\n",
       "inputFile": "E16WDNRecoveryAndPerformanceAssessment/input.json",
-      "downloadUrl" : "https://zenodo.org/api/records/11138318"
+      "downloadUrl" : "https://zenodo.org/api/records/11176597"
     }      
   ]
 }
