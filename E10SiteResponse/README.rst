@@ -10,12 +10,14 @@ This example presents regional earthquake impact analysis including site respons
 
 .. figure:: r2dt-0010.png
    :width: 400px
+   :alt: A graphic depiction of a city's mapped area displayed in a pixelated, video game-like style. The perspective is overhead, showcasing an intricate layout of streets, buildings, and facilities in varied colors against a light blue background. Yellow dots that could represent points of interest are scattered across the map.
    :align: center
 
 #. Set the **Units** in the **GI** panel as shown in :numref:`r2d_gi` and check interested output files.
 
    .. figure:: figures/r2dt-0010-GI.png
       :name: r2d_gi
+   :alt: Screenshot of a software interface with a panel of analysis settings. On the left side, navigation tabs like VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, UQ, RV, RES are listed. The main, larger panel on the right titled 'General Information' has fields under 'Analysis Name' with a field pre-filled with 'E10 - Site Response', and 'Units' with drop-down options for 'Force' (selected as Kips), 'Length' (Feet), and 'Time' (Seconds). 'Asset Layers' lists options like Buildings (checked), Soil, Gas Network and others. Below, 'Output Settings' has several checked options including 'Engineering demand parameters (EDP)', 'Damage measures (DM)', and others related to output specifications.
       :align: center
       :figclass: align-center
       :width: 500
@@ -29,6 +31,7 @@ This example presents regional earthquake impact analysis including site respons
 
    .. figure:: figures/r2dt-0010-HAZ.png
       :name: r2d_haz
+   :alt: Screenshot of a software interface titled "R2D: Regional Resilience Determination Tool". The interface includes multiple sections for Hazard Selection, Soil Properties, and Input Motions. Key elements visible are data input fields, file paths, drop-down menus for model selections, and a table with columns such as id, Longitude, Latitude, Vs30, DepthToRock, and several soil parameters. The interface provides options to run operations, browse for files, and fetch site data.
       :align: center
       :figclass: align-center
       :width: 500
@@ -39,6 +42,7 @@ This example presents regional earthquake impact analysis including site respons
 
    .. figure:: figures/r2dt-0010-ASD.png
       :name: r2d_asd
+   :alt: Screenshot of a computer application titled "R2D: Regional Resilience Determination Tool". The interface shows a regional building inventory with a table of data that includes building identifiers and various attributes such as latitude, longitude, number of stories, year built, occupancy class, structure type, plan area, replacement cost, population, and soil type. Some columns contain numerical data, while others contain text and code snippets in JSON format. The application offers options to load information from a CSV file, convert the CSV to BIM, and has buttons labeled "Run", "Advanced Filter", "Select", "Clear Selection". At the bottom, there are buttons for "RUN at DesignSafe", "GET from DesignSafe", "Save", and "Exit". The dataset shown lists buildings with IDs from 1 to 22.
       :align: center
       :figclass: align-center
       :width: 500
@@ -48,6 +52,7 @@ This example presents regional earthquake impact analysis including site respons
 
    .. figure:: figures/r2dt-0010-HTA.png
       :name: r2d_hta
+   :alt: Screenshot of a user interface with a section titled "Building Mapping" selected on the screen. The section includes a dropdown menu labeled "Nearest Neighbour" and fields for "Number of samples" set to 4, "Number of neighbors" also set to 4, and "Seed" with a value of 468. A vertical menu on the left includes options such as VIZ, GI, HAZ, ASD, with HTA highlighted in blue, and other options including MOD, ANA, DL, UQ, RV, and RES. The interface has a simple, clean design with mostly grayscale colors.
       :align: center
       :figclass: align-center
       :width: 500
@@ -60,6 +65,7 @@ This example presents regional earthquake impact analysis including site respons
 
    .. figure:: figures/r2dt-0010-MOD.png
       :name: r2d_mod
+   :alt: Screenshot of a software interface named R2D: Regional Resilience Determination Tool. The screen shows a section titled "Building Modeling" with file path input fields and standard deviation settings. There are tabs on the left side labeled VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, UQ, RV, and RES, with the MOD tab currently highlighted. At the bottom of the interface, there are "RUN" and "GET from DesignSafe" buttons, and an "Exit" button on the lower right corner. The interface includes a note attributing a backend application to Prof. Xinzhehng Lu, Tsinghua University, and provides citation details for two scholarly articles associated with the software.
       :align: center
       :figclass: align-center
       :width: 500
@@ -69,6 +75,7 @@ This example presents regional earthquake impact analysis including site respons
 
    .. figure:: figures/r2dt-0010-ANA.png
       :name: r2d_ana
+   :alt: Screenshot of a software interface for building analysis labeled "Building Analysis Method". It includes settings and parameters such as Analysis method with command-line options, Integration method 'Newmark', Algorithm 'Newton', ConvergenceTest 'NormUnbalance', Solver 'Umfpack', and Damping Model 'Rayleigh Damping'. Options to select the tangent stiffness and input for two modes are also seen, along with a field to choose an optional Analysis Script. To the left side, there's a vertical navigation bar with various abbreviated menu items like 'VIZ', 'GI', 'HAZ', 'ASD', 'HTA', 'MOD', with 'ANA' highlighted, suggesting the current section.
       :align: center
       :figclass: align-center
       :width: 500
@@ -78,6 +85,7 @@ This example presents regional earthquake impact analysis including site respons
 
    .. figure:: figures/r2dt-0010-DL.png
       :name: r2d_dl
+   :alt: Screenshot of a "Building Damage & Loss Application" interface with a section titled "Pelican Damage and Loss Prediction Methodology". This section presents options including a dropdown for "Damage and Loss Method" set to "HAZUS MH EQ Story", a toggle for "Event time" set to "off", a field for "Number of realizations" with a value of "1000", checkboxes for "Output detailed results" and "Include ground failure" which are unchecked, and a checkbox for "Log file" which is checked. The menu on the left side includes tabs labelled VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, UQ, RV, and RES, with DL highlighted.
       :align: center
       :figclass: align-center
       :width: 500
@@ -87,6 +95,7 @@ This example presents regional earthquake impact analysis including site respons
 
    .. figure:: figures/r2dt-0010-UQ.png
       :name: r2d_uq
+   :alt: Screenshot of a graphical user interface for uncertainty quantification settings, with a menu on the left side highlighting the option "UQ" among others including "VIZ", "GI", "HAZ", and more. On the right, the main panel is titled "UQ Method" with options for selecting an "UQ Engine", and checkboxes for "Parallel Execution" and "Save Working dirs". There is a method selection dropdown set to "LHS" with fields for "# Samples" set to "4" and "Seed" set to "471". The interface has a clean and minimalist design with a blue and gray color scheme.
       :align: center
       :figclass: align-center
       :width: 500
@@ -98,6 +107,7 @@ the app would direct you to the **RES** panel (:numref:`r2d_res`) where you coul
 
 .. figure:: figures/r2dt-0010-RES.png
    :name: r2d_res
+   :alt: Screenshot of the "R2D: Regional Resilience Determination Tool" showing a regional map with various buildings marked, each associated with specific data such as repair cost and time, as well as a graph displaying relative frequency losses. The interface provides statistical information such as estimated regional totals for casualties, fatalities, economic and structural losses, and repair times. Options for exporting results and running analysis via DesignSafe are visible.
    :align: center
    :figclass: align-center
    :width: 500
@@ -115,6 +125,7 @@ Note that the product of node number, processor number per node, and buildings p
 
 .. figure:: figures/r2dt-0010-RUN.png
    :name: r2d_run_ds
+   :alt: An interface of a software application with various input fields and settings for a job named "regional_site_response." The fields include "Num Nodes" with a value of 2, "# Processes Per Node" with a value of 45, "# Buildings Per Task" with a value of 2, an unchecked checkbox for "Save Inter. Results," and "Max Run Time" with a value of 01:00:00. A blue "Submit" button is at the bottom of the interface.
    :align: center
    :figclass: align-center
    :width: 300

@@ -12,6 +12,7 @@ Advanced response estimation is enabled in this example through custom scripts t
 
 .. figure:: r2dt-0004.png
    :width: 400px
+   :alt: Map view showing an urban area with streets and buildings. Buildings are shaded in blue, roads are white, and green spaces are represented in green. Annotations or symbols appear at various points on the map, possibly indicating specific locations or points of interest. The overall layout suggests a detailed city map for navigation or urban planning purposes.
    :align: center
    
 
@@ -36,6 +37,7 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    .. figure:: figures/r2dt-0004-VIZ.png
       :width: 600px
+   :alt: Screenshot of a geographic information system (GIS) application displaying a detailed street map. The map focuses on a region labeled "USDA Western Regional Research Center", with surrounding streets and buildings. Certain buildings are highlighted in yellow, possibly to indicate selection or relevance. Various toolbars and menus within the GIS application show mapping tools and layer options such as Ground Motion, Buildings, and Open Street Map. The user interface also includes browser-like features, a spatial bookmarks section, and different base map options, as well as options to identify and select geographic assets on the map.
       :align: center
 
 
@@ -43,6 +45,7 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    .. figure:: figures/r2dt-0004-GI.png
       :width: 600px
+   :alt: Screenshot of a user interface for a software application, showing various input fields and options. The section 'General Information' includes an 'Analysis Name' field with the entry "E4 - OpenSeesPy FEM". Under 'Units', there are options for 'Force' (selected as Kips), 'Length' (selected as Feet), and 'Time' (selected as Seconds). 'Asset Layers' includes checkboxes with 'Buildings' checked, and options for Soil, Gas Network, Water Network, Waste Network, and Transportation Network. In 'Output Settings', checkboxes for 'Engineering demand parameters (EDP)', 'Damage measures (DM)', 'Decision variables (DV)', 'Output EDP, DM, and DV every sampling realization', 'Output Asset Information Model (AIM)' and 'Output site IM' are checked. On the left side, there is a vertical menu with acronyms such as VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, UQ, RV, and RES, indicating different sections or modules of the software.
       :align: center
 
 
@@ -51,6 +54,7 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    .. figure:: figures/r2dt-0004-HAZ.png
       :width: 600px
+   :alt: Screenshot of a software interface with a "Hazard Selection" section that includes options for "User Specified Ground Motions." It lists fields for event file and folder containing motions with directory paths provided. On the left is a vertical navigation menu with items such as VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, UQ, RV, and RES highlighted in blue.
       :align: center
 
 
@@ -58,6 +62,7 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    .. figure:: figures/r2dt-0004-ASD.png
       :width: 600px
+   :alt: Screenshot of a 'Regional Building Inventory' spreadsheet interface with a table containing columns labeled id, Latitude, Longitude, NumberOfStories, YearBuilt, OccupancyClass, StructureType, PlanArea, and Replacement. The table displays rows of data with building information such as latitude, longitude, the number of stories, year built, and occupancy class, all corresponding to various asset IDs. The interface includes buttons for exporting data as CSV, browsing asset files, and filtering options.
       :align: center
 
 
@@ -65,6 +70,7 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    .. figure:: figures/r2dt-0004-HTA.png
       :width: 600px
+   :alt: Screenshot of a software interface related to hazard mapping. The section displayed is titled "Hazard to Local Asset Event" and includes two subsections, "Regional Mapping" with options to select a "Mapping Application" set to 'Nearest Neighbour', input fields for "Number of samples" with a value of 5, and "Number of neighbors" with a value of 4. Below is the "Local Mapping" section, which includes "Local Event Type" set to 'SimCenterEvent', and fields for "Event Units" with 'Gravitational constant (g)' and "Event Type" with 'Earthquake'. The interface also has a vertical navigation bar with various tabs, like VIZ, GI, HAZ, ASD, and more, with HTA currently highlighted.
       :align: center
 
 
@@ -72,6 +78,7 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    .. figure:: figures/r2dt-0004-MOD.png
       :width: 600px
+   :alt: Screenshot of a software interface for "Building Modeling" featuring the OpenSeesPy Script Generator. The interface includes fields for "Input Script", "DOF Mapping", "Analysis Spatial Dimensions", and "Number Nodal DOF". A file path is shown in the Input Script field and values are entered into the other fields. The sidebar on the left has items labeled "VIZ", "GI", "HAZ", "ASD", "HTA", "MOD" (highlighted), "ANA", "DL", "UQ", "RV", and "RES", indicating different modules or sections within the software.
       :align: center
 
 
@@ -79,18 +86,21 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    .. figure:: figures/r2dt-0004-ANA.png
       :width: 600px
+   :alt: Screenshot of an interface with a vertical menu on the left side, showing various abbreviated options such as VIZ, GI, HAZ, ASD, HTA, MOD, with the option ANA highlighted in a different color. The main area of the interface has a header titled "Building Analysis Engine" with the additional text "OpenSeesPy" indicating the use of the OpenSeesPy library or module in the context of the interface, which might be related to structural analysis or engineering. The rest of the main area is blank.
       :align: center
 
 #. **DL** The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ Story** damage and loss method is selected and configured as shown in the following figure:
 
    .. figure:: figures/r2dt-0004-DL.png
       :width: 600px
+   :alt: Screenshot of a user interface titled "Building Damage & Loss Application" with an open tab named "Pelican Damage and Loss Prediction Methodology". The interface includes options for selecting a damage and loss method, with "HAZUS MH EQ Story" selected, toggling event time on or off, setting the number of realizations, and options to output detailed results, log file, coupled EDP, or include ground failure. Some options like "Log file" and "Coupled EDP" are checked, whereas others are not. On the left side, there is a vertical navigation menu with selected options such as VIZ, GI, HAZ, among others, with the current selection on DL. The overall color scheme is a combination of light blue, grey, and white.
       :align: center
 	  
 #. **UQ** In the UQ panel **Dakota** uncertainty quantification engine is employed to carry out Latin Hypercube Sampling (LHS) with **5** samples and an arbitrary seed for reproducibility.
 
    .. figure:: figures/r2dt-0004-UQ.png
       :width: 600px
+   :alt: Screenshot of a software interface titled 'UQ Application' with 'Dakota' indicated in a text box. The interface includes options for 'Method', 'Number of Samples', and 'Seed', with 'LHS' selected as a method, '5' as the number of samples, and '986' as the seed. There's also a checkbox labeled 'Keep Samples', which is checked. On the left side, there's a vertical menu with abbreviations like 'VIZ', 'GI', 'HAZ', and others, with 'UQ' highlighted in blue, suggesting it's the selected category. The overall color scheme is shades of gray, except for the highlighted 'UQ' button and the top bar with the title.
       :align: center
 
 #. **RV**
@@ -101,5 +111,6 @@ This example is a small-scale regional earthquake risk assessment which performs
 
    .. figure:: figures/r2dt-0004-RES.png
       :width: 600px
+   :alt: Screenshot of a user interface presenting a Regional Results Summary, which includes a disclaimer stating that the simulation results are not representative of individual buildings’ responses and advises consulting with a professional structural engineer. The left side of the interface shows layered options such as "Most Likely Critical Da[maged]" with numbered color codes, "Results," "Ground Motion Grid," "Buildings," and "Open Street Map" checkboxes. The main section displays a detailed map with color-coded buildings indicating varying levels of likely critical damage, streets labeled with names like "Ohlone Avenue," and areas marked as "USDA Western Regional Research Center" and "University Village." Various interface elements and a palette of map navigation tools are visible.
       :align: center
 

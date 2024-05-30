@@ -12,6 +12,7 @@ For the purposes of this example, we will consider an earthquake as the baseline
 
 .. figure:: r2dt-0015.png
    :width: 400px
+   :alt: A map visualization showcasing a dense concentration of data points over the San Francisco Bay Area, with a high number clustered in the downtown regions of San Francisco and Oakland. The map features geographic outlines, street names, and bodies of water, with the points likely representing a specific data set such as locations, events, or measurements in the area. The watermark "REWET" appears at the bottom left corner.
    :align: center
    
 In the following steps, we will guide you through each stage of the assessment. However, as outlined in the online user's manual, these procedures can be serialized to and loaded immediately from a JSON file, which for this example may be found :examplesgithub:`here <E15WDNRecoveryAndPerformanceAssessment/input.json>`. We can open the input.json file using R2D so that the following panels are set.
@@ -20,6 +21,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 
    .. figure:: figures/r2dt-0015-VIZ.png
       :width: 800px
+   :alt: Screenshot of a geographical information system (GIS) application showing a detailed map of Oakland, California with various layers enabled. The map depicts numerous data points, likely representing infrastructure elements like pipes and reservoirs, overlaid on a base map sourced from OpenStreetMap. A section of the city is densely populated with these data points, visualizing some form of analysis or inventory related to regional resilience. The interface also includes a menu with various tools and options, a section for program output indicating a completed loading file, and buttons for running an analysis and retrieving data from DesignSafe.
       :align: center
 
 
@@ -27,6 +29,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 
    .. figure:: figures/r2dt-0015-GI.png
       :width: 800px
+   :alt: Screenshot of a software interface named "R2D: Regional Resilience Determination Tool" with various menu options at the top. On the left panel, there is a list of categories like "General Information," "Asset Layers," and "Output Settings" with corresponding form fields and check-box options in the main window. "Analysis Name" is filled with "E15 - Water Distribution Network". At the bottom, there's a "Program Output" section showing logs of a recent action stating that a total of 3 pipes and 1 reservoir are selected for analysis, and a file is being loaded. The interface includes a "RUN" button, two "GET from DesignSafe" buttons, and an "Exit" button on the lower right.
       :align: center
 	  
 #. **HAZ** In our assessment of water distribution system performance, we utilize the **Regional Earthquake Event Generation tool** from the Regional Resilience Determination (R2D) Tool. This specific tool allows us to generate intensity measures (IMs) for earthquake events. The usage of the tool is explained :ref:`here<ground_motion_tool>`, so we won't go into explaining the details. Once we have created these IM values using the tool, we can employ them for damage estimation within the R2D framework.
@@ -36,6 +39,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 
 	.. figure:: figures/r2dt-0015-HAZ.png
 	  :width: 800px
+   :alt: A screenshot of the R2D: Regional Resilience Determination Tool interface on a computer screen. The interface includes a menu bar with options like File, Edit, View, Results, Tools, Examples, Help, and GIS Map. A sidebar menu lists categories like VIZ, GI, HAZ, ASD, etc. The main panel shows Hazard Selection options with paths to event files and folders. Below the selection panel, there are options for PGA, SA, and PGD with units of measurement next to them. At the bottom, there are 'RUN' and 'GET from DesignSafe' buttons, and a 'Program Output' area displaying log messages about the analysis progress.
 	  :align: center
 
 
@@ -45,30 +49,35 @@ In the following steps, we will guide you through each stage of the assessment. 
 
 	.. figure:: figures/r2dt-0015-ASD.png
 	  :width: 800px
+   :alt: A screenshot of the R2D: Regional Resilience Determination Tool software interface on a desktop screen. The application window shows a tab labeled 'Regional Water Network' with a subsection for 'EPANET INP File' listing a file path. Below this, there are various navigation tabs on the left side such as VIZ, GI, HAZ, and ASD with subcategories like Pipe and Reservoir selected. The main pane displays a table of assets to analyze, specifically a list of junctions with corresponding IDs, elevation, coordinates, and type. At the bottom of the window, there is a 'Program Output' area showing log messages about the analysis of 200 pipes and 1 reservoir, and buttons for running the analysis or getting data from DesignSafe.
 	  :align: center
 	  
 #. **HTA** In the ‘Hazard to Asset’ tab, the user specifies the method for hazard mapping. We select the **Nearest Neighbor** method. Next, we provide the number of IM samples, and the number of neighbors from which the values are assessed at each asset’s location, as shown in the following figure. We leave the random seed as it is.
 
    .. figure:: figures/r2dt-0015-HTA.png
       :width: 800px
+   :alt: Screenshot of a software interface titled "R2D: Regional Resilience Determination Tool," with a menu on the left side containing options like VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, SP, UQ, RV, and RES. The main panel is open on the "Water Distribution Network Mapping" tab with parameters for "Number of samples," "Number of neighbors," and "Seed" filled in with values 2, 4, and 836, respectively. At the bottom, there is a "Program Output" section with logs about loading assets and selecting reservoirs, junctions, and pipes for analysis. There are buttons labeled "RUN," "RUN at DesignSafe," "GET from DesignSafe," and "Exit."
       :align: center
 	
 #. **MOD** We do not model any element of the WDN. Thus, we select **None** from the dropdown menu on **Water Distribution Network Modeling**.
 
    .. figure:: figures/r2dt-0015-MOD.png
       :width: 800px
+   :alt: Screenshot of a software application interface named "R2D: Regional Resilience Determination Tool" with menu items on the left side and a main panel with the title "Water Distribution Network Modeling" and a dropdown menu set to "None." Below are three buttons labeled "RUN," "RUN at DesignSafe," and "GET from DesignSafe" with a "Login" button in the top right corner. The bottom section displays a "Program Output" log with messages about loading assets and selected items for analysis.
       :align: center
 
 #. **ANA** In the analysis panel, **IMasEDP** is selected from the primary dropdown for the Water Distribution Network.
 
    .. figure:: figures/r2dt-0015-ANA.png
       :width: 600px
+   :alt: Screenshot of a software interface titled "R2D: Regional Resilience Determination Tool" with various tabs on the left side such as VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, SP, UQ, RV, and RES. The main screen displays a heading "Water Distribution Network Analysis Method" with a dropdown menu below it. There are multiple buttons at the bottom, including "RUN," "RUN at DesignSafe," and "GET from DesignSafe." Below the buttons is a "Program Output" section with messages related to asset loading and selection for analysis, including junctions, reservoirs, and pipes.
       :align: center
 
 #. **DL** We selected **PELICUN** for damage modeling in the context of WDN (Water Distribution Network) systems. Since the damage estimates rely on IM (Intensity Measure) values, we employ the HAZUS MH EQ IM method. The sample size specifies the number of damage samples. For the remaining aspects, we maintain them as they are.
 
    .. figure:: figures/r2dt-0015-DL.png
       :width: 800px
+   :alt: Screenshot of the "R2D: Regional Resilience Determination Tool" software interface, focusing on a module titled "Water Distribution Network Damage & Loss Application". The module contains settings such as "Damage and Loss Method", "Sample size", and various checkboxes for output options and an auto-population script path. The left side of the screen lists other modules within the tool such as "VIZ", "GI", "HAZ", and others, with "DL" highlighted, indicating the current module. The lower part of the interface shows a "Program Output" log with progress updates on loading assets and selecting items for analysis. There are "RUN" and "GET from DesignSafe" buttons at the bottom of the screen.
       :align: center
 
 #. **SP** In the context of System Performance, we opt for REWET Recovery to execute evaluations of Water Distribution Network (WDN) performance. Within the REWET Recovery widget, the inputs are categorized into three tabs: Simulation, Hydraulics, and Restoration.
@@ -89,6 +98,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 
 			.. figure:: figures/r2dt-0015-SP-Sim.png
 			   :width: 800px
+   :alt: Screenshot of the 'R2D: Regional Resilience Determination Tool' interface focusing on the 'Water Distribution Network Recovery' section with tabs for Simulation, Hydraulics, and Restoration. The interface includes options for turning on restoration, defining policy, setting minimum job time, and input fields for leak amount and time window. Below is a section titled 'Discovery' with selectable types such as Pipe, Node, Tank, Pump, and an area to add time-ratio pairs. At the bottom, the 'Program Output' log shows messages regarding loading assets and selecting junctions and pipes for analysis. The window also includes buttons for running the program, accessing DesignSafe, and an exit option. The rest of the interface includes a menu bar with file and edit options, and a login button in the upper right corner.
 			   :align: center
 	
 	* **Hydraulic Tab**
@@ -101,6 +111,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 
 			.. figure:: figures/r2dt-0015-SP-Hyd.png
 			   :width: 800px
+   :alt: Screenshot of the R2D: Regional Resilience Determination Tool software interface focused on the "Water Distribution Network Recovery" module. The screen shows tabs for Simulation, Hydraulics, and Restoration, with options for Solver type and inputs for Damage Modeling, including values for alpha, beta, gamma, a, and b under Pipe Damage Modeling. There is a section for Node Damage Modeling with no data entered. Buttons for "Add" and "Del" are visible, along with "RUN" and "GET from DesignSafe" options at the bottom. The program output log at the bottom shows timestamps and messages about assets loading and selections for analysis. The application menu is visible at the top, along with various additional tabs like VIZ, GI, HAZ, and others on the side.
 			   :align: center
 		  
 	* **Restoration Tab**
@@ -116,16 +127,19 @@ In the following steps, we will guide you through each stage of the assessment. 
 
 		   .. figure:: figures/r2dt-0015-SP-Res.png
 			  :width: 800px
+   :alt: Screenshot of a software application titled "R2D: Regional Resilience Determination Tool" focused on the Water Distribution Network Recovery module. The interface shows tabs for simulation, including "Hydraulics" and "Restoration," with input fields for policy definition file and minimum job time. There are additional tabs on the left sidebar, such as VIZ, GI, HAZ, ASD, and more, labeled with abbreviations. At the bottom, the program output logs display messages about loading assets and selecting elements for analysis. There are buttons for running the simulation and interfacing with a platform named "DesignSafe." The application has a dark blue and gray color scheme.
 			  :align: center
 
 #. **UQ** For this example the UQ dropdown box should be set to None
 
    .. figure:: figures/r2dt-0015-UQ.png
 	  :width: 800px
+   :alt: Screenshot of a computer application called "R2D: Regional Resilience Determination Tool" with a menu on the left side listing various options like VIZ, GI, HAZ, etc. The main portion of the screen shows a section titled "UQ Application" with a drop-down menu set to "None". The bottom of the screen displays a program output log with messages about assets loading and selections for analysis. There are three buttons at the bottom labeled "RUN", "RUN at DesignSafe", and "GET from DesignSafe" next to an "Exit" button. The overall color scheme is shades of blue and gray, and the application appears to be ready for a user to select options and run an analysis.
 	  :align: center
 
 #. **UQ** The random variable panel will be left empty for this example.
 
    .. figure:: figures/r2dt-0015-RV.png
 	  :width: 800px
+   :alt: Screenshot of a software interface labeled "R2D: Regional Resilience Determination Tool" with a menu bar at the top and a sidebar listing various items such as "VIZ," "GI," "HAZ," and others. The main section of the interface includes an "Input Random Variables" section with buttons for "Add," "Clear All," and "Correlation Matrix," as well as "Export," "Import," and a "Login" button in the top right corner. At the bottom of the window, there is a "Program Output" box displaying messages about loading assets and selected items for analysis. There are also buttons labeled "RUN," "RUN at DesignSafe," "GET from DesignSafe," and "Exit." The interface has a minimalist design with a predominantly blue and white color scheme.
 	  :align: center

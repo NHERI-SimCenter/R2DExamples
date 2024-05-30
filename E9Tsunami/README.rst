@@ -10,12 +10,14 @@ The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America 
 
 .. figure:: r2dt-0009.png
    :width: 400px
+   :alt: I'm sorry, but there is an issue with the image that prevents me from providing a description. The content is blurred and obscured, making it difficult to discern details for an accurate alt text. If you provide a clearer image, I'd be happy to help with the alt text description.
    :align: center
 
 #. Set the **Units** in the **GI** panel as shown in :numref:`r2d_gi` and check interested output files.
 
    .. figure:: figures/r2dt-0009-GI.png
       :name: r2d_gi
+   :alt: Screenshot of a software interface titled 'R2D: Regional Resilience Determination Tool' with menu options on the left and forms for analysis configuration centered on the screen. The form includes sections for 'General Information', 'Units', 'Asset Layers', and 'Output Settings' with various options such as 'E9 - Tsunami Inundation' under Analysis Name, units of measurement, selectable asset layers like 'Buildings' and 'Soil', and checkboxes for output settings including 'Engineering demand parameters (EDP)' and 'Output building BIM.' There are buttons at the bottom for running analysis and interfacing with DesignSafe. No personal information is displayed.
       :align: center
       :figclass: align-center
       :width: 500
@@ -27,6 +29,7 @@ The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America 
 
    .. figure:: figures/r2dt-0009-HAZ.png
       :name: r2d_haz
+   :alt: Screenshot of the "R2D: Regional Resilience Determination Tool" interface with a focus on the "Hazard Selection" tab. This tab is set to "Raster Defined Hazard" and contains fields for "Event Raster File" with a path filled in, "Event Type" selected as "Tsunami", setting for "Coordinate reference system (CRS)" as "EPSG:4326 - WGS 84", and "Units of Event Input File" chosen as "Meters". There are several other tabs labeled on the left side, such as VIZ, GI, ASD, HTA, MOD, and more, indicating a comprehensive tool with multiple functions. The interface also includes "RUN" buttons, and "Login" and "Exit" options in the top corner.
       :align: center
       :figclass: align-center
       :width: 500
@@ -38,6 +41,7 @@ The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America 
 
    .. figure:: figures/r2dt-0009-ASD.png
       :name: r2d_asd
+   :alt: Screenshot of a software interface titled "R2D: Regional Resilience Determination Tool" showing a data table in the "Regional Building Inventory" section. The table contains columns for fid (feature ID), Longitude, Latitude, AREA, PERIMETER, TAX_, TAX_ID, X_COORD, Y_COORD, GIS_ACRES, and AV, with multiple rows of numerical data. The interface includes tabs labeled VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, UQ, RV, and RES, along with buttons for "RUN," "RUN at DesignSafe," "GET from DesignSafe," and "Exit." There is also a panel for loading buildings from a GIS file and an option for the advanced filter.
       :align: center
       :figclass: align-center
       :width: 500
@@ -47,6 +51,7 @@ The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America 
 
    .. figure:: figures/r2dt-0009-HTA.png
       :name: r2d_hta
+   :alt: Screenshot of the "R2D: Regional Resilience Determination Tool" interface. The window has a sidebar on the left with various menu items such as VIZ, GI, HAZ, and others, highlighting a focus on hazard mapping and analysis. The main panel shows fields for "Hazard to Local Asset Event" with a subsection "Regional Mapping" containing a mapping application dropdown that is set to "Site Specified". Below, another field labeled "Local Mapping" shows a "Local Event Type" set to "SimCenterEvent". At the bottom are buttons for running analysis or interacting with DesignSafe, as well as a Login option in the top right of the window. The interface has a clean, organized layout with a light theme.
       :align: center
       :figclass: align-center
       :width: 500
@@ -56,6 +61,7 @@ The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America 
 
    .. figure:: figures/r2dt-0009-MOD.png
       :name: r2d_mod
+   :alt: Screenshot of a software interface labeled "R2D: Regional Resilience Determination Tool." The layout features a navigation menu on the left with options including VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, UQ, RV, and RES, highlighted on MOD. On the right, there's a main content area with a dropdown menu titled "Building Modeling" set to "None." At the bottom, there are buttons for "RUN," "RUN at DesignSafe," "GET from DesignSafe," and "Exit." There's also a "Login" option at the top right corner.
       :align: center
       :figclass: align-center
       :width: 500
@@ -65,6 +71,7 @@ The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America 
 
    .. figure:: figures/r2dt-0009-ANA.png
       :name: r2d_ana
+   :alt: "Screenshot of a computer interface titled 'R2D: Regional Resilience Determination Tool.' The interface has a dark sidebar on the left with various acronyms like VIZ, GI, HAZ, ASD, HTA, MOD, ANA, DL, UQ, RV, and RES. The ANA option is highlighted. The main area of the interface is mostly empty with a header reading 'Building Analysis Engine' and a smaller subtitle 'IMasEDP.' There are buttons at the bottom including 'RUN', 'RUN at DesignSafe', 'GET from DesignSafe', and 'Exit.' A 'Login' button is visible at the top right corner."
       :align: center
       :figclass: align-center
       :width: 500
@@ -75,6 +82,7 @@ The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America 
 
    .. figure:: figures/r2dt-0009-DL.png
       :name: r2d_dl
+   :alt: Screenshot of the R2D: Regional Resilience Determination Tool interface on a computer screen. The section displayed is titled "Damage & Loss Application" with "Pelicun" as a sub-category. It includes various settings such as "Damage and Loss Method," "Event time," and "Number of realizations" with input fields and checkboxes for options like "Output detailed results", "Log file", and "Coupled EDP". Two file path inputs with corresponding 'Browse' buttons are provided for "Auto populate script" and "Folder containing user-defined fragility function". At the bottom are buttons labeled "RUN", "RUN at DesignSafe", "GET from DesignSafe", and "Exit".
       :align: center
       :figclass: align-center
       :width: 500
@@ -84,6 +92,7 @@ The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America 
 
    .. figure:: figures/r2dt-0009-UQ.png
       :name: r2d_uq
+   :alt: Screenshot of a software application named R2D: Regional Resilience Determination Tool. The interface has a clean, modern look with a navigation menu on the left side, featuring abbreviations such as GI, HAZ, ASD, and others. The main area of the interface is mostly empty, with a section titled "UQ Application" and a dropdown menu set to "None." There are buttons at the bottom, including "RUN," "RUN at DesignSafe," "GET from DesignSafe," and "Exit." A login button is visible in the top right corner.
       :align: center
       :figclass: align-center
       :width: 500
@@ -95,6 +104,7 @@ the app would direct you to the **RES** panel (:numref:`r2d_res`) where you coul
 
 .. figure:: figures/r2dt-0009-RES.png
    :name: r2d_res
+   :alt: Screenshot of the R2D: Regional Resilience Determination Tool interface with a coastal area map showing various buildings color-coded according to damage assessment in red, yellow, and green. A chart on the right displays relative frequency losses with peaks at various points. Below the chart is a table listing assets with columns for repair cost, repair time, replacement probability, fatalities, and loss ratio. On the left is a sidebar with various menu options such as VIZ, GI, HAZ, and others. A disclaimer note on the top left indicates that simulation results are not representative of any individual building's response. There are options to run the analysis, export results, and navigation buttons at the bottom.
    :align: center
    :figclass: align-center
    :width: 500
@@ -114,6 +124,7 @@ total number of buildings in the inventory to be analyzed.
 
 .. figure:: figures/r2dt-0009-RUN.png
    :name: r2d_run_ds
+   :alt: Screenshot of a computer interface for a job submission form titled "R2D". The form includes fields such as job Name filled with "lake_charles_full_inventory", Num Nodes set to "2", # Processes Per Node with "48", # Buildings Per Task showing "280", and the Max Run Time is "00:29:00". There is also a checkbox for Save Inter. Results, which is unchecked. At the bottom, there is a blue "Submit" button.
    :align: center
    :figclass: align-center
    :width: 300
@@ -129,6 +140,7 @@ the results from this testbed as an example to discuss more details.
 
 .. figure:: figures/r2dt-0009-GFD.png
    :name: r2d_get_ds
+   :alt: Screenshot of a computer interface with a table listing various jobs or tasks with columns for Name, Status, ID, and Date Created. Most jobs are marked as FINISHED, with a couple of entries marked as FAILED. The table is part of an application with options to "RUN at DesignSafe," "Export to PDF," and "GET from DesignSafe" available at the bottom of the window. There is a note at the top indicating users can click on any job shown to update the status, download, or delete the job.
    :align: center
    :figclass: align-center
    :width: 400
