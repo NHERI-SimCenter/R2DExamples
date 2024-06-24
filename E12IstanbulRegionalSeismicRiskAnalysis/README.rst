@@ -7,7 +7,7 @@ E12 - Istanbul Regional Seismic Risk Analysis
 +-----------------+-------------------------------------------------------------------------+
 
 This example features a systematic regional seismic damage and loss assessment for Istanbul, Turkey. 
-The ground motion acceleration time histories were simulated using the hercules software and a detailed 
+The ground motion acceleration time histories were simulated using the Hercules software and a detailed 
 geophysical model of Istanbul region ([ZhangEtAl2021]_, [ZhangEtAl2023-1]_, [ZhangEtAl2023-2]_, [ZhangEtAl2023-3]_). The ground motions are used to investigate the 
 impact of a Mw7.0 earthquake on the Central Marmara Basin fault. Engineering Demand Parameters are simulated 
 with OpenSees models for individual reinforced concrete buildings in this example. Building damage and loss 
@@ -18,7 +18,7 @@ is evaluated the story-level based on the HAZUS earthquake damage and loss asses
    :align: center
 
 .. note::
-   This example uses simulated ground motion time histories from the hercules software. Due to size constraints, 
+   This example uses simulated ground motion time histories from the Hercules software. Due to size constraints, 
    only an example set of time histories are bundled with R2D. The complete set of simulated ground motions are 
    available at `DesignSafe PRJ-3712 <https://doi.org/10.17603/ds2-e7nq-8d52>`_.
 
@@ -81,7 +81,7 @@ We now embark on our journey through the input panels of R2D, making known to th
       :width: 600px
       :align: center
 
-#. **UQ** Now nearing the end of our journey, it is time to configure the venerable **Dakota** uncertainty quantification engine to carry out our latin hypercube sampling procedure **5** samples and an arbitrary seed for reproducibility.
+#. **UQ** Now nearing the end of our journey, it is time to configure the venerable **Dakota** uncertainty quantification engine to carry out our Latin hypercube sampling procedure **5** samples and an arbitrary seed for reproducibility.
 
    .. figure:: figures/r2dt-0012-UQ.png
       :width: 600px
