@@ -1,20 +1,20 @@
 
-E15 - E15WDNRecoveryAndPerformanceAssessment
+E16 - E16WDNRecoveryAndPerformanceAssessment
 ===============================================
 
 +-----------------+------------------------------------------------------------+
-| Download files  | :examplesgithub:`Download <E15WDNRecoveryAndPerformanceAssessment/>`  |
+| Download files  | :examplesgithub:`Download <E16WDNRecoveryAndPerformanceAssessment/>`  |
 +-----------------+------------------------------------------------------------+
 
 This example demonstrates the performance assessment of water distribution systems using REWET. REWET is designed to evaluate the functionality of a water distribution system following catastrophic events that cause damage to the infrastructure. The method is outlined in the dissertation by Naeimi Dafchahi, S., & Davidson, R. A. (2023), titled "Post-event restoration simulation of water distribution systems: a generally applicable approach."
 
-For the purposes of this example, we will consider an earthquake as the baseline hazard type. REWET assesses the recovery and functionality of the system over the time. To achieve this, users must specify general rules (also known as restoration policy) for system recovery. While R2D’s flexible workflow handles hazard intensity measure calculations and damage estimation, users are responsible for providing other necessary inputs for the recovery process and simulation.
+For the purposes of this example, we will consider an earthquake as the baseline hazard type. REWET assesses the recovery and functionality of the system over the time. To achieve this, users must specify general rules (also known as restoration policy) for system recovery. While R2D's flexible workflow handles hazard intensity measure calculations and damage estimation, users are responsible for providing other necessary inputs for the recovery process and simulation.
 
 .. figure:: r2dt-0015.png
    :width: 400px
    :align: center
    
-In the following steps, we will guide you through each stage of the assessment. However, as outlined in the online user's manual, these procedures can be serialized to and loaded immediately from a JSON file, which for this example may be found :examplesgithub:`here <E15WDNRecoveryAndPerformanceAssessment/input.json>`. We can open the input.json file using R2D so that the following panels are set.
+In the following steps, we will guide you through each stage of the assessment. However, as outlined in the online user's manual, these procedures can be serialized to and loaded immediately from a JSON file, which for this example may be found :examplesgithub:`here <E16WDNRecoveryAndPerformanceAssessment/input.json>`. We can open the input.json file using R2D so that the following panels are set.
 
 #. **VIZ** The visualization panel in the following figure shows the location of the assets considered in this example.
 
@@ -41,7 +41,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 
 #. **ASD** A Water Distribution Network (WDN) consists of pipes, pumps, tanks, valves, and junctions (also known as nodes). This information can be provided in many formats, but the **EPANET** file format (**INP**) is widely used in the industry and research. Thus, REWET uses this format for input. Consequently, the INP to GEOJSON tool is selected to translate the INP file to the R2D internal format. Then, the path to the INP file must be provided. Since the INP file format does not contain projection system information, the projection system must be defined by the user. This projection system aligns with the coordinates defined for the system components in the INP file. Furthermore, the user may select the assets for which the loss estimation will be performed using the filter functionality.
 
-		.. note:: We enter **1** in the filter value for junction and reservoir since the damage of those is not being modeled for this example. Also, we enter **1-200** to limit the damage modeling to the first 200 pipes in our asset list, so that the damage modeling is kept short.
+		.. note:: We enter **1** in the filter value for junction and reservoir since the damage to those is not being modeled for this example. Also, we enter **1-200** to limit the damage modeling to the first 200 pipes in our asset list, so that the damage modeling is kept short.
 
 	.. figure:: figures/r2dt-0015-ASD.png
 	  :width: 800px
@@ -97,7 +97,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 		
 		**Minimum Pressure Override and Required Pressure Override:** These options allow users to override the minimum and required pressure values specified in the INP file. Since the minimum and required pressure values in the example are correct, we leave them unchanged (i.e., set as -1 so that they will be ignored).
 		
-		**Pipe Damage Modeling:** In pipe damage modeling, the relationship between the pipe’s diameter and the equivalent orifice diameter - similar to the approach proposed by Shi and O’Rourke (2008) - for each pipe material (or damage type) is defined. The default value is set to Cast Iron, with average values derived from Shi and O’Rourke (2008). We have not provided material or the damage modeling based on the material, so so that R2D assumes the default value to be Cast Iron.
+		**Pipe Damage Modeling:** In pipe damage modeling, the relationship between the pipe’s diameter and the equivalent orifice diameter - similar to the approach proposed by Shi and O’Rourke (2008) - for each pipe material (or damage type) is defined. The default value is set to Cast Iron, with average values derived from Shi and O’Rourke (2008). We have not provided material or the damage modeling based on the material, so that R2D assumes the default value which is Cast Iron.
 
 			.. figure:: figures/r2dt-0015-SP-Hyd.png
 			   :width: 800px
@@ -111,7 +111,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 		
 		**Minimum Job Time:** Specifies the time when a job is assigned to a restoration agent before their shift ends.
 		
-		**Pipe Discovery Rules for Damaged Assets:** The user can define the discovery rules for each damaged asset. For a pipe, the discovery can be based on leaks or on a user-specified timeseries of the discovery ratio. Leak-based discovery helps the user mimic the discovery of buried pipes, in which the pipes are not discovered unless the damage location on the pipe is pressurized for enough time so that the water flows out to the surface of the ground. The user-specified method may also be beneficial to the user when other methods for discovery are used, or the user prefers such a model. Other possible damage discoveries are node-level damage discovery, tank, and pump damages. Based on the available REWET and R2D versions, damage modeling of these asset types (also known as elements) may be included or not. If such damage modeling is being performed, the user may define such an element’s discovery as well.
+		**Pipe Discovery Rules for Damaged Assets:** The user can define the discovery rules for each damaged asset. For a pipe, the discovery can be based on leaks or on a user-specified time series of the discovery ratio. Leak-based discovery helps the user mimic the discovery of buried pipes, in which the pipes are not discovered unless the damage location on the pipe is pressurized for enough time so that the water flows out to the surface of the ground. The user-specified method may also be beneficial to the user when other methods for discovery are used, or the user prefers such a model. Other possible damage discoveries are node-level damage discovery, tank, and pump damages. Based on the available REWET and R2D versions, damage modeling of these asset types (also known as elements) may be included or not. If such damage modeling is being performed, the user may define such an element’s discovery as well.
 
 
 		   .. figure:: figures/r2dt-0015-SP-Res.png
