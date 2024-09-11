@@ -34,7 +34,7 @@
                 "Application": "SimCenterEvent",
                 "ApplicationData": {
                 },
-                "EventClassification": "Earthquake"
+                "EventClassification": "Hurricane"
             }
         ],
         "Modeling": {
@@ -55,7 +55,7 @@
         },
         "RegionalMapping": {
             "Buildings": {
-                "Application": "SiteSpecifiedEvents",
+                "Application": "GISSpecifiedEvents",
                 "ApplicationData": {
                 }
             }
@@ -108,8 +108,6 @@
     },
     "Name": "E8 - Hurricane Wind",
     "RegionalEvent": {
-        "eventFile": "EventGrid.csv",
-        "eventFilePath": "/Users/adamzs/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
         "intensityLabels": [
             "PWS"
         ],
