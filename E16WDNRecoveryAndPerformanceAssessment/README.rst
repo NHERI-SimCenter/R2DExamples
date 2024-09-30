@@ -129,3 +129,11 @@ In the following steps, we will guide you through each stage of the assessment. 
    .. figure:: figures/r2dt-0015-RV.png
 	  :width: 800px
 	  :align: center
+
+#. **Result** This tab is designed to provide general results to the user. A power user may utilize the raw data provided by R2DTool to produce the specific data they need. Results for a water distribution network performance assessment can be shown using metrics such as Basic Service Categories. Water Delivery and Water Quality are two metrics that can be selected, and the system's performance at each time step will be displayed in the R2D results tab.
+
+Furthermore, the pipes and junction data, including the total amount of time each junction is out of service for each metric (i.e., the total amount of time a junction is either not delivering any water (Water Delivery) or not delivering the expected amount of water (Water Quality), are shown in a tabular format. The data is also available in the GIS gadget in central section of the map.
+
+   .. figure:: figures/r2dt-0015-SP-Result.png
+	  :width: 800px
+	  :align: center
