@@ -57,7 +57,7 @@
         },
         "RegionalMapping": {
             "Buildings": {
-                "Application": "SiteSpecifiedEvents",
+                "Application": "GISSpecifiedEvents",
                 "ApplicationData": {
                 }
             }
@@ -110,8 +110,6 @@
     },
     "Name": "E9 - Tsunami Inundation",
     "RegionalEvent": {
-        "eventFile": "EventGrid.csv",
-        "eventFilePath": "/Users/adamzs/Documents/R2D/LocalWorkDir/tmp.SimCenter/input_data",
         "intensityLabels": [
             "PIH"
         ],
