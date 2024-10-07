@@ -181,7 +181,7 @@
         "units": {
             "PGA": "inchps2",
             "PGD_h": "inch",
-            "PGD_v": "inchps",
+            "PGD_v": "inch",
             "SA_0.3": "inchps2",
             "SA_1.0": "inchps2"
         }
