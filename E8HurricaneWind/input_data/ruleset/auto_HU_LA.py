@@ -55,7 +55,7 @@ from BldgClassRulesets import building_class
 from WindWSFRulesets import WSF_config
 from WindWMUHRulesets import WMUH_config
 
-def auto_populate(AIM):
+def auto_populate(aim):
     """
     Populates the DL model for hurricane assessments in Atlantic County, NJ
 
@@ -67,7 +67,7 @@ def auto_populate(AIM):
 
     Parameters
     ----------
-    AIM: dictionary
+    aim: dictionary
         Contains the information that is available about the asset and will be
         used to auto-popualate the damage and loss model.
 
@@ -80,7 +80,7 @@ def auto_populate(AIM):
     """
 
     # extract the General Information
-    GI = AIM.get('GeneralInformation', None)
+    GI = aim.get('GeneralInformation', None)
 
     # parse the GI data
     GI_ap = parse_BIM(GI, location="LA", hazards=['wind',])
