@@ -46,9 +46,9 @@
                 "Application": "OpenSeesPyInput",
                 "ApplicationData": {
                     "dofMap": "1,2,3",
-                    "filePath": "{Current_Dir}/input_data/model",
+                    "filePath": "{Current_Dir}/input_data",
                     "mainScript": "cantilever_light.py",
-                    "modelPath": "",
+                    "modelPath": "model",
                     "ndm": 3
                 }
             }

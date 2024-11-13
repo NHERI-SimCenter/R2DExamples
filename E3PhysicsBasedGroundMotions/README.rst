@@ -35,7 +35,7 @@ We now embark on our journey through the input panels of R2D, making known to th
       :align: center
 
 
-#. **HAZ** Next, in the hazard panel, the :examplesgithub:`EventGrid.csv </E3PhysicsBasedGroundMotions/input_data/SW4/EventGrid.csv>` file is loaded pointing to the suite of SW4 ground motions which are used for the procedure.
+#. **HAZ** Next, in the hazard panel, the :examplesgithub:`EventGrid.csv </E3PhysicsBasedGroundMotions/input_data/SW4_filtered/EventGrid.csv>` file is loaded pointing to the suite of SW4 ground motions which are used for the procedure.
 
    .. figure:: figures/r2dt-0003-HAZ.png
       :width: 600px
