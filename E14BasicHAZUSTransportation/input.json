@@ -12,9 +12,9 @@
             "TransportationNetwork": {
                 "Application": "GEOJSON_TO_ASSET",
                 "ApplicationData": {
-                    "assetSourceFile": "AI_hwy_inventory.geojson",
+                    "assetSourceFile": "hwy_inventory.geojson",
                     "Bridge": {
-                            "filter": "0"
+                            "filter": "0-1"
                     },
                     "Tunnel": {
                             "filter": "0"
@@ -68,7 +68,32 @@
                 "ApplicationData": {}
             }
         },
-        "Performance": {},
+        "SystemPerformance": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "ResidualDemand",
+                "ApplicationData": {
+                    "DamageInput": {
+                        "Parameters": {
+                            "Filter": "1,5,9"
+                        },
+                        "Type": "SpecificRealization"
+                    },
+                    "TwoWayEdges": true,
+                    "CreateAnimation": true,
+                    "HourList": [7,8],
+                    "CapacityMap":"{Current_Dir}/input_data/capacity_map.json",
+                    "NetworkEdgesGeojson":"{Current_Dir}/input_data/ProcessedRoadNetworkRoads.geojson",
+                    "NetworkNodesGeojson":"{Current_Dir}/input_data/ProcessedRoadNetworkNodes.geojson",
+                    "PreEventDemand":"{Current_Dir}/input_data/OD_Matrix.csv",
+                    "PostEventDemand":"{Current_Dir}/input_data/OD_Matrix_post.csv"
+                }
+            }
+        },
         "RegionalEvent": {
             "Application": "UserInputGM",
             "ApplicationData": {}
