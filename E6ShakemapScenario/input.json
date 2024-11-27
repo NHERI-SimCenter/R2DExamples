@@ -44,7 +44,7 @@
         "RegionalEvent": {
             "Application": "UserInputShakeMap",
             "ApplicationData": {
-                "Directory": "{Current_Dir}/input_data/ShakeMapIMs",
+                "Directory": "{Current_Dir}/input_data/ShakeMapIMs/SanAndreasM7.8",
                 "IntensityMeasureType": [
                     "PGA"
                 ]
