@@ -9,12 +9,12 @@ import os
 import model_builder_frontera
 
 
-def custom_analysis(BIM, EVENT, SAM, EDP):
+def custom_analysis(AIM, EVENT, SAM, EDP):
 
-    # Modeling parameters from BIM
-    dict_GI = BIM.get("GeneralInformation", None)
+    # Modeling parameters from AIM
+    dict_GI = AIM.get("GeneralInformation", None)
     if dict_GI is None:
-        print('Please check input BIM information, no GeneralInformation found.')
+        print('Please check input AIM information, no GeneralInformation found.')
         return 1
     
     floor_area = float(dict_GI.get('PlanArea', 1000))
@@ -27,7 +27,7 @@ def custom_analysis(BIM, EVENT, SAM, EDP):
     number_span = int(np.ceil(dimension/span_length))
     folder = os.getcwd()
     outputpath = folder
-    inputpath = BIM.get('commonFileDir',folder)
+    inputpath = AIM.get('commonFileDir',folder)
     model = model_builder_frontera.Modeler(buildID = blvd_id,
                                       outputpath = outputpath,
                                       number_floor = number_floor,
