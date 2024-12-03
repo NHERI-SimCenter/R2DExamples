@@ -13,7 +13,7 @@
                     "Reservoir": {
                         "filter": "1"
                     },
-                    "assetSourceFile": "{Current_Dir}/input_data/sc_inpFileGeoJSON.json",
+                    "assetSourceFile": "sc_inpFileGeoJSON.json",
 					"Default_CRS": "EPSG:4326",
                     "inpFile": "{Current_Dir}/input_data/waterNetwork.inp"
                 }
