@@ -13,7 +13,7 @@
                     "Reservoir": {
                         "filter": "1"
                     },
-                    "assetSourceFile": "sc_inpFileGeoJSON.json",
+                    "assetSourceFile": "{Current_Dir}/input_data/sc_inpFileGeoJSON.json",
 					"Default_CRS": "EPSG:4326",
                     "inpFile": "{Current_Dir}/input_data/waterNetwork.inp"
                 }
@@ -179,11 +179,10 @@
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/IMs",
         "units": {
-            "PGA": "inchps2",
-            "PGD_h": "inch",
-            "PGD_v": "inch",
-            "SA_0.3": "inchps2",
-            "SA_1.0": "inchps2"
+			"PGA": "g",
+            "PGD_h": "m",
+            "PGD_v": "m",
+            "PGV": "cmps2"
         }
     },
     "RegionalMapping": {
