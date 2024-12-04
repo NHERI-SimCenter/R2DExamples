@@ -8,7 +8,7 @@
                         "filter": "1"
                     },
                     "Pipe": {
-                        "filter": "1-200"
+                        "filter": "1-50"
                     },
                     "Reservoir": {
                         "filter": "1"
@@ -317,7 +317,7 @@
     "outputs": {
         "AIM": false,
         "DM": true,
-        "DV": false,
+        "DV": true,
         "EDP": true,
         "IM": false
     },
