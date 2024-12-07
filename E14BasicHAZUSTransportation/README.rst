@@ -6,7 +6,7 @@ E14 - Basic HAZUS Transportation Infrastructure
 | Download files  | :examplesgithub:`Download <E14BasicHAZUSTransportation/>`  |
 +-----------------+------------------------------------------------------------+
 
-This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology for transportation infrastructure. Asset-level Damage and Losses (D&L) are calculated directly from Intensity Measures (IM) for buildings, highway bridges, highway tunnels, and roadways. The IM field that represents ground shaking intensity measures in Alameda Island, CA, from a Mw7.05 event on the Hayward fault was obtained from Probabilistic Seismic Hazard Analysis (PSHA). The liquefaction-induced ground failure intensity measures (Permanent Ground Deformation) are calculated following the method proposed by Wang, C., Wang, D., & Chen, Q. (2021). Regional Evaluation of Liquefaction-Induced Lateral Ground Deformation for City-Scale Transportation Resilience Analysis. Journal of Infrastructure Systems, 27(2), 04021008.
+This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology for transportation infrastructure, as well as evaluating the distruance to the transportation network using traffic flow simulations. Asset-level Damage and Losses (D&L) are calculated directly from Intensity Measures (IM) for buildings, highway bridges, highway tunnels, and roadways. The IM field that represents ground shaking intensity measures in Alameda Island, CA, from a Mw7.05 event on the Hayward fault was obtained from Probabilistic Seismic Hazard Analysis (PSHA). The liquefaction-induced ground failure intensity measures (Permanent Ground Deformation) are calculated following the method proposed by Wang, C., Wang, D., & Chen, Q. (2021). Regional Evaluation of Liquefaction-Induced Lateral Ground Deformation for City-Scale Transportation Resilience Analysis. Journal of Infrastructure Systems, 27(2), 04021008. The traffic flow simulation is performed using the Residual Demand Model that is originally developed in Zhao, B., Kumar, K., Casey, G., & Soga, K. (2019). Agent-based model (ABM) for city-scale traffic simulation: A case study on San Francisco. In International Conference on Smart Infrastructure and Construction 2019 (ICSIC) Driving data-informed decision-making (pp. 203-212). ICE Publishing.
 
 .. figure:: r2dt-0014.png
    :width: 400px
@@ -72,6 +72,12 @@ and **Transportation Components Modelling**should be left set to **None**.
 for both Buildings and Transportation Network. 
 
    .. figure:: figures/r2dt-0014-DL.png
+      :width: 600px
+      :align: center
+
+#. **SP** The damage and loss panel is used to configure the **Residual Demand Traffic Simulation**. The details of the input fields are described at :ref:`SP: Residual Demand Traffic Simulator <lbl-SPResidualDemand>`. The roadway edges and nodes geojson files are produced using SimCenter's BRAILS tool. The pre-event traffic demand is extracted from the travel demand estimated by the SF Bay Area MTC, which is openly available at `here <https://data.mtc.ca.gov/data-repository/>`_. The post-event traffic demand is estimated by randomly sampling 80% of the pre-event traffic demand. The traffic simulation is performed for the morning rush hour (7:00-9:00 AM).
+
+   .. figure:: figures/r2dt-0014-SP.png
       :width: 600px
       :align: center
 
