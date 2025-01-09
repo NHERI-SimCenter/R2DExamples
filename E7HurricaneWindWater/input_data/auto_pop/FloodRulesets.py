@@ -114,7 +114,7 @@ def FL_config(BIM):
         'Weymouth':1979 
     }
     if BIM['City'] in PostFIRM_year_by_city:
-        PostFIRM_year = PostFIRM_year_by_city(BIM['City'])
+        PostFIRM_year = PostFIRM_year_by_city[BIM['City']]
         PostFIRM = year > PostFIRM_year
     else:
         PostFIRM = False
