@@ -1,0 +1,391 @@
+{
+    "Applications": {
+        "Assets": {
+            "Buildings": {
+                "Application": "CSV_to_AIM",
+                "ApplicationData": {
+                    "assetSourceFile": "all_bldgs.csv",
+                    "filter": "1-600",
+                    "inputIsGIS": false,
+                    "pathToSource": "{Current_Dir}/input_data"
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "GEOJSON_TO_ASSET",
+                "ApplicationData": {
+                    "Bridge": {
+                        "filter": "0-5"
+                    },
+                    "Roadway": {
+                        "filter": "0-9"
+                    },
+                    "Tunnel": {
+                        "filter": "0-1"
+                    },
+                    "assetSourceFile": "AI_hwy_inventory_with_pyrecodes_attributes.geojson",
+                    "pathToSource": "{Current_Dir}/input_data"
+                }
+            },
+            "WaterDistributionNetwork": {
+                "Application": "INP_FILE",
+                "ApplicationData": {
+                    "Default_CRS": "EPSG:4326",
+                    "Junction": {
+                        "filter": "1"
+                    },
+                    "Pipe": {
+                        "filter": "1-20"
+                    },
+                    "Reservoir": {
+                        "filter": "1"
+                    },
+                    "assetSourceFile": "sc_inpFileGeoJSON.json",
+                    "inpFile": "waterNetwork.inp"
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ IM",
+                    "Realizations": 100,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "ground_failure": true,
+                    "log_file": true,
+                    "regional": "true"
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ IM",
+                    "Realizations": 100,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "ground_failure": true,
+                    "log_file": true,
+                    "regional": "true"
+                }
+            },
+            "WaterDistributionNetwork": {
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ IM",
+                    "Realizations": 100,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "ground_failure": true,
+                    "log_file": true,
+                    "regional": "true"
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterDistributionNetwork": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterNetworkNodes": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterNewtworkPipelines": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Recovery": {
+            "Application": "Pyrecodes",
+            "ApplicationData": {
+                "mainFile": "Alameda_Main.json",
+                "mainFilePath": "{Current_Dir}/pyrecodes_data",		
+                "componentLibraryFile": "Alameda_ComponentLibrary.json",
+                "componentLibraryFilePath": "{Current_Dir}/pyrecodes_data",
+                "systemConfigFile": "Alameda_SystemConfiguration.json",
+                "systemConfigFilePath": "{Current_Dir}/pyrecodes_data"
+            }
+        },	
+        "RegionalEvent": {
+            "Application": "UserInputGM",
+            "ApplicationData": {
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 10
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 10
+                }
+            },
+            "WaterDistributionNetwork": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 404
+                }
+            },
+            "WaterNetworkNodes": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 404
+                }
+            },
+            "WaterNetworkPipelines": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 404
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            },
+            "WaterDistributionNetwork": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            },
+            "WaterNetworkNodes": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            },
+            "WaterNetworkPipelines": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "SystemPerformance": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterDistributionNetwork": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "TransportationNetwork": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterDistributionNetwork": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterNetworkNodes": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterNewtworkPipelines": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
+    },
+    "Assets": {
+        "Buildings": {
+        },
+        "TransportationNetwork": {
+        },
+        "WaterDistributionNetwork": {
+        }
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {
+        },
+        "TransportationNetwork": {
+        },
+        "WaterDistributionNetwork": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "Buildings": {
+        },
+        "TransportationNetwork": {
+        },
+        "WaterDistributionNetwork": {
+        },
+        "WaterNetworkNodes": {
+        },
+        "WaterNewtworkPipelines": {
+        }
+    },
+    "Name": "E14 - HAZUS Transportation",
+    "Recovery": {
+        "Application": "Pyrecodes"	
+    },
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "{Current_Dir}/input_data/IMs",
+        "units": {
+            "PGA": "g",
+            "PGD_h": "m",
+            "PGD_v": "m",
+            "PGV": "cmps",
+            "SA_0.3": "g",
+            "SA_1.0": "g"
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        },
+        "TransportationNetwork": {
+        },
+        "WaterDistributionNetwork": {
+        },
+        "WaterNetworkNodes": {
+        },
+        "WaterNetworkPipelines": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        },
+        "TransportationNetwork": {
+            "type": "IMasEDP"
+        },
+        "WaterDistributionNetwork": {
+            "type": "IMasEDP"
+        },
+        "WaterNetworkNodes": {
+            "type": "IMasEDP"
+        },
+        "WaterNetworkPipelines": {
+            "type": "IMasEDP"
+        }
+    },
+    "SystemPerformance": {
+        "Buildings": {
+        },
+        "TransportationNetwork": {
+        },
+        "WaterDistributionNetwork": {
+        }
+    },
+    "UQ": {
+        "Buildings": {
+        },
+        "TransportationNetwork": {
+        },
+        "WaterDistributionNetwork": {
+        },
+        "WaterNetworkNodes": {
+        },
+        "WaterNewtworkPipelines": {
+        }
+    },
+    "WorkflowType": "Regional Simulation",
+    "assets": {
+        "buildings": true,
+        "gas": false,
+        "soil": false,
+        "transportation": true,
+        "waste": false,
+        "water": true
+    },
+    "commonFileDir": "input_data",
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false
+    },
+    "randomVariables": [
+    ],
+    "runType": "runningLocal",
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "inch",
+        "time": "sec"
+    }
+}
