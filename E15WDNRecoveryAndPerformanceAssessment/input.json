@@ -1,0 +1,333 @@
+{
+    "Applications": {
+        "Assets": {
+            "WaterDistributionNetwork": {
+                "Application": "INP_FILE",
+                "ApplicationData": {
+                    "Junction": {
+                        "filter": "1"
+                    },
+                    "Pipe": {
+                        "filter": "1-50"
+                    },
+                    "Reservoir": {
+                        "filter": "1"
+                    },
+                    "assetSourceFile": "{Current_Dir}/input_data/sc_inpFileGeoJSON.json",
+					"Default_CRS": "EPSG:4326",
+                    "inpFile": "{Current_Dir}/input_data/waterNetwork.inp"
+                }
+            }
+        },
+        "DL": {
+            "WaterDistributionNetwork": {
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH EQ IM",
+                    "Realizations": 5,
+                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "ground_failure": true,
+                    "log_file": true,
+                    "regional": "true"
+                }
+            }
+        },
+        "EDP": {
+            "Buildings": {
+                "Application": "StandardEarthquakeEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "WaterDistributionNetwork": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterNetworkNodes": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterNewtworkPipelines": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "RegionalEvent": {
+            "Application": "UserInputGM",
+            "ApplicationData": {
+            }
+        },
+        "RegionalMapping": {
+            "WaterDistributionNetwork": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 2,
+                    "seed": 836
+                }
+            },
+            "WaterNetworkNodes": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 2,
+                    "seed": 836
+                }
+            },
+            "WaterNetworkPipelines": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 2,
+                    "seed": 836
+                }
+            }
+        },
+        "Simulation": {
+            "WaterDistributionNetwork": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            },
+            "WaterNetworkNodes": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            },
+            "WaterNetworkPipelines": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "SystemPerformance": {
+            "WaterDistributionNetwork": {
+                "Application": "REWETRecovery",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "WaterDistributionNetwork": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterNetworkNodes": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            },
+            "WaterNewtworkPipelines": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
+    },
+    "Assets": {
+        "WaterDistributionNetwork": {
+        }
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "WaterDistributionNetwork": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "WaterDistributionNetwork": {
+        },
+        "WaterNetworkNodes": {
+        },
+        "WaterNewtworkPipelines": {
+        }
+    },
+    "Name": "E15 - Water Distribution Network",
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "{Current_Dir}/input_data/IMs",
+        "units": {
+			"PGA": "g",
+            "PGD_h": "m",
+            "PGD_v": "m",
+            "PGV": "cmps2"
+        }
+    },
+    "RegionalMapping": {
+        "WaterDistributionNetwork": {
+        },
+        "WaterNetworkNodes": {
+        },
+        "WaterNetworkPipelines": {
+        }
+    },
+    "Simulation": {
+        "WaterDistributionNetwork": {
+            "type": "IMasEDP"
+        },
+        "WaterNetworkNodes": {
+            "type": "IMasEDP"
+        },
+        "WaterNetworkPipelines": {
+            "type": "IMasEDP"
+        }
+    },
+    "SystemPerformance": {
+        "WaterDistributionNetwork": {
+            "Application": "REWETRecovery",
+            "Node_Leak_Based": true,
+            "Node_Time_Based": false,
+            "Pipe_Leak_Based": true,
+            "Pipe_Time_Based": false,
+            "Policy Definition": "exampe_config.txt",
+            "Policy DefinitionPath": "{Current_Dir}/input_data",
+            "Restoration_on": true,
+            "Solver": "ModifiedEPANETV2.2",
+            "eventTime": 7200,
+            "last_sequence_termination": false,
+            "minimum_job_time": 3600,
+            "minimum_pressure": -1,
+            "node_damage_model": [
+                [
+                    0.0036,
+                    1,
+                    0,
+                    0,
+                    -0.877,
+                    1,
+                    0,
+                    0,
+                    0.0248,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            "node_demand_temination": false,
+            "node_demand_termination_ratio": 0.95,
+            "node_demand_termination_time": 10800,
+            "node_leak_amount": 0.001,
+            "node_leak_time": 43200,
+            "node_time_discovery_ratio": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "pipe_damage_model": [
+                [
+                    "CI",
+                    -0.0038,
+                    0.1096,
+                    0.0196,
+                    2,
+                    1
+                ]
+            ],
+            "pipe_leak_amount": 0.025,
+            "pipe_leak_time": 43200,
+            "pipe_time_discovery_ratio": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "pump_time_discovery_ratio": [
+                [
+                    0,
+                    1
+                ]
+            ],
+            "required_pressure": -1,
+            "simulationTime": 864000,
+            "simulationTimeStep": 3600,
+            "tank_time_discovery_ratio": [
+                [
+                    0,
+                    1
+                ]
+            ]
+        }
+    },
+    "UQ": {
+        "WaterDistributionNetwork": {
+        },
+        "WaterNetworkNodes": {
+        },
+        "WaterNewtworkPipelines": {
+        }
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": false,
+        "gas": false,
+        "soil": false,
+        "transportation": false,
+        "waste": false,
+        "water": true
+    },
+	    "citations": {
+        "EE-UQ": {
+            "citations": [
+                {
+                    "citation": "Frank McKenna, Stevan Gavrilovic, Jinyan Zhao, Kuanshi Zhong, Adam Zsarnoczay, Barbaros Cetiner, Sang-ri Yi, Pedro Arduino, & Wael Elhaddad. (2024). NHERI-SimCenter/R2DTool: Version 4.1.0 (v4.1.0). Zenodo. https://doi.org/10.5281/zenodo.10902064"
+                },
+                {
+                    "citation": "Gregory G. Deierlein, Frank McKenna, Adam Zsarnóczay, Tracy Kijewski-Correa, Ahsan Kareem, Wael Elhaddad, Laura Lowes, Mat J. Schoettler, and Sanjay Govindjee (2020) A Cloud-Enabled Application Framework for Simulating Regional-Scale Impacts of Natural Hazards on the Built Environment. Frontiers in the Built Environment. 6:558706. doi: 10.3389/fbuil.2020.558706",
+                    "description": "This marker paper describes the SimCenter application framework, which was designed to simulate the impacts of natural hazards on the built environment.It  is a necessary attribute for publishing work resulting from the use of SimCenter tools, software, and datasets."
+                }
+            ]
+        }
+    },
+    "commonFileDir": "input_data",
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false
+    },
+    "randomVariables": [
+    ],
+    "runType": "runningLocal",
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "ft",
+        "time": "sec"
+    }
+}

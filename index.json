@@ -307,8 +307,8 @@
       "E14BasicHAZUSTransportation/figures/r2dt-0014-UQ.png",
       "E14BasicHAZUSTransportation/README.rst"
     ],
-    "summary": "This example demonstrates the water distribution system performance assessment using REWET. REWET is a tool to assess the functionality of a Water Distribution System after any catastrophic event causing damage to the system. RWEET use a general restoration policy. The method is explained in Naeimi Dafchahi, S., & Davidson, R. A. (2023). Post-event restoration simulation of water distribution systems: a generally applicable approach. ProQuest Dissertations & Theses..",
-    "logo": "r2dt-0015.png",
+	"logo": "r2dt-0014.png",
+	"summary": "This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology for tranportation infrastructure.\n",
     "categories": {
       "Damage and Loss": "HAZUS MH EQ IM",
       "Simulation": "IMasEDP",
@@ -323,8 +323,26 @@
       "E15WDNRecoveryAndPerformanceAssessment/r2dt-0015.png",
       "E15WDNRecoveryAndPerformanceAssessment/README.rst"
     ],
-    "summary": "This earthquake example demonstrates rapid analysis capabilities with the HAZUS earthquake damage and loss assessment methodology for tranportation infrastructure.\n",
+	"summary": "This example demonstrates the water distribution system performance assessment using REWET. REWET is a tool to assess the functionality of a Water Distribution System after any catastrophic event causing damage to the system. RWEET use a general restoration policy. The method is explained in Naeimi Dafchahi, S., & Davidson, R. A. (2023). Post-event restoration simulation of water distribution systems: a generally applicable approach. ProQuest Dissertations & Theses..",
     "logo": "r2dt-0015.png",
+    "categories": {
+      "Damage and Loss": "HAZUS MH EQ IM",
+      "Simulation": "IMasEDP",
+      "Difficulty": "1"
+    }
+  },
+    "r2dt-0016": {
+    "id": "r2dt-0016",
+    "title": "E16 - Electric Power Network",
+    "base": "E16ElectricPowerNetwork",
+    "doc": [
+      "E16ElectricPowerNetwork/r2dt-0016.png",
+      "E16ElectricPowerNetwork/README.rst"
+    ],
+    
+    "logo": "r2dt-0016.png",
+	"summary": "This example demonstrates the damage assessment of electrical power network due to ground shaking and failure caused by earthquake using the HAZUS methodology. To achieve this, we use LA power network data that are already provided from BRAILS. The event data is generated using the Regional Earthquake Event Generation tool. The damage assessment is performed using the PELICUN damage model - inline with HAZUS methodology.",
+    "logo": "r2dt-0016.png",
     "categories": {
       "Damage and Loss": "HAZUS MH EQ IM",
       "Simulation": "IMasEDP",
