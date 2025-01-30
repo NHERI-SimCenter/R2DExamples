@@ -52,8 +52,6 @@ import math
 
 from WindMetaVarRulesets import parse_BIM
 from BuildingClassRulesets import building_class
-from FloodAssmRulesets import Assm_config
-from FloodClassRulesets import FL_config
 from FloodRulesets import FL_config
 from WindCECBRulesets import CECB_config
 from WindCERBRulesets import CERB_config
@@ -139,44 +137,100 @@ def auto_populate(aim):
             f"auto-population routine."
         )
 
+    if bldg_config is None:
+        #TODO(AZS): Provide a comprehensive list of keys below
+        info_dict = {key: GI_ap.get(key, "") 
+                        for key in [
+                            "OccupancyClass",
+                            "NumberOfStories",
+                            "YearBuilt",
+                            "RoofShape",
+                            "RoofSlope",
+                            "AvgJanTemp",
+                            "Garage"
+                        ]}
+        info_dict['BuildingClass'] = bldg_class
+
+        #TODO(AZS): Once we have a proper inference engine in place, replace this 
+        # print statement and raise an error instead
+        msg = (f'No matching wind archetype configuration available for the '
+               f'following attributes:\n'
+               f'{info_dict}')
+        print(msg)
+        #raise ValueError(msg)
+
     # prepare the flood rulesets
     fld_config = FL_config(GI_ap)
 
-    # prepare the assembly loss compositions
-    hu_assm, fl_assm = Assm_config(GI_ap)
+    if fld_config is None:
+        info_dict = {key: GI_ap.get(key, "") 
+                for key in [
+                    "OccupancyClass",
+                    "NumberOfStories",
+                    "FloodType",
+                    "BasementType",
+                    "PostFIRM"
+                ]}
+
+        #TODO(AZS): Once we have a proper inference engine in place, replace this 
+        # print statement and raise an error instead
+        msg = (f'No matching flood archetype configuration available for the '
+               f'following attributes:\n'
+               f'{info_dict}')
+        print(msg)
+        #raise ValueError(msg)
 
     # prepare the component assignment
-    CMP = pd.DataFrame(
-                {f'{bldg_config}': [  'ea',         1,          1,        1,   'N/A'],
-                 f'{fld_config}':  [  'ea',         1,          1,        1,   'N/A']},
+    CMP = pd.DataFrame()
+
+    DL_ap = {}
+
+    if bldg_config is not None:
+
+        CMP = pd.concat([
+            CMP,
+            pd.DataFrame(
+                {f'{bldg_config}': [  'ea',         1,          1,        1,   'N/A']},
                 index = [          'Units','Location','Direction','Theta_0','Family']
             ).T
+        ])
 
-    DL_ap = {
-            "Asset": {
-                "ComponentAssignmentFile": "CMP_QNT.csv",
-                "ComponentDatabase": "Hazus Hurricane",
-                "NumberOfStories": f"{GI_ap['NumberOfStories']}",
-                "OccupancyType": f"{GI_ap['OccupancyClass']}",
-                "PlanArea": f"{GI_ap['PlanArea']}"
-            },
-            "Damage": {
-                "DamageProcess": "Hazus Hurricane"
-            },
-            "Demands": {        
-            },
-            "Losses": {
-                "BldgRepair": {
-                    "ConsequenceDatabase": "Hazus Hurricane",
-                    "MapApproach": "Automatic",
-                    "DecisionVariables": {
-                        "Cost": True,
-                        "Carbon": False,
-                        "Energy": False,
-                        "Time": False
+        DL_ap = {
+                "Asset": {
+                    "ComponentAssignmentFile": "CMP_QNT.csv",
+                    "ComponentDatabase": "Hazus Hurricane",
+                    "NumberOfStories": f"{GI_ap['NumberOfStories']}",
+                    "OccupancyType": f"{GI_ap['OccupancyClass']}"
+                },
+                "Damage": {
+                    "DamageProcess": "Hazus Hurricane"
+                },
+                "Demands": {        
+                },
+                "Losses": {
+                    "Repair": {
+                        "ConsequenceDatabase": "Hazus Hurricane",
+                        "MapApproach": "Automatic",
+                        "DecisionVariables": {
+                            "Cost": True,
+                            "Carbon": False,
+                            "Energy": False,
+                            "Time": False
+                        }
                     }
                 }
             }
-        }
+
+    if fld_config is not None:
+
+        CMP = pd.concat([
+            CMP,
+            pd.DataFrame(
+                {f'{fld_config}':  [  'ea',         1,          1,        1,   'N/A']},
+                index = [          'Units','Location','Direction','Theta_0','Family']
+            ).T
+        ])
+
+        DL_ap['Losses']['Repair']['CombinationMethod'] = 'Hazus Hurricane'
 
     return GI_ap, DL_ap, CMP

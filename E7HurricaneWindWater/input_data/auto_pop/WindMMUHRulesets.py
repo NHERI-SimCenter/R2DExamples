@@ -197,7 +197,7 @@ def MMUH_config(BIM):
     bldg_config = f"M.MUH." \
                   f"{int(stories)}." \
                   f"{BIM['RoofShape']}." \
-                  f"{int(SWR)}." \
+                  f"{SWR}." \
                   f"{roof_cover}." \
                   f"{roof_quality}." \
                   f"{RDA}." \
