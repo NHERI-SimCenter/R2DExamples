@@ -125,10 +125,11 @@
             "ApplicationData": {
                 "mainFile": "Alameda_Main.json",
                 "mainFilePath": "{Current_Dir}/pyrecodes_data",		
-                "componentLibraryFile": "Alameda_ComponentLibrary.json",
-                "componentLibraryFilePath": "{Current_Dir}/pyrecodes_data",
-                "systemConfigFile": "Alameda_SystemConfiguration.json",
-                "systemConfigFilePath": "{Current_Dir}/pyrecodes_data"
+                "ComponentLibraryFile": "Alameda_ComponentLibrary.json",
+                "ComponentLibraryFilePath": "{Current_Dir}/pyrecodes_data",
+                "SystemConfigurationFile": "Alameda_SystemConfiguration.json",
+                "SystemConfigurationFilePath": "{Current_Dir}/pyrecodes_data",
+		"Filter": "0-1"		
             }
         },	
         "RegionalEvent": {
