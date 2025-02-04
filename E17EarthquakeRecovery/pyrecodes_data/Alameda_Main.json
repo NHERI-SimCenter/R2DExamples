@@ -14,7 +14,7 @@
     "DamageInput": {
         "Type": "SpecificRealization",
         "Parameters":{
-            "Filter": "0,1,2,3"
+            "Filter": "0-1,40"
         }
     }
 }

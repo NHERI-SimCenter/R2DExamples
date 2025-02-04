@@ -129,7 +129,7 @@
                 "ComponentLibraryFilePath": "{Current_Dir}/pyrecodes_data",
                 "SystemConfigurationFile": "Alameda_SystemConfiguration.json",
                 "SystemConfigurationFilePath": "{Current_Dir}/pyrecodes_data",
-		"Filter": "0-1"		
+		"Filter": "0-1,40"		
             }
         },	
         "RegionalEvent": {
