@@ -1,6 +1,6 @@
 
-E16 - Water Distribution Network and Performance Assessment
-===============================================
+E15 - Water Distribution Network and Performance Assessment
+===========================================================
 
 +-----------------+------------------------------------------------------------+
 | Download files  | :examplesgithub:`Download <E15WDNRecoveryAndPerformanceAssessment/>`  |
