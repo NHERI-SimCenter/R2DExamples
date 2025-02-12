@@ -59,13 +59,13 @@ to and loaded immediately from a JSON file, which for this example may be found 
 
 #. **ANA** In the analysis panel, **IMasEDP** is selected from the primary dropdown for the Water Distribution Network.
 
-   .. figure:: figures/r2dt-0015-ANA.png
+   .. figure:: figures/r2dt-0016-ANA.png
       :width: 600px
       :align: center
 
 #. **DL** We selected **PELICUN** for damage modeling in the context of WDN (Water Distribution Network) systems. Since the damage estimates rely on IM (Intensity Measure) values, we employ the HAZUS MH EQ IM method. The sample size specifies the number of damage samples. For the remaining aspects, we maintain them as they are.
 
-   .. figure:: figures/r2dt-0015-DL.png
+   .. figure:: figures/r2dt-0016-DL.png
       :width: 800px
       :align: center
 
@@ -89,6 +89,6 @@ to and loaded immediately from a JSON file, which for this example may be found 
 
 #. **Result** This tab is designed to provide general results to the user. A power user may utilize the raw data provided by R2DTool to produce the specific data they need. Results for electrical power damage assessemnt due to mean state of the assets.
 
-   .. figure:: figures/r2dt-0016-Result.png
+   .. figure:: figures/r2dt-0016-RES.png
 	  :width: 800px
 	  :align: center
