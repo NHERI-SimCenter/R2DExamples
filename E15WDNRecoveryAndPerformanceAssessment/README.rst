@@ -47,7 +47,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 	  :width: 800px
 	  :align: center
 	  
-#. **HTA** In the ‘Hazard to Asset’ tab, the user specifies the method for hazard mapping. We select the **Nearest Neighbor** method. Next, we provide the number of IM samples, and the number of neighbors from which the values are assessed at each asset’s location, as shown in the following figure. We leave the random seed as it is.
+#. **HTA** In the 'Hazard to Asset' tab, the user specifies the method for hazard mapping. We select the **Nearest Neighbor** method. Next, we provide the number of IM samples, and the number of neighbors from which the values are assessed at each asset's location, as shown in the following figure. We leave the random seed as it is.
 
    .. figure:: figures/r2dt-0015-HTA.png
       :width: 800px
@@ -83,9 +83,9 @@ In the following steps, we will guide you through each stage of the assessment. 
 		
 		**Terminate Simulation after the Demand Is Met:** With this setting, the simulation ends before the simulation end time is reached if the ratio of demand after the event to the demand before the event meets or exceeds a given threshold for all demand nodes.
 		
-		**Demand Checking Time Window:** This parameter defines the time window for checking demand after selecting “Terminate Simulation after the Demand.”
+		**Demand Checking Time Window:** This parameter defines the time window for checking demand after selecting "Terminate Simulation after the Demand."
 		
-		**Demand Checking Criteria:** This shows the ratio of demand after to demand before, which determines when the simulation ends when “Terminate Simulation after the Demand” is selected.
+		**Demand Checking Criteria:** This shows the ratio of demand after to demand before, which determines when the simulation ends when "Terminate Simulation after the Demand" is selected.
 
 			.. figure:: figures/r2dt-0015-SP-Sim.png
 			   :width: 800px
@@ -97,7 +97,7 @@ In the following steps, we will guide you through each stage of the assessment. 
 		
 		**Minimum Pressure Override and Required Pressure Override:** These options allow users to override the minimum and required pressure values specified in the INP file. Since the minimum and required pressure values in the example are correct, we leave them unchanged (i.e., set as -1 so that they will be ignored).
 		
-		**Pipe Damage Modeling:** In pipe damage modeling, the relationship between the pipe’s diameter and the equivalent orifice diameter - similar to the approach proposed by Shi and O’Rourke (2008) - for each pipe material (or damage type) is defined. The default value is set to Cast Iron, with average values derived from Shi and O’Rourke (2008). We have not provided material or the damage modeling based on the material, so that R2D assumes the default value which is Cast Iron.
+		**Pipe Damage Modeling:** In pipe damage modeling, the relationship between the pipe's diameter and the equivalent orifice diameter - similar to the approach proposed by Shi and O'Rourke (2008) - for each pipe material (or damage type) is defined. The default value is set to Cast Iron, with average values derived from Shi and O'Rourke (2008). We have not provided material or the damage modeling based on the material, so that R2D assumes the default value which is Cast Iron.
 
 			.. figure:: figures/r2dt-0015-SP-Hyd.png
 			   :width: 800px
@@ -107,11 +107,11 @@ In the following steps, we will guide you through each stage of the assessment. 
 
 		**Restoration On:** When checked, this indicates that REWET runs the restoration (recovery) simulation.
 		
-		**Policy Definition File:** This file defines restoration policies according to REWET’s policy definition format.
+		**Policy Definition File:** This file defines restoration policies according to REWET's policy definition format.
 		
 		**Minimum Job Time:** Specifies the time when a job is assigned to a restoration agent before their shift ends.
 		
-		**Pipe Discovery Rules for Damaged Assets:** The user can define the discovery rules for each damaged asset. For a pipe, the discovery can be based on leaks or on a user-specified time series of the discovery ratio. Leak-based discovery helps the user mimic the discovery of buried pipes, in which the pipes are not discovered unless the damage location on the pipe is pressurized for enough time so that the water flows out to the surface of the ground. The user-specified method may also be beneficial to the user when other methods for discovery are used, or the user prefers such a model. Other possible damage discoveries are node-level damage discovery, tank, and pump damages. Based on the available REWET and R2D versions, damage modeling of these asset types (also known as elements) may be included or not. If such damage modeling is being performed, the user may define such an element’s discovery as well.
+		**Pipe Discovery Rules for Damaged Assets:** The user can define the discovery rules for each damaged asset. For a pipe, the discovery can be based on leaks or on a user-specified time series of the discovery ratio. Leak-based discovery helps the user mimic the discovery of buried pipes, in which the pipes are not discovered unless the damage location on the pipe is pressurized for enough time so that the water flows out to the surface of the ground. The user-specified method may also be beneficial to the user when other methods for discovery are used, or the user prefers such a model. Other possible damage discoveries are node-level damage discovery, tank, and pump damages. Based on the available REWET and R2D versions, damage modeling of these asset types (also known as elements) may be included or not. If such damage modeling is being performed, the user may define such an element's discovery as well.
 
 
 		   .. figure:: figures/r2dt-0015-SP-Res.png
