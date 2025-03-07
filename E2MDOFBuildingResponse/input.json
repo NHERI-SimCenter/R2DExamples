@@ -108,7 +108,7 @@
     "Modeling": {
         "Buildings": {
             "hazusData": "HazusData.txt",
-            "pathToHazusFile": "./input_data",
+            "pathToHazusFile":"{Current_Dir}/input_data",
             "stdDamping": 0.1,
             "stdStiffness": 0.2
         }
