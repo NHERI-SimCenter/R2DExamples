@@ -52,24 +52,27 @@ def update_od(initial_od, nodes_df, initial_r2d_dict, new_r2d_dict):
     old_population = find_population(nodes_df, initial_r2d_dict)
     # new population at each node
     new_population = find_population(nodes_df, new_r2d_dict)
-    population_change = new_population['Population'] - old_population['Population']
+    old_population['delta_population'] = new_population['Population'] - old_population['Population']
+    population_change = old_population[['node_id', 'delta_population']].set_index('node_id')['delta_population'].to_dict()
+    old_population = old_population.set_index('node_id')
     # population change percentage at each node
     trips_index_set = set()
-    for i in old_population.index:
-        node_id = old_population.loc[i, 'node_id']
+    for i in nodes_df.index:
+        node_id = nodes_df.loc[i, 'node_id']
+        pop_change_i = population_change.get(node_id, 0)
         # The population did not change, the OD starting and ending at this node does not change
-        if population_change[i] == 0:
+        if pop_change_i == 0:
             trips_index_set = trips_index_set.union(set(trips_starting_at_nodes.get(node_id, [])))
             trips_index_set = trips_index_set.union(set(trips_ending_at_nodes.get(node_id, [])))
         # If the population changed and if the original OD starting and ending at this node is zero,
         # Generate new OD starting and ending at this node. This is considered impossible in this
         # implementation as new population can only be generated at nodes with non-zero pre-event population
-        elif old_population.loc[i, 'Population'] == 0:
+        elif old_population.loc[node_id, 'Population'] == 0:
             print(f'Warning: New population generated at node {node_id}, which had zero pre-event population')
         # If the population changed and if the original OD starting and ending at this node is not zero,
         # Modify the trips starting and ending at this node according to the population change percentage
         else:
-            change_percentage = population_change[i] / old_population.loc[i, 'Population']
+            change_percentage = pop_change_i / old_population.loc[node_id, 'Population']
             origin_trips = trips_starting_at_nodes.get(node_id, [])
             origin_trips = np.random.choice(origin_trips, int(len(origin_trips) * (1+change_percentage)), replace=False)
             destin_trips = trips_ending_at_nodes.get(node_id, [])
