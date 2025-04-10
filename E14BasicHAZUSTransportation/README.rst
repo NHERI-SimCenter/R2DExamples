@@ -35,9 +35,7 @@ This study will be defined by sequentially traversing the input panels of the **
       :align: center
 
 
-#. **ASD** In the asset definition panel, the path to the :examplesgithub:`all_bldgs.csv <E14BasicHAZUSTransportation/input_data/all_bldgs.csv>` file is specified for buildings. 
-For transportation infrastructure, the path to the :examplesgithub:`AI_hwy_inventory.geojson <E14BasicHAZUSTransportation/input_data/AI_hwy_inventory.geojson>` file is specified.
-Once this file is loaded, the user can select which particular assets to include in the analysis by entering a valid range (e.g., 1-50) in the form and clicking **Select**. The ``all_bldgs.csv`` and ``AI_hwy_inventory.geojson``files include parameters for the damage and loss assessment (e.g., number of stories, year of built, occupancy class, structure type, and plan area) for the buildings and transportation infrastructure in the community.
+#. **ASD** In the asset definition panel, the path to the :examplesgithub:`all_bldgs.csv <E14BasicHAZUSTransportation/input_data/all_bldgs.csv>` file is specified for buildings. For transportation infrastructure, the path to the :examplesgithub:`AI_hwy_inventory.geojson <E14BasicHAZUSTransportation/input_data/AI_hwy_inventory.geojson>` file is specified. Once this file is loaded, the user can select which particular assets to include in the analysis by entering a valid range (e.g., 1-50) in the form and clicking **Select**. The ``all_bldgs.csv`` and ``AI_hwy_inventory.geojson`` files include parameters for the damage and loss assessment (e.g., number of stories, year of built, occupancy class, structure type, and plan area) for the buildings and transportation infrastructure in the community.
 
    .. figure:: figures/r2dt-0014-ASD-building.png
       :width: 600px
@@ -54,8 +52,7 @@ Once this file is loaded, the user can select which particular assets to include
       :align: center
 
 
-#. **MOD** panel is not used for this procedure. The **Building Modeling** dropdown 
-and **Transportation Components Modelling**should be left set to **None**.
+#. **MOD** panel is not used for this procedure. The **Building Modeling** dropdown and **Transportation Components Modelling**should be left set to **None**.
 
    .. figure:: figures/r2dt-0014-MOD.png
       :width: 600px
@@ -68,8 +65,7 @@ and **Transportation Components Modelling**should be left set to **None**.
       :align: center
 
 
-#. **DL** The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ IM** damage and loss method is selected and configured as shown in the following figure
-for both Buildings and Transportation Network. 
+#. **DL** The damage and loss panel is now used to configure the **Pelicun** backend. The **HAZUS MH EQ IM** damage and loss method is selected and configured as shown in the following figure for both Buildings and Transportation Network. 
 
    .. figure:: figures/r2dt-0014-DL.png
       :width: 600px

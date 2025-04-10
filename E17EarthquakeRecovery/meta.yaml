@@ -1,0 +1,9 @@
+summary: |
+  This earthquake example demonstrates the ability to simulate recover post damage determination. The example demonstrates utilizng **pyrecoes** in the workflow to model the recovery post event.
+
+#<p>Tags: (IM field from PSHA | IM as EDP | HAZUS building-level D&L | pyrecodes)<p>
+
+#[150k buildings in the full inventory with 100 selected for analysis]
+
+difficulty: 1
+

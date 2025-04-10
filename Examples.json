@@ -92,7 +92,7 @@
       "name": "E17 - Recovery Assessment Due to Earthquake",
 	"description": "This example demonstrates the recovery simulation due to an earthquake event. In the recovery, damage to buildings, water network and roads are considered. The damage assessment of these asset types to ground shaking and failure caused by earthquake is is performed using the PELICUN damage model - inline with HAZUS methodology done using the HAZUS methodology. The recovery simulation of the area after the event is performed using pyrecodes.",
       "inputFile": "E17EarthquakeRecovery/input.json",
-      "downloadUrl" : "https://zenodo.org/api/records/14782492"
+      "downloadUrl" : "https://zenodo.org/api/records/14800260"
     }      
   ]
 }
