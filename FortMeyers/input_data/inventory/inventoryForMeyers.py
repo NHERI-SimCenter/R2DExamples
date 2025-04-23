@@ -4,7 +4,7 @@ import numpy as np
 from brails.utils import Importer
 
 LOCATION_NAME = 'Fort Myers Beach, FL'
-INVENTORY_OUTPUT = 'FortMyersInventory_HU.geojson'
+INVENTORY_OUTPUT = 'BuildingInventory.geojson'
 NO_POSSIBLE_WORLDS = 1
 
 importer = Importer()
@@ -33,7 +33,7 @@ imputer = knn_imputer_class(
     exclude_features=['lat', 'lon', 'fd_id'])
 large_imputed_inventory = imputer.impute()
 
-imputed_inventory = large_imputed_inventory.get_random_sample(10, 40)
+imputed_inventory = large_imputed_inventory.get_random_sample(20, 40)
 
 # Get aerial imagery using GoogleSatellite:
 google_satellite_class = importer.get_class('GoogleSatellite')
