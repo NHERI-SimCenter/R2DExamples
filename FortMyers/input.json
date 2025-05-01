@@ -1,0 +1,208 @@
+{
+    "Applications": {
+        "Assets": {
+            "Buildings": {
+                "Application": "GEOJSON_TO_ASSET",
+                "ApplicationData": {
+                    "Building": {
+                        "filter": "0-9"
+                    },
+                    "assetSourceFile": "FortMyersInventory_HU.geojson",
+                    "pathToSource": "{Current_Dir}/input_data/inventory"
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "HAZUS MH HU",
+                    "Realizations": 10,
+                    "auto_script": "auto_HU_NJ.py",
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "ground_failure": false,
+                    "log_file": true,
+                    "path_to_auto_script": "{Current_Dir}/input_data/auto_pop",
+                    "regional": "true"
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Recovery": {
+            "Application": "None",
+            "ApplicationData": {
+            }
+        },
+        "RegionalEvent": {
+            "Application": "UserInputRasterHazard",
+            "ApplicationData": {
+                "CRS": "EPSG:4326",
+                "eventClassification": "Hurricane",
+                "pathToSource": "{Current_Dir}/input_data/hazard",
+                "rasterFile": "Ian_inundation_depth_m.tif"
+            },
+            "multiple": [
+                {
+                    "Application": "UserInputRasterHazard",
+                    "ApplicationData": {
+                        "CRS": "",
+                        "eventClassification": "Hurricane",
+                        "pathToSource": "{Current_Dir}/input_data/hazard",
+                        "rasterFile": "Ian_max_wind_speed_mps.tif"
+                    }
+                }
+            ]
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "GISSpecifiedEvents",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "SystemPerformance": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
+    },
+    "Assets": {
+        "Buildings": {
+        }
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "Buildings": {
+        }
+    },
+    "Name": "",
+    "Recovery": {
+    },
+    "RegionalEvent": {
+        "eventFile": "Ian_inundation_depth_m.tif",
+        "eventFilePath": "{Current_Dir}/input_data/hazard",
+        "intensityLabels": [
+            "PIH"
+        ],
+        "intensityMeasures": [
+            "PIH"
+        ],
+        "multiple": [
+            {
+                "eventFile": "Ian_max_wind_speed_mps.tif",
+                "eventFilePath": "{Current_Dir}/input_data/hazard",
+                "intensityLabels": [
+                    "PWS"
+                ],
+                "intensityMeasures": [
+                    "PWS"
+                ],
+                "units": {
+                    "PWS": "mps"
+                }
+            }
+        ],
+        "units": {
+            "PIH": "m"
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        }
+    },
+    "SystemPerformance": {
+        "Buildings": {
+        }
+    },
+    "UQ": {
+        "Buildings": {
+        }
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "power": false,
+        "soil": false,
+        "transportation": false,
+        "water": false
+    },
+    "commonFileDir": "input_data",
+    "localAppDir": "/Users/fmckenna/NHERI/SimCenterBackendApplications",
+    "outputs": {
+        "AIM": false,
+        "DM": false,
+        "DV": false,
+        "EDP": false,
+        "IM": false
+    },
+    "randomVariables": [
+    ],
+    "remoteAppDir": "/Users/fmckenna/NHERI/SimCenterBackendApplications",
+    "runDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir",
+    "runType": "runningLocal",
+    "type": "Earthquake",
+    "units": {
+        "force": "lb",
+        "length": "ft",
+        "time": "sec"
+    },
+    "workingDir": "/Users/fmckenna/Documents/R2D/LocalWorkDir"
+}
