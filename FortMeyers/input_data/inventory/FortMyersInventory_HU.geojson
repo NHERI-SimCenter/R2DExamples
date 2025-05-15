@@ -1,0 +1,1329 @@
+{
+  "type": "FeatureCollection",
+  "generated": "2025-04-23 10:21:01.336588",
+  "brails_version": "4.0",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 20.7,
+        "fpAreas": 733,
+        "repaircost": 856763.996,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 6285.71428,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.MUH.",
+        "TerrainRoughness": 15,
+        "RoofQuality": "por",
+        "Shutters": 0,
+        "RoofToWallConnection": "tnail",
+        "RoofDeckAttachmentW": "8d",
+        "RoofCover": "bur",
+        "SecondaryWaterResistance": 1,
+        "YearBuilt": 1974.0,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8.0,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "COM1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8.0,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.93632657084191,
+              26.445824106039176
+            ],
+            [
+              -81.93621996810258,
+              26.445810986030786
+            ],
+            [
+              -81.93621128360704,
+              26.445867553946783
+            ],
+            [
+              -81.93631789068624,
+              26.445880674482865
+            ],
+            [
+              -81.93632657084191,
+              26.445824106039176
+            ]
+          ]
+        ]
+      },
+      "id": "0"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 16.6,
+        "fpAreas": 4010,
+        "lon": -81.89356468,
+        "lat": 26.405957705,
+        "repaircost": 177391.24,
+        "fd_id": 497089220,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 2119,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1988,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.89352884404666,
+              26.405841889684936
+            ],
+            [
+              -81.89344327796687,
+              26.40598818394583
+            ],
+            [
+              -81.89351483726544,
+              26.406021755704373
+            ],
+            [
+              -81.89349896744959,
+              26.406048888659008
+            ],
+            [
+              -81.89359048558683,
+              26.406091829739466
+            ],
+            [
+              -81.89369190879003,
+              26.40591840116143
+            ],
+            [
+              -81.89352884404666,
+              26.405841889684936
+            ]
+          ]
+        ]
+      },
+      "id": "1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 20.1,
+        "fpAreas": 3049,
+        "lon": -81.91778286,
+        "lat": 26.437117105,
+        "repaircost": 144182.784,
+        "fd_id": 497138389,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1600,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1983,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.91766639734182,
+              26.437126761809495
+            ],
+            [
+              -81.91779293673221,
+              26.43721684856054
+            ],
+            [
+              -81.91790269094236,
+              26.437093241676436
+            ],
+            [
+              -81.91777615155195,
+              26.43700315482876
+            ],
+            [
+              -81.91766639734182,
+              26.437126761809495
+            ]
+          ]
+        ]
+      },
+      "id": "2"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 13.5,
+        "fpAreas": 1475,
+        "lon": -81.926404,
+        "lat": 26.440682,
+        "repaircost": 159313.48,
+        "fd_id": 497158600,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1005,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1971,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 1.5,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 1.5,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.92648640890232,
+              26.44067638721642
+            ],
+            [
+              -81.92640979324115,
+              26.44059832905174
+            ],
+            [
+              -81.92632050614267,
+              26.44066859071272
+            ],
+            [
+              -81.92639712490238,
+              26.440746651986707
+            ],
+            [
+              -81.92648640890232,
+              26.44067638721642
+            ]
+          ]
+        ]
+      },
+      "id": "3"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 19.4,
+        "fpAreas": 2502,
+        "lon": -81.93255436,
+        "lat": 26.444617037,
+        "repaircost": 333790.415,
+        "fd_id": 497178613,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 2428.58,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Hip",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.MUH.",
+        "TerrainRoughness": 15,
+        "RoofQuality": "por",
+        "Shutters": 0,
+        "RoofToWallConnection": "tnail",
+        "RoofDeckAttachmentW": "8d",
+        "RoofCover": "bur",
+        "SecondaryWaterResistance": 1,
+        "YearBuilt": 1974,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES3A",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.93256150398093,
+              26.444666284411205
+            ],
+            [
+              -81.9325842209809,
+              26.444688425043736
+            ],
+            [
+              -81.93266567811467,
+              26.44462142267254
+            ],
+            [
+              -81.93256545605603,
+              26.444523743322513
+            ],
+            [
+              -81.93243890658034,
+              26.44462783636358
+            ],
+            [
+              -81.93251641163903,
+              26.444703374999925
+            ],
+            [
+              -81.93256150398093,
+              26.444666284411205
+            ]
+          ]
+        ]
+      },
+      "id": "4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 12.0,
+        "fpAreas": 987,
+        "lon": -81.93209715,
+        "lat": 26.444674879,
+        "repaircost": 133173.573,
+        "fd_id": 497178620,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 720,
+        "BuildingMaterial": "C1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "C.ECB.L",
+        "TerrainRoughness": 15,
+        "RoofCover": "bur",
+        "Shutters": 1,
+        "WindowAreaRatio": "low",
+        "WindDebrisClass": "C",
+        "YearBuilt": 1974,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.9320129494525,
+              26.44467174130834
+            ],
+            [
+              -81.93208513424555,
+              26.44474180107582
+            ],
+            [
+              -81.93214889122214,
+              26.444689138209405
+            ],
+            [
+              -81.93207670642906,
+              26.444619078409872
+            ],
+            [
+              -81.9320129494525,
+              26.44467174130834
+            ]
+          ]
+        ]
+      },
+      "id": "5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 12.0,
+        "fpAreas": 237,
+        "repaircost": 150201.823,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1685.0,
+        "BuildingMaterial": "C1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "C.ECB.L",
+        "TerrainRoughness": 15,
+        "RoofCover": "spm",
+        "Shutters": 0,
+        "WindowAreaRatio": "low",
+        "WindDebrisClass": "C",
+        "YearBuilt": 1988.0,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8.0,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1.0,
+        "EffectiveFirstFloorElevation": 8.0,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.88418546898026,
+              26.407201452042713
+            ],
+            [
+              -81.88418018251427,
+              26.4071759038534
+            ],
+            [
+              -81.88410498141056,
+              26.407188386653125
+            ],
+            [
+              -81.88411026787652,
+              26.407213934839646
+            ],
+            [
+              -81.88418546898026,
+              26.407201452042713
+            ]
+          ]
+        ]
+      },
+      "id": "6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 14.9,
+        "fpAreas": 1947,
+        "lon": -81.90879055,
+        "lat": 26.42664188,
+        "repaircost": 131000.136,
+        "fd_id": 497123709,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1367,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Hip",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1983,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 0.5,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 0.5,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.90890516506212,
+              26.42667942880879
+            ],
+            [
+              -81.90885454976558,
+              26.426620788699488
+            ],
+            [
+              -81.90880921556244,
+              26.42665216841023
+            ],
+            [
+              -81.90874043067225,
+              26.42657247797917
+            ],
+            [
+              -81.90868587646214,
+              26.426610239666488
+            ],
+            [
+              -81.90880528341646,
+              26.426748565461175
+            ],
+            [
+              -81.90890516506212,
+              26.42667942880879
+            ]
+          ]
+        ]
+      },
+      "id": "7"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 16.2,
+        "fpAreas": 1723,
+        "lon": -81.90976585,
+        "lat": 26.42732945,
+        "repaircost": 170113.507,
+        "fd_id": 497153564,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1132,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1983,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.90978815831281,
+              26.42726582021654
+            ],
+            [
+              -81.90967266289852,
+              26.427378979885916
+            ],
+            [
+              -81.90973696461064,
+              26.427431609006632
+            ],
+            [
+              -81.90980704562784,
+              26.427362945331673
+            ],
+            [
+              -81.90982019779237,
+              26.427373710831688
+            ],
+            [
+              -81.90986560994841,
+              26.427329217088797
+            ],
+            [
+              -81.90978815831281,
+              26.42726582021654
+            ]
+          ]
+        ]
+      },
+      "id": "8"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 12.0,
+        "fpAreas": 2472,
+        "lon": -81.92614893,
+        "lat": 26.441783345,
+        "repaircost": 182387.311,
+        "fd_id": 497158618,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1296,
+        "BuildingMaterial": "C1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "C.ECB.L",
+        "TerrainRoughness": 15,
+        "RoofCover": "bur",
+        "Shutters": 0,
+        "WindowAreaRatio": "low",
+        "WindDebrisClass": "C",
+        "YearBuilt": 1971,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.92613847974636,
+              26.441843077159632
+            ],
+            [
+              -81.92619333429252,
+              26.441895703314373
+            ],
+            [
+              -81.92628508029809,
+              26.441819034388388
+            ],
+            [
+              -81.92617135745849,
+              26.441709931285274
+            ],
+            [
+              -81.92606097554554,
+              26.44180217366801
+            ],
+            [
+              -81.92611984383898,
+              26.441858650536098
+            ],
+            [
+              -81.92613847974636,
+              26.441843077159632
+            ]
+          ]
+        ]
+      },
+      "id": "9"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 9.9,
+        "fpAreas": 532,
+        "lon": -81.95342169,
+        "lat": 26.451755543,
+        "repaircost": 572130.907,
+        "fd_id": 497195805,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 5000,
+        "BuildingMaterial": "C1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "C.ECB.L",
+        "TerrainRoughness": 15,
+        "RoofCover": "spm",
+        "Shutters": 0,
+        "WindowAreaRatio": "low",
+        "WindDebrisClass": "A",
+        "YearBuilt": 1980,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "COM4",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.95346934530173,
+              26.45174020918171
+            ],
+            [
+              -81.95339356894553,
+              26.45171763114297
+            ],
+            [
+              -81.95337385836203,
+              26.45177064659099
+            ],
+            [
+              -81.95344963686028,
+              26.45179323000598
+            ],
+            [
+              -81.95346934530173,
+              26.45174020918171
+            ]
+          ]
+        ]
+      },
+      "id": "10"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 13.5,
+        "fpAreas": 3197,
+        "lon": -81.89631484,
+        "lat": 26.420580745,
+        "repaircost": 215736.797,
+        "fd_id": 497105192,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1733,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1973,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 1.5,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 1.5,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.89617798027149,
+              26.420555379712965
+            ],
+            [
+              -81.896215873395,
+              26.420641624279014
+            ],
+            [
+              -81.89629628389588,
+              26.420613289306615
+            ],
+            [
+              -81.89633333213654,
+              26.420697595885926
+            ],
+            [
+              -81.89642855470463,
+              26.420664035499136
+            ],
+            [
+              -81.89635360558644,
+              26.420493481975768
+            ],
+            [
+              -81.89617798027149,
+              26.420555379712965
+            ]
+          ]
+        ]
+      },
+      "id": "11"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 11.8,
+        "fpAreas": 5214,
+        "lon": -81.94629909,
+        "lat": 26.454020597,
+        "repaircost": 124700.024,
+        "fd_id": 496537650,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1248,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1974,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 0.5,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 0.5,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.95423650617397,
+              26.452037256507673
+            ],
+            [
+              -81.95411378190241,
+              26.452434298776943
+            ],
+            [
+              -81.9542159297204,
+              26.452459607196523
+            ],
+            [
+              -81.95433865399198,
+              26.452062565014494
+            ],
+            [
+              -81.95423650617397,
+              26.452037256507673
+            ]
+          ]
+        ]
+      },
+      "id": "12"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 17.4,
+        "fpAreas": 2395,
+        "lon": -81.9606358,
+        "lat": 26.458503644,
+        "repaircost": 261308.38,
+        "fd_id": 496542865,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 3679,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Hip",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1976,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 2,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.9606709906545,
+              26.458478324258607
+            ],
+            [
+              -81.96056639163987,
+              26.45844832020341
+            ],
+            [
+              -81.96054022705655,
+              26.45852144291473
+            ],
+            [
+              -81.96056941807278,
+              26.4585298144761
+            ],
+            [
+              -81.9605530537991,
+              26.45857554802901
+            ],
+            [
+              -81.9606771156181,
+              26.458611127143975
+            ],
+            [
+              -81.96072932544362,
+              26.458465215313957
+            ],
+            [
+              -81.9606806737499,
+              26.458451262703477
+            ],
+            [
+              -81.9606709906545,
+              26.458478324258607
+            ]
+          ]
+        ]
+      },
+      "id": "13"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 66.2,
+        "fpAreas": 1254,
+        "repaircost": 245616.342,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 3472.73,
+        "BuildingMaterial": "RM1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.MUH.",
+        "TerrainRoughness": 15,
+        "RoofQuality": "por",
+        "Shutters": 1,
+        "RoofToWallConnection": "tnail",
+        "RoofDeckAttachmentW": "8d",
+        "RoofCover": "spm",
+        "SecondaryWaterResistance": 0,
+        "YearBuilt": 1989.0,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 0.5,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 0.5,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.90154212060283,
+              26.415668935079296
+            ],
+            [
+              -81.90132358806602,
+              26.415668017320037
+            ],
+            [
+              -81.90132333276628,
+              26.415716059436676
+            ],
+            [
+              -81.90154186905741,
+              26.415716977211318
+            ],
+            [
+              -81.90154212060283,
+              26.415668935079296
+            ]
+          ]
+        ]
+      },
+      "id": "14"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 11.3,
+        "fpAreas": 2506,
+        "lon": -81.95361862,
+        "lat": 26.45221281,
+        "repaircost": 120166.293,
+        "fd_id": 497195832,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 711.700813,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.MUH.",
+        "TerrainRoughness": 15,
+        "RoofQuality": "por",
+        "Shutters": 1,
+        "RoofToWallConnection": "tnail",
+        "RoofDeckAttachmentW": "8d",
+        "RoofCover": "spm",
+        "SecondaryWaterResistance": 0,
+        "YearBuilt": 1980,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "COM1",
+        "NumberOfStories": 2,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.95368079858514,
+              26.45229587107555
+            ],
+            [
+              -81.95372304881289,
+              26.452190680247867
+            ],
+            [
+              -81.95354636460355,
+              26.452133784908057
+            ],
+            [
+              -81.95350410315619,
+              26.452238983246758
+            ],
+            [
+              -81.95368079858514,
+              26.45229587107555
+            ]
+          ]
+        ]
+      },
+      "id": "15"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 18.8,
+        "fpAreas": 3886,
+        "lon": -81.9090895,
+        "lat": 26.425791,
+        "repaircost": 248561.26,
+        "fd_id": 497140667,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 2162,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Hip",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1973,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.90895620946951,
+              26.425798657758556
+            ],
+            [
+              -81.90906169482336,
+              26.425934948928365
+            ],
+            [
+              -81.90922294772832,
+              26.425834862841626
+            ],
+            [
+              -81.90911746237445,
+              26.425698571553482
+            ],
+            [
+              -81.90895620946951,
+              26.425798657758556
+            ]
+          ]
+        ]
+      },
+      "id": "16"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 23.0,
+        "fpAreas": 1824,
+        "lon": -81.949115,
+        "lat": 26.451625,
+        "repaircost": 971575.799,
+        "fd_id": 496537649,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 6294.28172,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.MUH.",
+        "TerrainRoughness": 15,
+        "RoofQuality": "por",
+        "Shutters": 1,
+        "RoofToWallConnection": "tnail",
+        "RoofDeckAttachmentW": "8d",
+        "RoofCover": "bur",
+        "SecondaryWaterResistance": 1,
+        "YearBuilt": 1974,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 0.5,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "IND2",
+        "NumberOfStories": 2,
+        "EffectiveFirstFloorElevation": 0.5,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.95821876014178,
+              26.454350154308372
+            ],
+            [
+              -81.95835128086892,
+              26.454403663862223
+            ],
+            [
+              -81.95839953172529,
+              26.454307881742338
+            ],
+            [
+              -81.95826701722007,
+              26.454254374656287
+            ],
+            [
+              -81.95821876014178,
+              26.454350154308372
+            ]
+          ]
+        ]
+      },
+      "id": "17"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 11.5,
+        "fpAreas": 1845,
+        "lon": -81.9217815,
+        "lat": 26.4388755,
+        "repaircost": 132574.848,
+        "fd_id": 497173686,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 1400,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Gable",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1983,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 1.5,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 1.5,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.92168110375344,
+              26.43884608538913
+            ],
+            [
+              -81.92181240931433,
+              26.438955042165198
+            ],
+            [
+              -81.92187793626358,
+              26.438891734032786
+            ],
+            [
+              -81.9217466307027,
+              26.438782777196863
+            ],
+            [
+              -81.92168110375344,
+              26.43884608538913
+            ]
+          ]
+        ]
+      },
+      "id": "18"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Building",
+        "buildingheight": 9.9,
+        "fpAreas": 1427,
+        "lon": -81.90888,
+        "lat": 26.4292235,
+        "repaircost": 102802.813,
+        "fd_id": 497113448,
+        "DesignLevel": "E",
+        "BuildingType": 3001,
+        "PlanArea": 896,
+        "BuildingMaterial": "W1",
+        "RoofShape": "Flat",
+        "DesignWindSpeed": 159,
+        "BuildingTag": "W.SF.",
+        "TerrainRoughness": 15,
+        "SecondaryWaterResistance": 0,
+        "Shutters": 0,
+        "RoofDeckAttachmentW": "8d",
+        "RoofToWallConnection": "tnail",
+        "GarageDoor": "std",
+        "YearBuilt": 1983,
+        "FloodZone": "AE",
+        "FirstFloorElevation": 8,
+        "SplitLevel": "No",
+        "Basement": "Yes",
+        "OccupancyClass": "RES1",
+        "NumberOfStories": 1,
+        "EffectiveFirstFloorElevation": 8,
+        "FloodType": "caz",
+        "BasementType": "bw"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -81.90881573044545,
+              26.429207995943194
+            ],
+            [
+              -81.9088180574532,
+              26.42930162276471
+            ],
+            [
+              -81.90894563288118,
+              26.429299080149335
+            ],
+            [
+              -81.90894329855944,
+              26.429205453471525
+            ],
+            [
+              -81.90881573044545,
+              26.429207995943194
+            ]
+          ]
+        ]
+      },
+      "id": "19"
+    }
+  ]
+}
