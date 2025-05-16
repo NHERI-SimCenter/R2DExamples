@@ -4,7 +4,7 @@
             "Buildings": {
                 "Application": "CSV_to_AIM",
                 "ApplicationData": {
-                    "assetSourceFile": "AtlanticBuildingInventory.csv",
+                    "assetSourceFile": "AtlanticBuildingInventory_ext_flood.csv",
                     "filter": "545,630,635,1480,2327,2329,3296,3299,3304-3305,3322,3328,3636,4730,4735,4764,4770,4780",
                     "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
@@ -15,14 +15,13 @@
             "Buildings": {
                 "Application": "Pelicun3",
                 "ApplicationData": {
-                    "DL_Method": "HAZUS MH HU",
+                    "DL_Method": "Hazus Hurricane Wind - Buildings, Hazus Hurricane Storm Surge - Buildings",
                     "Realizations": 500,
-                    "auto_script": "auto_pop/auto_HU_NJ.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
                     "ground_failure": false,
+                    "lifeline_facility": false,
                     "log_file": true,
-                    "path_to_auto_script": "{Current_Dir}/input_data",
                     "regional": "true"
                 }
             }

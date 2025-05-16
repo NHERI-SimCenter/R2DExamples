@@ -23,12 +23,12 @@
             "WaterDistributionNetwork": {
                 "Application": "Pelicun3",
                 "ApplicationData": {
-                    "DL_Method": "HAZUS MH EQ IM",
+                    "DL_Method": "Hazus Earthquake - Potable Water",
                     "Realizations": 5,
-                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
                     "ground_failure": true,
+                    "lifeline_facility": false,
                     "log_file": true,
                     "regional": "true"
                 }
