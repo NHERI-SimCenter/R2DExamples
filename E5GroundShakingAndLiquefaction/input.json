@@ -15,12 +15,12 @@
             "Buildings": {
                 "Application": "Pelicun3",
                 "ApplicationData": {
-                    "DL_Method": "HAZUS MH EQ IM",
+                    "DL_Method": "Hazus Earthquake - Buildings",
                     "Realizations": 1000,
-                    "auto_script": "PelicunDefault/Hazus_Earthquake_IM.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "ground_failure": true,
+                    "ground_failure": false,
+                    "lifeline_facility": true,
                     "log_file": true,
                     "regional": "true"
                 }

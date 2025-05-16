@@ -2,14 +2,12 @@
     "Applications": {
         "Assets": {
             "Buildings": {
-                "Application": "GIS_to_AIM",
+                "Application": "CSV_to_AIM",
                 "ApplicationData": {
-                    "CRS": "EPSG:4326",
-                    "assetGISFile": "BIM_LakeCharles_Full.gpkg",
-                    "assetSourceFile": "GISBuildingInventory/BIM_LakeCharles_Full.csv",
-                    "filter": "1-20",
+                    "assetSourceFile": "BIM_LakeCharles_Full_ext.csv",
+                    "filter": "1-3",
                     "inputIsGIS": false,
-                    "pathToSource": "{Current_Dir}/input_data/GISBuildingInventory"
+                    "pathToSource": "{Current_Dir}/input_data"
                 }
             }
         },
@@ -17,14 +15,13 @@
             "Buildings": {
                 "Application": "Pelicun3",
                 "ApplicationData": {
-                    "DL_Method": "HAZUS MH HU",
+                    "DL_Method": "Hazus Hurricane Wind - Buildings",
                     "Realizations": 500,
-                    "auto_script": "auto_HU_LA.py",
                     "coupled_EDP": true,
                     "detailed_results": false,
                     "ground_failure": false,
+                    "lifeline_facility": false,
                     "log_file": true,
-                    "path_to_auto_script": "{Current_Dir}/input_data/ruleset",
                     "regional": "true"
                 }
             }

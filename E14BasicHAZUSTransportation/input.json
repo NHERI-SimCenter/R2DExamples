@@ -29,25 +29,27 @@
             "Buildings": {
                 "Application": "Pelicun3",
                 "ApplicationData": {
-                    "DL_Method": "HAZUS MH EQ IM",
+                    "DL_Method": "Hazus Earthquake - Buildings",
                     "Realizations": 100,
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": true,
-                    "log_file": true
+                    "lifeline_facility": true,
+                    "log_file": true,
+                    "regional": "true"
                 }
             },
             "TransportationNetwork": {
                 "Application": "Pelicun3",
                 "ApplicationData": {
-                    "DL_Method": "HAZUS MH EQ IM",
+                    "DL_Method": "Hazus Earthquake - Transportation",
                     "Realizations": 100,
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "event_time": "off",
                     "ground_failure": true,
-                    "log_file": true
+                    "lifeline_facility": false,
+                    "log_file": true,
+                    "regional": "true"
                 }
             }
         },
