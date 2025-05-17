@@ -19,7 +19,7 @@
                     "Realizations": 1000,
                     "coupled_EDP": true,
                     "detailed_results": false,
-                    "ground_failure": false,
+                    "ground_failure": true,
                     "lifeline_facility": true,
                     "log_file": true,
                     "regional": "true"
