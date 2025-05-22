@@ -93,6 +93,12 @@
 	"description": "This example demonstrates the recovery simulation due to an earthquake event. In the recovery, damage to buildings, water network and roads are considered. The damage assessment of these asset types to ground shaking and failure caused by earthquake is is performed using the PELICUN damage model - inline with HAZUS methodology done using the HAZUS methodology. The recovery simulation of the area after the event is performed using pyrecodes.",
       "inputFile": "E17EarthquakeRecovery/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/15446441"
-    }      
+    },
+    {
+      "name": "E18 - Capacity Spectrum Method for Earthquake Assessment of Buildings",
+	"description": "This example demonstrates using the FEMA HAZUS Capacity Spectrum Method for building assessment in earthquakes.",
+      "inputFile": "E18BuildingCapacitySpectrumMethod/input.json",
+      "downloadUrl" : "ToBeAdded"
+    }        
   ]
 }
