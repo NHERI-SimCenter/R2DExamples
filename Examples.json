@@ -98,7 +98,7 @@
       "name": "E18 - Capacity Spectrum Method for Earthquake Assessment of Buildings",
 	"description": "This example demonstrates using the FEMA HAZUS Capacity Spectrum Method for building assessment in earthquakes.",
       "inputFile": "E18BuildingCapacitySpectrumMethod/input.json",
-      "downloadUrl" : "ToBeAdded"
+      "downloadUrl" : "https://zenodo.org/api/records/16777069"
     }        
   ]
 }
