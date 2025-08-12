@@ -5,7 +5,7 @@
                 "Application": "CSV_to_AIM",
                 "ApplicationData": {
                     "assetSourceFile": "SanFrancisco_buildings_ext.csv",
-                    "filter": "8000-8024",
+                    "filter": "0-5",
                     "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
@@ -41,6 +41,11 @@
                 }
             }
         },
+        "Recovery": {
+            "Application": "None",
+            "ApplicationData": {
+            }
+        },
         "RegionalEvent": {
             "Application": "UserInputGM",
             "ApplicationData": {
@@ -59,6 +64,13 @@
         "Simulation": {
             "Buildings": {
                 "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "SystemPerformance": {
+            "Buildings": {
+                "Application": "None",
                 "ApplicationData": {
                 }
             }
@@ -103,6 +115,8 @@
         }
     },
     "Name": "E1 - HAZUS",
+    "Recovery": {
+    },
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/San_Andreas_Mw72_filtered",
@@ -119,6 +133,10 @@
             "type": "IMasEDP"
         }
     },
+    "SystemPerformance": {
+        "Buildings": {
+        }
+    },
     "UQ": {
         "Buildings": {
         }
@@ -126,10 +144,9 @@
     "WorkflowType": "Parametric Study",
     "assets": {
         "buildings": true,
-        "gas": false,
+        "power": false,
         "soil": false,
         "transportation": false,
-        "waste": false,
         "water": false
     },
     "commonFileDir": "input_data",
