@@ -5,7 +5,7 @@
                 "Application": "CSV_to_AIM",
                 "ApplicationData": {
                     "assetSourceFile": "SanFrancisco_buildings_ext.csv",
-                    "filter": "0-5",
+                    "filter": "8000-8024",
                     "inputIsGIS": false,
                     "pathToSource": "{Current_Dir}/input_data"
                 }
