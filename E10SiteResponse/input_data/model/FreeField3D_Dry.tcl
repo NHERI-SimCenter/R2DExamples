@@ -95,7 +95,7 @@ set recDT  0.001; # used if useMotionDTforRec is false
 
 # gravity analysis
 set grav_cons    "Penalty 1.0e15 1.0e15"
-set grav_test    "NormDispIncr 1e-5 30 1"
+set grav_test    "NormDispIncr 1e-5 30 0"
 set grav_algo    "KrylovNewton"
 set grav_numb    "Plain"
 set grav_syst    "SparseGeneral"
@@ -110,7 +110,7 @@ set grav_plasticAnalysisNo 40
 
 # transient analysis
 set trans_cons    "Penalty 1.0e15 1.0e15"
-set trans_test   "NormDispIncr 5.0e-6 30 1"
+set trans_test   "NormDispIncr 5.0e-6 30 0"
 set trans_algo   "Newton"
 set trans_numb   "Plain"
 set trans_syst    "SparseGeneral"
@@ -480,13 +480,15 @@ element zeroLength [expr $numLayers + 2] [expr $nP + 2] [expr $nP + 3] -mat [exp
 # ------------------------------------------------------------
 
 
-set mSeries "Path -dt $motionDT -filePath xInput.vel -factor $cFactor"
-pattern Plain 10 $mSeries {
+#set mSeries "Path -dt $motionDT -filePath xInput.vel -factor $cFactor"
+timeSeries Path 10 -dt $motionDT -filePath xInput.vel -factor $cFactor
+pattern Plain 10 10 {
     load 1  1.0 0.0 0.0
 }
 if {$numEvt == 2} {
-	set mSeriesx2 "Path -dt $motionDT -filePath yInput.vel -factor $cFactor"
-	pattern Plain 11 $mSeriesx2 {
+    #set mSeriesx2 "Path -dt $motionDT -filePath yInput.vel -factor $cFactor"
+    timeSeries Path 11 -dt $motionDT -filePath yInput.vel -factor $cFactor
+	pattern Plain 11 11 {
 		load 1  0.0 0.0 1.0
 	}
 }
