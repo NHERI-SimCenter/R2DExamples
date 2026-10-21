@@ -1,0 +1,169 @@
+{
+    "Applications": {
+        "Assets": {
+            "Buildings": {
+                "Application": "GEOJSON_TO_ASSET",
+                "ApplicationData": {
+                    "Building": {
+                        "filter": "8000-8024"
+                    },		    
+                    "assetSourceFile": "SanFranciscoBuildings.geojson",
+                    "pathToSource": "{Current_Dir}/input_data"
+                }
+            }
+        },
+        "DL": {
+            "Buildings": {
+                "Application": "Pelicun3",
+                "ApplicationData": {
+                    "DL_Method": "Hazus Earthquake - Buildings",
+                    "Realizations": 100,
+                    "coupled_EDP": true,
+                    "detailed_results": false,
+                    "ground_failure": false,
+                    "lifeline_facility": true,
+                    "log_file": true,
+                    "regional": "true"
+                }
+            }
+        },
+        "Events": [
+            {
+                "Application": "SimCenterEvent",
+                "ApplicationData": {
+                },
+                "EventClassification": "Earthquake"
+            }
+        ],
+        "Modeling": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "Recovery": {
+            "Application": "None",
+            "ApplicationData": {
+            }
+        },
+        "RegionalEvent": {
+            "Application": "UserInputGM",
+            "ApplicationData": {
+            }
+        },
+        "RegionalMapping": {
+            "Buildings": {
+                "Application": "NearestNeighborEvents",
+                "ApplicationData": {
+                    "neighbors": 4,
+                    "samples": 100,
+                    "seed": 687
+                }
+            }
+        },
+        "Simulation": {
+            "Buildings": {
+                "Application": "IMasEDP",
+                "ApplicationData": {
+                }
+            }
+        },
+        "SystemPerformance": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        },
+        "UQ": {
+            "Buildings": {
+                "Application": "None",
+                "ApplicationData": {
+                }
+            }
+        }
+    },
+    "Assets": {
+        "Buildings": {
+        }
+    },
+    "Author": "SimCenter",
+    "DL": {
+        "Buildings": {
+        }
+    },
+    "DefaultValues": {
+        "driverFile": "driver",
+        "edpFiles": [
+            "EDP.json"
+        ],
+        "filenameDL": "BIM.json",
+        "filenameEDP": "EDP.json",
+        "filenameEVENT": "EVENT.json",
+        "filenameSAM": "SAM.json",
+        "filenameSIM": "SIM.json",
+        "rvFiles": [
+            "SAM.json",
+            "EVENT.json",
+            "SIM.json"
+        ],
+        "workflowInput": "scInput.json",
+        "workflowOutput": "EDP.json"
+    },
+    "Modeling": {
+        "Buildings": {
+        }
+    },
+    "Name": "E1 - HAZUS",
+    "Recovery": {
+    },
+    "RegionalEvent": {
+        "eventFile": "EventGrid.csv",
+        "eventFilePath": "{Current_Dir}/input_data/San_Andreas_Mw72_filtered",
+        "units": {
+            "PGA": "g"
+        }
+    },
+    "RegionalMapping": {
+        "Buildings": {
+        }
+    },
+    "Simulation": {
+        "Buildings": {
+            "type": "IMasEDP"
+        }
+    },
+    "SystemPerformance": {
+        "Buildings": {
+        }
+    },
+    "UQ": {
+        "Buildings": {
+        }
+    },
+    "WorkflowType": "Parametric Study",
+    "assets": {
+        "buildings": true,
+        "power": false,
+        "soil": false,
+        "transportation": false,
+        "water": false
+    },
+    "commonFileDir": "input_data",
+    "outputs": {
+        "AIM": false,
+        "DM": true,
+        "DV": true,
+        "EDP": true,
+        "IM": false
+    },
+    "randomVariables": [
+    ],
+    "type": "Earthquake",
+    "units": {
+        "force": "kips",
+        "length": "ft",
+        "time": "sec"
+    }
+}
