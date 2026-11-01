@@ -20,7 +20,7 @@
     },
     {
       "name": "E4 - OpenSeesPy FEM",
-      "description": "This example highlights the use of R2D for advanced response estimation leveraging information provided through a building inventory. A template script is provided that creates a building-specific cantilever and performs the response-history analysis to obtain EDPs and the hazard is generated using empirical ground motion records from the PEER NGA West2 database.\n",
+      "description": "This example highlights the use of R2D for advanced response estimation using information from a building inventory. A template script creates a building-specific cantilever model and performs response-history analysis to obtain EDPs, with the hazard described by empirical ground motion records from the PEER NGA West2 database. Damage and loss assessment follows the HAZUS methodology for 5 of the 81 buildings in the inventory, located in Albany, CA.\n",
       "inputFile": "E4OpenSeesPyFEM/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/14782367"
     },
@@ -33,7 +33,7 @@
     {
       "name": "E6 - ShakeMap San Andreas Scenario",
       "description": "This example presents a building loss assessment given a USGS ShakeMap as input. The Mw7.8 Scenario Earthquake - North San Andreas + North Coast + Peninsula + Santa Cruz Mountain (shakemap_id=npsanandreassansapsasm7p8_se) is employed in this example.\nApproximately 21,000 buildings are considered in the city of San Mateo, CA.\n",
-      "inputFile": "E6ShakeMapScenario/input.json",
+      "inputFile": "E6ShakemapScenario/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/15446408"
     },
     {
@@ -44,13 +44,13 @@
     },
     {
       "name": "E8 - Hurricane Wind",
-      "description": "Hurricane Laura made landfall as a strong Category 4 storm near Cameron, LA in the early hours of August 27 2020, tying the Last Island Hurricane of 1856 as the strongest land-falling hurricane in Louisiana history. This example presents a wind-induced damage assessment for Lake Charles, LA. Peak wind speed data of Hurricane Laura from Applied Research Associates, Inc. is used as the intensity measure. Inventory data of about 26,000 wood residential buildings is used along with the rulesets developed to map the building inventory to a HAZUS-type damage assessment. Final results include the damage and loss estimations along with the building information models based on the rulesets.\n",
+      "description": "Hurricane Laura made landfall as a strong Category 4 storm near Cameron, LA in the early hours of August 27, 2020, tying the Last Island Hurricane of 1856 as the strongest land-falling hurricane in Louisiana history. This example presents a wind-induced damage assessment for Lake Charles, LA. Peak wind speed data of Hurricane Laura from Applied Research Associates, Inc. is used as the intensity measure. Inventory data of about 26,000 wood residential buildings is used along with the rulesets developed to map the building inventory to a HAZUS-type damage assessment. Final results include the damage and loss estimations along with the building information models based on the rulesets.\n",
       "inputFile": "E8HurricaneWind/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/15465074"
     },
     {
       "name": "E9 - Tsunami",
-      "description": "The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America plates, stretching approximately 1,000 km between California and British Columbia, Canada. A rupture of the CSZ may result in a megathrust earthquake and a subsequent tsunami. This example considers a tsunami event in the city of Seaside, located along the northern Oregon coast. A highlight of this example is that it shows how user-provided fragility functions are employed in the SimCenter workflow. The building inventory consists of 4744 buildings of different types and construction materials. For the tsunami hazard, the results of a Probabilistic Seismic-Tsunami Hazard Analysis (PSTHA; Park et. al. 2017), with a recurrence interval of 500 years, is employed. The building inventory, tsunami hazard raster, and building fragility functions are all from the Seaside testbed, made available by the Center of Excellence for Risk-Based Community Resilience Planning (CoE) as part of their Interdependent Networked Community Resilience Modeling Environment (IN-CORE) platform. They can be accessed online on the IN-CORE Web Tools website (https://incore.ncsa.illinois.edu/doc/incore/webtools.html).\n",
+      "description": "The Cascadia Subduction Zone (CSZ) separates the Juan de Fuca and North America plates, stretching approximately 1,000 km between California and British Columbia, Canada. A rupture of the CSZ may result in a megathrust earthquake and a subsequent tsunami. This example considers a tsunami event in the city of Seaside, located along the northern Oregon coast. A highlight of this example is that it shows how user-provided fragility functions are employed in the SimCenter workflow. The building inventory consists of 4744 buildings of different types and construction materials. For the tsunami hazard, the results of a Probabilistic Seismic-Tsunami Hazard Analysis (PSTHA; Park et al. 2017), with a recurrence interval of 500 years, are employed. The building inventory, tsunami hazard raster, and building fragility functions are all from the Seaside testbed, made available by the Center of Excellence for Risk-Based Community Resilience Planning (CoE) as part of their Interdependent Networked Community Resilience Modeling Environment (IN-CORE) platform. They can be accessed online on the IN-CORE Web Tools website (https://incore.ncsa.illinois.edu/doc/incore/webtools.html).\n",
       "inputFile": "E9Tsunami/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/16851419"
     }
@@ -59,46 +59,58 @@
       "name": "E10 - Site Response",
       "description": "This example presents regional earthquake impact analysis including site response analysis and building damage and loss assessment. Overall 177 sites are included for soil response simulation under bedrock ground motion input with a building inventory including approximately 14,000 buildings in the city of Alameda, CA.\n",
       "inputFile": "E10SiteResponse/input.json",
-      "downloadUrl " : "https://zenodo.org/api/records/20225189"
+      "downloadUrl" : "https://zenodo.org/api/records/20225189"
     }
     ,
     {
       "name": "E12 - Istanbul Regional Earthquake Damage and Loss Assessment",
-      "description": "This example features a systematic regional seismic damage and loss assessment for Istanbul, Turkey. The ground motion acceleration time histories were simulated using the hercules software and a detailed geophysical model of Istanbul region ([ZhangEtAl2021]_). The ground motions are used to investigate the impact of a Mw7.0 earthquake on the Central Marmara Basin fault. Engineering Demand Parameters are simulated with OpenSees models for individual reinforced concrete buildings in this example. Building damage and loss is evaluated the story-level based on the HAZUS earthquake damage and loss assessment methodology.\n",
+      "description": "This example features a systematic regional seismic damage and loss assessment for Istanbul, Turkey. The ground motion acceleration time histories were simulated using the Hercules software and a detailed geophysical model of Istanbul region. The ground motions are used to investigate the impact of a Mw7.0 earthquake on the Central Marmara Basin fault. Engineering Demand Parameters are simulated with OpenSees models for individual reinforced concrete buildings in this example. Building damage and loss are evaluated at the story level based on the HAZUS earthquake damage and loss assessment methodology.\n",
       "inputFile": "E12IstanbulRegionalSeismicRiskAnalysis/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/14782423"
     }
     ,
     {
       "name": "E14 - Basic HAZUS transportation",
-      "description": "This example presents a coupled damage assessment for building and transportation systems under ground shaking and liquefaction hazards. \nTo infer liquefaction, estimates of horizontal spreading and vertical settlement are generated from PGA values obtained through PSHA. \nThese three intensity measures form the basis of input to a building-level, HAZUS-based damage and loss assessment that accounts for potential collapses due to liquefaction. \nApproximately 14,000 buildings and highway network are considered in the city of Alameda, CA.\n",
+      "description": "This example demonstrates HAZUS damage and loss assessment for buildings and transportation infrastructure, and evaluates the resulting disturbance to the transportation network using traffic flow simulation. Damage and losses are calculated for buildings, highway bridges, tunnels, and roadways on Alameda Island, CA. Ground shaking intensity measures for a Mw7.05 event on the Hayward fault were obtained from PSHA, and liquefaction-induced ground deformation is derived from them.\n",
       "inputFile": "E14BasicHAZUSTransportation/input.json",
-      "downloadUrl" : "https://zenodo.org/api/records/15447351"
+      "downloadUrl" : "https://zenodo.org/api/records/23851649"
     },
     {
       "name": "E15 - Water Distribution Network Damage & Recovery",
-      "description": "This example demonstrates the performance assessment of a water distribution newtork using REWET under an earthquake event. REWET is designed to evaluate the functionality and recovery of a water distribution system following catastrophic events that cause damage to the infrastructure. The water network, input using a standard INP file, has been created for the city of Alameda, CA,\n",
+      "description": "This example demonstrates the performance assessment of a water distribution network under an earthquake using REWET, which evaluates the functionality and recovery of a water system after damage to its infrastructure. The network for Alameda, CA, is input using a standard INP file, and users specify the restoration policy that governs recovery.\n",
       "inputFile": "E15WDNRecoveryAndPerformanceAssessment/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/15446436"
     },
     {
       "name": "E16 - Power Electric Damage Assessment Due to Earthquake",
-      "description": "This example demonstrates the damage assessment of electrical power network due to ground shaking and failure caused by earthquake using the HAZUS methodology. To achieve this, we use LA power network data that are already provided from BRAILS. The event data is generated using the Regional Earthquake Event Generation tool. The damage assessment is performed using the PELICUN damage model - inline with HAZUS methodology.",
+      "description": "This example demonstrates the damage assessment of an electrical power network subjected to earthquake ground shaking and ground failure. The Los Angeles power network data are provided by BRAILS, and the event data are generated using the Regional Earthquake Event Generation tool. Damage is assessed using Pelicun, in line with the HAZUS methodology.\n",
       "inputFile": "E16ElectricPowerEarthquake/input.json",
-      "downloadUrl" : "https://zenodo.org/api/records/15446438"
+      "downloadUrl" : "https://zenodo.org/api/records/23851679"
 
     },
     {
       "name": "E17 - Recovery Assessment Due to Earthquake",
-	"description": "This example demonstrates the recovery simulation due to an earthquake event. In the recovery, damage to buildings, water network and roads are considered. The damage assessment of these asset types to ground shaking and failure caused by earthquake is is performed using the PELICUN damage model - inline with HAZUS methodology done using the HAZUS methodology. The recovery simulation of the area after the event is performed using pyrecodes.",
+      "description": "This example demonstrates regional recovery simulation after an earthquake on Alameda Island, CA, building on E14 and E15. Damage to buildings, water networks, and transportation components from a Mw7.05 Hayward fault event is assessed using Pelicun, in line with the HAZUS methodology. The recovery is then simulated using pyrecodes, which invokes REWET for water supply and a residual demand model for transportation at each time step.\n",
       "inputFile": "E17EarthquakeRecovery/input.json",
-      "downloadUrl" : "https://zenodo.org/api/records/16043607"
+      "downloadUrl" : "https://zenodo.org/api/records/23851632"
     },
     {
       "name": "E18 - Capacity Spectrum Method for Earthquake Assessment of Buildings",
-	"description": "This example demonstrates using the FEMA HAZUS Capacity Spectrum Method for building assessment in earthquakes.",
+      "description": "This example builds on E1 and demonstrates the FEMA HAZUS Capacity Spectrum Method for building damage assessment in downtown San Francisco, CA. The hazard is an intensity measure field (PSA at 0.3 s and 1.0 s) for a Mw7.05 event on the Hayward fault, generated using R2D's earthquake event generation tool. The example focuses on the demand, capacity, and damping model inputs in the ANA panel.\n",
       "inputFile": "E18BuildingCapacitySpectrumMethod/input.json",
       "downloadUrl" : "https://zenodo.org/api/records/16777069"
-    }        
+    },
+    {
+      "name": "E19 - Basic HAZUS with Possible Worlds",
+      "description": "This example builds on E1 (Basic HAZUS) to show how uncertainty in asset attributes is included in the workflow. Uncertain building properties, such as number of stories or structure type, are given as lists of possible values in the GeoJSON inventory, as generated by BRAILS++. HAZUS damage and losses are calculated directly from a PSHA-derived peak ground acceleration field for 25 buildings in San Francisco, CA, from a Mw7.2 event on the San Andreas fault.\n",
+      "inputFile": "E19PossibleWorldsSiteResponse/input.json",
+      "downloadUrl" : "https://zenodo.org/api/records/23851798"
+    },
+    {
+      "name": "E20 - MDOF Building Response with Possible Worlds",
+      "description": "This example builds on E2 (MDOF Building Response) and E19 to show how uncertainty in asset attributes is included when response is simulated. Ground motions from the 2018 Anchorage, AK, earthquake drive a nonlinear analysis of an idealized MDOF model for each of 5 buildings, followed by a HAZUS-based story-level assessment. Because both the EDPs and damage inputs can change between realizations, the number of damage and loss realizations is set to 1.\n",
+      "inputFile": "E20PossibleWorldsMDOFBuildingResponse/input.json",
+      "downloadUrl" : "https://zenodo.org/api/records/23851961"
+    }      
   ]
 }
