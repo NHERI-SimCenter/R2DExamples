@@ -1,31 +1,35 @@
 
-E20 - Possible Worlds MDOF Building Response
-===========================================
+E20 - MDOF Building Response with Possible Worlds
+=================================================
 
-+-----------------+-----------------------------------------------------===============--+
++-----------------+----------------------------------------------------------------------+
 | Download files  | :examplesgithub:`Download <E20PossibleWorldsMDOFBuildingResponse/>`  |
 +-----------------+----------------------------------------------------------------------+
 
-This, like example E19, is an update to an existing example, E2, to demonstrate the use of multiple possible worlds. As in E19, certain properties for specific buildings contained in the geojson file are uncertain. Unlike E19, this example runs a nonlinear finite element analysis for each building. As a consequence, additional changes are required than those of E19, as the **DL** tab must also be modified. Here **num_Realizations** must be set to **1**. The reason being that the damage and loss must now be done on the results of each nonlinear analysis. This is due to fact that both the EDP for a and the inputs to the DL application for the building can change between relizations.
+This example updates E2 to demonstrate the use of multiple possible worlds. As in E19, certain properties of specific buildings in the GeoJSON file are uncertain. Only buildings 1 and 2 have uncertain properties. Building 1 has two possible values for **NumberOfStories**. Building 2 has two possible values for each of **NumberOfStories**, **OccupancyClass** and **StructureType**.
 
-The changing input panels:
+Unlike E19, this example runs a nonlinear finite element analysis for each building, so the **DL** panel must also be modified: the **Sample size** must be set to **1**, rather than the **1000** used in E2. Both the EDPs for a building and the inputs to the damage and loss application can change between realizations, so damage and loss must be evaluated on the results of each nonlinear analysis.
 
-#. **ASD** In the asset definition panel, the path to the ``AnchorageBuilding.csv`` file is specified. Once this file is loaded, the user can select which particular assets will be included in the analysis by entering a valid range (e.g., 1-50) in the form and clicking **Select**. The ``AnchorageBuilding.csv`` includes parameters for the damage and loss assessment (i.e., number of stories, year of built, occupancy class, structure type, and plan area) for more than 80,000 buildings in the community.
+The results presented herein are only for demonstrating the use of R2DTool and do not serve as an accurate representation of the real losses resulting from the earthquake.
 
-   .. figure:: figures/r2dt-0002-ASD.png
+The panels that differ from E2 are described below. The user is referred to E2 for discussion of all other inputs.
+
+#. **ASD** In the asset definition panel, the application selected is **GeoJSON to Asset**. As discussed in E19, three inputs are required: 1) the path to the GeoJSON file, ``AnchorageBuildings.geojson``, 2) the coordinate reference system, **OGC:CRS84**, and 3) the assets to analyze, here **1-5** to limit the run time.
+
+   .. figure:: figures/E20ASD.png
       :width: 600px
       :align: center
 
 
-#. **DL** The damage and loss panel is now used to configure the **Pelicun3** backend. The **HAZUS MH EQ Story** damage and loss method is selected and configured as shown in the following figure:
+#. **DL** In the damage and loss panel, the **Pelicun3** application is selected, with **Hazus Earthquake - Stories** as the damage and loss method. **Importantly**, the **Sample size** is set to **1** for this workflow.
 
-   .. figure:: figures/r2dt-0002-DL.png
+   .. figure:: figures/E20DL.png
       :width: 600px
       :align: center
 
 
-#. **RES** The analysis outputs for the selected 50 buildings are shown in the figure below. 
+#. **RES** The analysis outputs for the selected **5** buildings are shown in the figure below. 
 
-   .. figure:: figures/r2dt-0002-RES.png
+   .. figure:: figures/E20RES.png
       :width: 600px
       :align: center

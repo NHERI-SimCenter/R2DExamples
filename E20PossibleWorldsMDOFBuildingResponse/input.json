@@ -116,7 +116,7 @@
             "stdStiffness": 0.2
         }
     },
-    "Name": "E2 - MDOF Building Response",
+    "Name": "E20 - MDOF Building Response with Possible Worlds",
     "RegionalEvent": {
         "eventFile": "EventGrid.csv",
         "eventFilePath": "{Current_Dir}/input_data/records",
