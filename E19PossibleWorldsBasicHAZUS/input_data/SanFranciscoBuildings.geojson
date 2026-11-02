@@ -139,7 +139,7 @@
         "HeightClass": "Low-Rise",
         "DesignLevel": "Pre-Code",
         "PlanArea": 7752,
-        "NumberOfStories": [1,2],
+        "NumberOfStories": 2,
         "YearBuilt": 1906,
         "ReplacementCost": 1022488.8,
         "StructureType": "C1",
@@ -279,10 +279,10 @@
         "HeightClass": "",
         "DesignLevel": "Pre-Code",
         "PlanArea": 3600,
-          "NumberOfStories": [3,2],
+        "NumberOfStories": [3,2,1],
         "YearBuilt": 1931,
         "ReplacementCost": 6843570.3,
-        "StructureType": "W2",
+        "StructureType": ["W2","W1","W1"],
         "OccupancyClass": "RES3",
         "type": "Building"
       }
